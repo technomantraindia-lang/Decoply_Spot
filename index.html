@@ -1,810 +1,487 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Deco House | Architectural Surfaces, Materials & Solutions</title>
-  <meta name="description" content="The Deco House brings the world's finest architectural surfaces, materials and design solutions together to inspire extraordinary spaces for architects, designers and discerning homeowners.">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Deco House | Surfaces, Materials, Solutions</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400;500&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#F4F0E9',
+                        plum: '#241923',
+                        champagne: '#B4A17A',
+                        stone: '#D0C5B7',
+                    },
+                    fontFamily: {
+                        manrope: ['Manrope', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="font-inter antialiased selection:bg-champagne selection:text-plum">
 
-  <!-- Top Luxury Scroll Progress Indicator -->
-  <div class="scroll-progress-bar" id="scroll-progress-bar" aria-hidden="true"></div>
-
-  <!-- ==========================================================================
-       SITE HEADER / NAVIGATION
-       ========================================================================== -->
-  <header class="site-header" id="site-header">
-    <div class="container header-inner">
-      <a href="#hero" class="brand-logo" id="header-logo">
-        <span class="logo-the">THE</span>
-        <div class="logo-wordmark">
-          <span>D</span>
-          <span class="logo-tile-e"></span>
-          <span>CO</span>
-          <span class="logo-space"></span>
-          <span>HOUS</span>
-          <span class="logo-bars-e">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
-        <span class="logo-sub">SURFACES <span class="sep">|</span> MATERIALS <span class="sep">|</span> SOLUTIONS</span>
-      </a>
-
-      <nav class="main-nav" id="main-nav">
-        <ul>
-          <li><a href="#hero" class="active">HOME</a></li>
-          <li><a href="#about">ABOUT</a></li>
-          <li><a href="#materials">MATERIALS</a></li>
-          <li><a href="#details">SOLUTIONS</a></li>
-          <li><a href="#projects">PROJECTS</a></li>
-          <li><a href="#journal">JOURNAL</a></li>
-          <li><a href="#consultation">CONTACT</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <button class="search-toggle-btn" id="search-btn" aria-label="Search Materials">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
-
-        <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ==========================================================================
-       HERO / BANNER SECTION
-       ========================================================================== -->
-  <section class="hero-section" id="hero">
-    <!-- Multi-Layer Background Cross-Fade Slides -->
-    <div class="hero-bg-slides" id="hero-bg-slides">
-      <div class="hero-bg-slide active" style="background-image: url('assets/banner-1.jpg');"></div>
-      <div class="hero-bg-slide" style="background-image: url('assets/banner-2.jpg');"></div>
-      <div class="hero-bg-slide" style="background-image: url('assets/banner-3.jpg');"></div>
-    </div>
-
-    <div class="hero-overlay-gradient"></div>
-
-    <div class="hero-content-wrapper">
-      <div class="hero-content">
-        <p class="hero-pretitle" id="hero-pretitle">ARCHITECTURAL SURFACES<br>FOR A MORE EXTRAORDINARY<br>TOMORROW</p>
-        
-        <h1 class="hero-title" id="hero-title">
-          <span>ELEVATED</span>
-          <span>SPACES.</span>
-        </h1>
-
-        <p class="hero-desc" id="hero-desc">
-          The Deco House brings the world's finest surfaces, materials and solutions together to inspire extraordinary spaces for architects, designers and discerning homeowners.
-        </p>
-
-        <div>
-          <a href="#materials" class="btn-outline-light" id="hero-cta-btn">
-            EXPLORE OUR WORLD <span class="arrow-icon">&rarr;</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hero Slider Controls (Bottom Left) -->
-    <div class="hero-controls">
-      <span class="hero-pagination-counter" id="hero-counter">01 / 03</span>
-      <div class="hero-progress-track">
-        <div class="hero-progress-bar" id="hero-progress"></div>
-      </div>
-      <div class="hero-dots">
-        <span class="hero-dot active" data-slide="0"></span>
-        <span class="hero-dot" data-slide="1"></span>
-        <span class="hero-dot" data-slide="2"></span>
-      </div>
-    </div>
-
-    <!-- Right-Hand Vertical Navigation Tag -->
-    <aside class="hero-vertical-tag" aria-label="Surfaces Materials Solutions">
-      <a href="#materials" class="vtag-link active" data-vindex="0">SURFACES</a>
-      <a href="#materials" class="vtag-link" data-vindex="1">MATERIALS</a>
-      <a href="#details" class="vtag-link" data-vindex="2">SOLUTIONS</a>
-    </aside>
-  </section>
-
-  <!-- ==========================================================================
-       ABOUT SECTION
-       ========================================================================== -->
-  <section class="about-section" id="about">
-    <div class="about-wrapper">
-      <div class="about-left-col reveal-on-scroll reveal-left">
-        <span class="about-tag">ABOUT THE DECO HOUSE</span>
-        <h2 class="about-title">A CONSIDERED<br>DESIGN DESTINATION</h2>
-        <p class="about-desc">
-          The Deco House is a curated destination for exceptional surfaces, materials and solutions. We work with architects, interior designers, developers and discerning homeowners to bring inspired spaces to life through a refined selection of natural stone, engineered surfaces, timber, and more.
-        </p>
-
-        <div class="about-btn-wrap">
-          <a href="#materials" class="btn-about-story" id="about-story-btn">
-            OUR STORY <span class="arrow-icon">&rarr;</span>
-          </a>
-        </div>
-
-        <div class="about-stats-row stagger-container">
-          <div class="about-stat-item reveal-on-scroll reveal-up" data-reveal-delay="100">
-            <span class="stat-primary">CURATED</span>
-            <span class="stat-secondary">COLLECTIONS</span>
-          </div>
-          <div class="about-stat-item reveal-on-scroll reveal-up" data-reveal-delay="200">
-            <span class="stat-primary">EXPERT</span>
-            <span class="stat-secondary">GUIDANCE</span>
-          </div>
-          <div class="about-stat-item reveal-on-scroll reveal-up" data-reveal-delay="300">
-            <span class="stat-primary">SPACES</span>
-            <span class="stat-secondary">THAT INSPIRE</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-right-col reveal-on-scroll reveal-right" aria-hidden="true"></div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       OUR MATERIALS SECTION
-       ========================================================================== -->
-  <section class="materials-section" id="materials">
-    <div class="materials-layout">
-      <!-- Left Column: Title & Pedestal Showcase Background -->
-      <div class="materials-left-col reveal-on-scroll reveal-left">
-        <div class="materials-left-content">
-          <span class="materials-tag">OUR MATERIALS</span>
-          <h2 class="materials-title">A CURATED<br>COLLECTION</h2>
-          <p class="materials-desc">
-            A refined selection of materials, sourced globally, for timeless and contemporary spaces.
-          </p>
-          <div class="materials-cta-wrap">
-            <a href="#details" class="materials-view-all">
-              VIEW ALL MATERIALS <span class="arrow-icon">&rarr;</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column: Navigation Tabs & 4 Material Cards -->
-      <div class="materials-right-col">
-        <!-- Top Tabs Navigation -->
-        <div class="material-tabs reveal-on-scroll reveal-down" id="material-filter-tabs">
-          <button class="tab-btn active" data-filter="stone">NATURAL STONE</button>
-          <button class="tab-btn" data-filter="timber">TIMBER</button>
-          <button class="tab-btn" data-filter="surfaces">SURFACES</button>
-          <button class="tab-btn" data-filter="hardware">ARCHITECTURAL HARDWARE</button>
-          <button class="tab-btn" data-filter="solutions">CURATED SOLUTIONS</button>
-        </div>
-
-        <!-- 4 Cards Row -->
-        <div class="materials-cards-grid stagger-container">
-          <!-- Card 1 -->
-          <article class="material-card reveal-on-scroll reveal-up" data-category="stone" data-reveal-delay="100">
-            <div class="material-card-img-wrap">
-              <img src="assets/material-stone-new.jpg" alt="Natural Stone finish" loading="eager">
-            </div>
-            <div class="material-card-body">
-              <h3 class="material-card-title">NATURAL STONE</h3>
-              <p class="material-card-desc">Timeless beauty, formed by nature.</p>
-              <a href="javascript:void(0)" class="material-card-link open-material-modal" data-title="Natural Stone" data-img="assets/material-stone-new.jpg" data-desc="Quarried from the world's most prestigious geological formations, our natural stone surfaces offer unique veining, bespoke finishes, and enduring architectural dignity.">
-                EXPLORE <span class="arrow-icon">&rarr;</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="material-card reveal-on-scroll reveal-up" data-category="timber" data-reveal-delay="200">
-            <div class="material-card-img-wrap">
-              <img src="assets/material-timber-new.jpg" alt="Timber finishes" loading="eager">
-            </div>
-            <div class="material-card-body">
-              <h3 class="material-card-title">TIMBER FINISHES</h3>
-              <p class="material-card-desc">Natural warmth and enduring style.</p>
-              <a href="javascript:void(0)" class="material-card-link open-material-modal" data-title="Timber Finishes" data-img="assets/material-timber-new.jpg" data-desc="Sustainable architectural timber panels, fluted profiles, and architectural veneers engineered to elevate residential and boutique spaces with organic tactile richness.">
-                EXPLORE <span class="arrow-icon">&rarr;</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="material-card reveal-on-scroll reveal-up" data-category="hardware" data-reveal-delay="300">
-            <div class="material-card-img-wrap">
-              <img src="assets/material-hardware-new.jpg" alt="Architectural hardware" loading="eager">
-            </div>
-            <div class="material-card-body">
-              <h3 class="material-card-title">ARCHITECTURAL HARDWARE</h3>
-              <p class="material-card-desc">Refined details for distinctive spaces.</p>
-              <a href="javascript:void(0)" class="material-card-link open-material-modal" data-title="Architectural Hardware" data-img="assets/material-hardware-new.jpg" data-desc="Milled solid brass, bronze, and brushed metal joinery created with precision tolerances to provide the definitive tactile touchpoint in every room.">
-                EXPLORE <span class="arrow-icon">&rarr;</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 4 -->
-          <article class="material-card reveal-on-scroll reveal-up" data-category="solutions" data-reveal-delay="400">
-            <div class="material-card-img-wrap">
-              <img src="assets/material-solutions-new.jpg" alt="Curated solutions" loading="eager">
-            </div>
-            <div class="material-card-body">
-              <h3 class="material-card-title">CURATED SOLUTIONS</h3>
-              <p class="material-card-desc">Complete material stories, considered for every space.</p>
-              <a href="javascript:void(0)" class="material-card-link open-material-modal" data-title="Curated Solutions" data-img="assets/material-solutions-new.jpg" data-desc="Holistic surface palettes pairing natural stones with bespoke millwork and matching architectural accents for harmonious interior cohesion.">
-                EXPLORE <span class="arrow-icon">&rarr;</span>
-              </a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       DIAGONAL SPLIT FEATURE SECTION ("THE BEAUTY IS IN THE DETAILS")
-       ========================================================================== -->
-  <section class="details-feature-section" id="details">
-    <div class="details-feature-wrap">
-      <div class="details-left-panel reveal-on-scroll reveal-left">
-        <span class="details-tag">THE BEAUTY</span>
-        <h2 class="details-title">IS IN THE DETAILS</h2>
-        <p class="details-desc">
-          Tactile textures. Refined finishes.<br>
-          Extraordinary materials<br>
-          for extraordinary spaces.
-        </p>
-        <div class="details-cta-wrap">
-          <a href="#materials" class="details-explore-link">
-            EXPLORE OUR MATERIALS <span class="arrow-icon">&rarr;</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="details-right-panel-mobile reveal-on-scroll reveal-scale">
-        <img src="assets/details-feature-mobile.jpg" alt="Natural Stone, Bronze Fixture and Leathered Surface Details" class="details-mobile-img" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SELECTED PROJECTS SECTION
-       ========================================================================== -->
-  <section class="projects-section" id="projects">
-    <div class="projects-wrapper">
-      <div class="projects-left-col reveal-on-scroll reveal-left">
-        <span class="projects-tag">SELECTED PROJECTS</span>
-        <h2 class="projects-title">SPACES<br>THAT INSPIRE</h2>
-        <p class="projects-desc">
-          From refined residences to landmark commercial spaces, our materials bring design visions to life.
-        </p>
-
-        <div class="projects-btn-wrap">
-          <a href="#consultation" class="btn-projects-view" id="projects-view-all-btn">
-            VIEW ALL PROJECTS <span class="arrow-icon">&rarr;</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="projects-right-col">
-        <div class="projects-grid stagger-container" id="projects-grid">
-          <!-- Project 1 -->
-          <article class="project-card reveal-on-scroll reveal-up" data-reveal-delay="100">
-            <div class="project-card-img-wrap">
-              <img src="assets/project-riverside-perfect.jpg" alt="Riverside Residence living interior" loading="eager">
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-card-title">RIVERSIDE RESIDENCE</h3>
-              <div class="project-card-meta">
-                <span>Residential &nbsp;|&nbsp; Natural Stone &nbsp;|&nbsp; Timber</span>
-                <span class="project-card-arrow">&rarr;</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 2 -->
-          <article class="project-card reveal-on-scroll reveal-up" data-reveal-delay="200">
-            <div class="project-card-img-wrap">
-              <img src="assets/project-gallery-perfect.jpg" alt="The Gallery commercial showroom" loading="eager">
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-card-title">THE GALLERY</h3>
-              <div class="project-card-meta">
-                <span>Commercial &nbsp;|&nbsp; Large Format Surfaces</span>
-                <span class="project-card-arrow">&rarr;</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="project-card reveal-on-scroll reveal-up" data-reveal-delay="300">
-            <div class="project-card-img-wrap">
-              <img src="assets/project-hillview-perfect.jpg" alt="Hillview Villa interior view" loading="eager">
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-card-title">HILLVIEW VILLA</h3>
-              <div class="project-card-meta">
-                <span>Residential &nbsp;|&nbsp; Stone &nbsp;|&nbsp; Timber</span>
-                <span class="project-card-arrow">&rarr;</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom Centered Pagination Controls -->
-    <div class="projects-carousel-bar reveal-on-scroll reveal-up">
-      <button class="carousel-circle-btn" id="proj-prev-btn" aria-label="Previous projects">&larr;</button>
-      <div class="carousel-numbers">
-        <span class="proj-num active" id="proj-page-01">01</span>
-        <span class="proj-num" id="proj-page-02">02</span>
-        <span class="proj-num" id="proj-page-03">03</span>
-      </div>
-      <button class="carousel-circle-btn" id="proj-next-btn" aria-label="Next projects">&rarr;</button>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       WHY CHOOSE THE DECO HOUSE
-       ========================================================================== -->
-  <section class="why-choose-section" id="why-choose">
-    <div class="why-wrapper">
-      <div class="why-heading-col reveal-on-scroll reveal-left">
-        <p class="why-subheading">WHY CHOOSE<br>THE DECO HOUSE</p>
-        <h2 class="why-title">A MORE<br>CONSIDERED<br>APPROACH</h2>
-      </div>
-
-      <div class="why-pillars-col">
-        <div class="why-pillars-grid stagger-container">
-          <!-- Pillar 1 -->
-          <div class="why-pillar-card reveal-on-scroll reveal-up" data-reveal-delay="100">
-            <div class="why-pillar-icon">
-              <!-- Geometric Diamond Icon -->
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="6 3 18 3 22 9 12 22 2 9 6 3"></polygon>
-                <line x1="2" y1="9" x2="22" y2="9"></line>
-                <line x1="12" y1="22" x2="9" y2="9"></line>
-                <line x1="12" y1="22" x2="15" y2="9"></line>
-              </svg>
-            </div>
-            <h3 class="why-pillar-title">CURATED SELECTION</h3>
-            <p class="why-pillar-desc">Exceptional materials,<br>thoughtfully chosen<br>from around the world.</p>
-          </div>
-
-          <!-- Pillar 2 -->
-          <div class="why-pillar-card reveal-on-scroll reveal-up" data-reveal-delay="200">
-            <div class="why-pillar-icon">
-              <!-- Guidance / Two Persons Icon -->
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="8" cy="7" r="3.5"></circle>
-                <path d="M21 21v-2a3.5 3.5 0 0 0-2.8-3.4"></path>
-                <circle cx="16.5" cy="7.5" r="3"></circle>
-              </svg>
-            </div>
-            <h3 class="why-pillar-title">EXPERT GUIDANCE</h3>
-            <p class="why-pillar-desc">Specialist knowledge<br>at every stage.</p>
-          </div>
-
-          <!-- Pillar 3 -->
-          <div class="why-pillar-card reveal-on-scroll reveal-up" data-reveal-delay="300">
-            <div class="why-pillar-icon">
-              <!-- Dependable Shield Icon -->
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                <polyline points="9 11 12 14 16 9"></polyline>
-              </svg>
-            </div>
-            <h3 class="why-pillar-title">DEPENDABLE<br>RECOMMENDATIONS</h3>
-            <p class="why-pillar-desc">Trusted advice for<br>lasting results.</p>
-          </div>
-
-          <!-- Pillar 4 -->
-          <div class="why-pillar-card reveal-on-scroll reveal-up" data-reveal-delay="400">
-            <div class="why-pillar-icon">
-              <!-- Cohesive Layers Icon -->
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
-            </div>
-            <h3 class="why-pillar-title">A COHESIVE<br>DESIGN POINT OF VIEW</h3>
-            <p class="why-pillar-desc">Bringing materials, spaces<br>and ideas together.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       OUR PROCESS SECTION
-       ========================================================================== -->
-  <section class="process-section" id="process">
-    <div class="process-wrapper">
-      <!-- Top Row: Title, Intro text & Link, and Arch Visual -->
-      <div class="process-top-row reveal-on-scroll reveal-up">
-        <div class="process-title-col">
-          <span class="process-tag">OUR PROCESS</span>
-          <h2 class="process-title">FROM VISION<br>TO REALITY</h2>
-        </div>
-
-        <div class="process-intro-col">
-          <p class="process-intro-text">
-            A seamless, collaborative process designed to bring your vision to life.
-          </p>
-          <div class="process-link-wrap">
-            <a href="#consultation" class="process-approach-link">
-              DISCOVER OUR APPROACH <span class="arrow-icon">&rarr;</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="process-visual-col reveal-on-scroll reveal-scale">
-          <img src="assets/process-arch-perfect.png" alt="Collaborative materials selection and styling" class="process-arch-img" loading="eager">
-        </div>
-      </div>
-
-      <!-- Bottom Row: 4 Process Steps -->
-      <div class="process-steps-row stagger-container">
-        <!-- Step 01 -->
-        <div class="process-step-item reveal-on-scroll reveal-up" data-reveal-delay="100">
-          <span class="step-num">01</span>
-          <div class="step-details">
-            <h3 class="step-title">DISCOVER</h3>
-            <p class="step-desc">Understand your vision, needs and space.</p>
-          </div>
-          <div class="step-thumb">
-            <img src="assets/process-step-1-new.jpg" alt="Discover phase material" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Step 02 -->
-        <div class="process-step-item reveal-on-scroll reveal-up" data-reveal-delay="200">
-          <span class="step-num">02</span>
-          <div class="step-details">
-            <h3 class="step-title">SELECT</h3>
-            <p class="step-desc">Explore curated materials with expert guidance.</p>
-          </div>
-          <div class="step-thumb">
-            <img src="assets/process-step-2-new.jpg" alt="Select phase material" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Step 03 -->
-        <div class="process-step-item reveal-on-scroll reveal-up" data-reveal-delay="300">
-          <span class="step-num">03</span>
-          <div class="step-details">
-            <h3 class="step-title">SPECIFY</h3>
-            <p class="step-desc">Refine details and technical requirements.</p>
-          </div>
-          <div class="step-thumb">
-            <img src="assets/process-step-3-new.jpg" alt="Specify phase material" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Step 04 -->
-        <div class="process-step-item reveal-on-scroll reveal-up" data-reveal-delay="400">
-          <span class="step-num">04</span>
-          <div class="step-details">
-            <h3 class="step-title">DELIVER</h3>
-            <p class="step-desc">Bring your vision to life with confidence.</p>
-          </div>
-          <div class="step-thumb">
-            <img src="assets/process-step-4-new.jpg" alt="Deliver phase material" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       JOURNAL (INSPIRATION & INSIGHTS) SECTION
-       ========================================================================== -->
-  <section class="journal-section" id="journal">
-    <div class="journal-wrapper">
-      <div class="journal-header reveal-on-scroll reveal-up">
-        <div class="journal-header-left">
-          <span class="journal-tag">JOURNAL</span>
-          <h2 class="journal-title">INSPIRATION &amp; INSIGHTS</h2>
-        </div>
-        <a href="#consultation" class="journal-all-link">
-          <span class="link-label">VIEW ALL ARTICLES</span> <span class="arrow-icon">&rarr;</span>
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav px-6 md:px-12 py-5 flex justify-between items-center transition-all duration-300 gs-reveal">
+        <a href="#" class="font-manrope text-plum flex flex-col group">
+            <span class="text-[0.65rem] uppercase tracking-[0.3em] text-champagne mb-1">The</span>
+            <span class="text-xl md:text-2xl font-light tracking-widest leading-none">DECO HOUSE</span>
         </a>
-      </div>
-
-      <div class="journal-grid stagger-container">
-        <!-- Article 1 -->
-        <article class="journal-card reveal-on-scroll reveal-up" data-reveal-delay="100">
-          <div class="journal-card-img-wrap">
-            <img src="assets/journal-stone-perfect.jpg" alt="The Timeless Appeal of Natural Stone" loading="lazy">
-          </div>
-          <div class="journal-card-body">
-            <span class="journal-category">MATERIALS</span>
-            <h3 class="journal-card-title">The Timeless Appeal of Natural Stone</h3>
-            <p class="journal-card-excerpt">
-              Exploring the enduring beauty and versatility of natural stone in modern interiors.
-            </p>
-            <a href="javascript:void(0)" class="journal-card-link open-journal-modal" data-title="The Timeless Appeal of Natural Stone" data-category="MATERIALS" data-text="Natural stone has been the cornerstone of enduring architectural masterworks for millennia. In contemporary residential spaces, the interaction between honed stone surfaces and natural raking light introduces timeless warmth, grounding open plan living environments with geological authenticity.">
-              <span class="link-label">READ MORE</span> <span class="arrow-icon">&rarr;</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Article 2 -->
-        <article class="journal-card reveal-on-scroll reveal-up" data-reveal-delay="200">
-          <div class="journal-card-img-wrap">
-            <img src="assets/journal-calmer-spaces-perfect.jpg" alt="Creating Calmer Spaces Through Materiality" loading="lazy">
-          </div>
-          <div class="journal-card-body">
-            <span class="journal-category">DESIGN</span>
-            <h3 class="journal-card-title">Creating Calmer Spaces Through Materiality</h3>
-            <p class="journal-card-excerpt">
-              How considered materials can shape healthier, more refined living environments.
-            </p>
-            <a href="javascript:void(0)" class="journal-card-link open-journal-modal" data-title="Creating Calmer Spaces Through Materiality" data-category="DESIGN" data-text="Quiet luxury is rooted in sensory harmony. By incorporating acoustic timber finishes, low-sheen micro-cements, and textured limestone wall linings, interior architects craft sanctuaries that temper sensory overload and promote daily restoration.">
-              <span class="link-label">READ MORE</span> <span class="arrow-icon">&rarr;</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Article 3 -->
-        <article class="journal-card reveal-on-scroll reveal-up" data-reveal-delay="300">
-          <div class="journal-card-img-wrap">
-            <img src="assets/journal-future-surfaces-perfect.jpg" alt="The Future of Surfaces in Modern Design" loading="lazy">
-          </div>
-          <div class="journal-card-body">
-            <span class="journal-category">INSIGHTS</span>
-            <h3 class="journal-card-title">The Future of Surfaces in Modern Design</h3>
-            <p class="journal-card-excerpt">
-              Innovation, trends and timeless principles shaping tomorrow's spaces.
-            </p>
-            <a href="javascript:void(0)" class="journal-card-link open-journal-modal" data-title="The Future of Surfaces in Modern Design" data-category="INSIGHTS" data-text="The intersection of ecological stewardship and high-performance material engineering is revolutionizing architectural specifications. Large-format sintered stone slabs, ultra-thin veneers, and circular fabrication protocols define the next frontier of luxury design.">
-              <span class="link-label">READ MORE</span> <span class="arrow-icon">&rarr;</span>
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       BOOK A CONSULTATION CTA BANNER
-       ========================================================================== -->
-  <section class="consultation-section" id="consultation">
-    <div class="consultation-wrap reveal-on-scroll reveal-up">
-      <div class="consultation-text-box">
-        <span class="consultation-tag">LET'S CREATE EXTRAORDINARY SPACES</span>
-        <h2 class="consultation-title">BOOK A CONSULTATION</h2>
-        <p class="consultation-desc">
-          Visit our showroom or speak with our team to explore materials, discuss your project and discover how we can bring your vision to life.
-        </p>
-      </div>
-
-      <div class="consultation-buttons">
-        <button class="btn-primary-brass open-consult-modal-btn">
-          <span>BOOK A CONSULTATION</span> <span class="arrow-icon">&rarr;</span>
+        <nav class="hidden md:flex gap-8 font-inter text-xs text-plum uppercase tracking-[0.15em] font-medium">
+            <a href="#surfaces" class="hover:text-champagne transition-colors duration-300">Surfaces</a>
+            <a href="#materials" class="hover:text-champagne transition-colors duration-300">Materials</a>
+            <a href="#solutions" class="hover:text-champagne transition-colors duration-300">Solutions</a>
+            <a href="#contact" class="hover:text-champagne transition-colors duration-300">Contact</a>
+        </nav>
+        <button id="mobile-menu-btn" class="md:hidden text-plum p-1 focus:outline-none" aria-label="Toggle navigation menu">
+            <svg id="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg id="close-icon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
-        <button class="btn-outline-light open-consult-modal-btn">
-          <span>VISIT OUR SHOWROOM</span> <span class="arrow-icon">&rarr;</span>
-        </button>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
-  <footer class="site-footer">
-    <div class="footer-wrapper">
-      <div class="footer-top-grid reveal-on-scroll reveal-up">
-        <!-- Brand Info -->
-        <div class="footer-col footer-brand-col">
-          <a href="#hero" class="brand-logo" id="footer-logo">
-            <span class="logo-the">THE</span>
-            <div class="logo-wordmark">
-              <span>D</span>
-              <span class="logo-tile-e"></span>
-              <span>CO</span>
-              <span class="logo-space"></span>
-              <span>HOUS</span>
-              <span class="logo-bars-e">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 top-[76px] bg-ivory/95 backdrop-blur-lg z-40 flex flex-col px-8 py-10 gap-6 md:hidden transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-4">
+        <a href="#surfaces" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Surfaces</a>
+        <a href="#materials" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Materials</a>
+        <a href="#solutions" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Solutions</a>
+        <a href="#contact" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-32 pb-20 px-6 md:px-12 flex flex-col justify-center">
+        <!-- Asymmetrical Graphic Element -->
+        <div class="absolute top-0 right-0 w-3/4 md:w-1/2 h-full bg-stone z-0 origin-top bg-opacity-30 gs-bg-scale"></div>
+        
+        <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 mt-12">
+            
+            <!-- Overlapping Typography -->
+            <div class="w-full md:w-3/5 order-2 md:order-1 relative z-20 md:-mr-32">
+                <h1 class="font-manrope font-light text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] tracking-tight text-plum gs-title">
+                    SPACES<br>
+                    SHAPED<br>
+                    BY POSSIBILITY.
+                </h1>
+                <p class="font-cormorant italic text-xl md:text-2xl mt-8 text-plum/80 max-w-md gs-subtitle">
+                    Materials, thoughtfully considered.
+                </p>
+                <div class="mt-12 h-[1px] w-24 bg-champagne gs-line"></div>
             </div>
-            <span class="logo-sub">SURFACES <span class="sep">|</span> MATERIALS <span class="sep">|</span> SOLUTIONS</span>
-          </a>
 
-          <div class="footer-social-links">
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="LinkedIn">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-                <circle cx="4.98" cy="4.48" r="2.4"/>
-                <rect x="2.5" y="9" width="4.96" height="13"/>
-                <path d="M13.2 9c-2.4 0-3.6 1.3-4.2 2.2V9.3H4.4V22h4.9v-7.1c0-1.9 1-3.7 3.2-3.7 2.1 0 3 1.6 3 3.7V22h4.9v-8c0-4-2.1-5-4.8-5z"/>
-              </svg>
-            </a>
-            <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Pinterest">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2a10 10 0 0 0-3.66 19.31c-.04-.84-.08-2.14.02-3.06l.72-3.05s-.18-.37-.18-.91c0-.85.49-1.49 1.11-1.49.52 0 .78.39.78.86 0 .53-.33 1.32-.51 2.05-.15.61.3 1.11.9 1.11 1.08 0 1.91-1.14 1.91-2.79 0-1.46-1.05-2.48-2.55-2.48-1.74 0-2.76 1.3-2.76 2.65 0 .52.2 1.08.45 1.39.05.06.06.12.04.18l-.17.69c-.03.11-.1.15-.22.1-1.1-.51-1.79-2.11-1.79-3.4 0-2.77 2.01-5.31 5.8-5.31 3.04 0 5.41 2.17 5.41 5.07 0 3.02-1.9 5.45-4.55 5.45-.89 0-1.73-.46-2.01-1l-.55 2.09c-.2 1.06-.74 2.38-1.1 3.25A10 10 0 1 0 12 2z"/>
-              </svg>
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="YouTube">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M21.58 7.19a2.5 2.5 0 0 0-1.76-1.77C18.26 5 12 5 12 5s-6.26 0-7.82.42A2.5 2.5 0 0 0 2.42 7.19 26.2 26.2 0 0 0 2 12a26.2 26.2 0 0 0 .42 4.81 2.5 2.5 0 0 0 1.76 1.77C5.74 19 12 19 12 19s6.26 0 7.82-.42a2.5 2.5 0 0 0 1.76-1.77A26.2 26.2 0 0 0 22 12a26.2 26.2 0 0 0-.42-4.81zM10 15.5v-7l6 3.5-6 3.5z"/>
-              </svg>
-            </a>
-          </div>
+            <!-- Offset Image -->
+            <div class="w-full md:w-2/5 order-1 md:order-2 img-reveal-wrapper h-[50vh] md:h-[70vh] rounded-[15px] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80" alt="Architectural Surface Detail" class="w-full h-full object-cover gs-hero-img">
+            </div>
         </div>
+    </section>
 
-        <!-- Navigation Links -->
-        <div class="footer-col footer-nav-col">
-          <h4 class="footer-heading">NAVIGATION</h4>
-          <ul class="footer-nav-list">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#materials">Materials</a></li>
-            <li><a href="#details">Solutions</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#journal">Journal</a></li>
-            <li><a href="#consultation">Contact</a></li>
-          </ul>
+    <!-- Brand Essence Section -->
+    <section class="py-32 px-6 md:px-12 bg-ivory relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-16 md:gap-32 items-center">
+                <div class="w-full md:w-1/2 gs-fade-up relative">
+                    <!-- Overlapping Images Layout -->
+                    <div class="relative w-4/5 md:w-3/4 h-[350px] md:h-[450px] rounded-[15px] overflow-hidden mb-16 md:mb-0 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&q=80" alt="Material Detail" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-12 -right-4 md:-right-8 w-2/3 h-[250px] md:h-[350px] rounded-[15px] overflow-hidden border-8 border-ivory shadow-xl gs-fade-up" style="transition-delay: 200ms;">
+                        <img src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?auto=format&fit=crop&q=80" alt="Surface Texture" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 flex flex-col gap-12 mt-12 md:mt-0 gs-fade-up" style="transition-delay: 100ms;">
+                    <div>
+                        <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-4 block">01 / Brand Essence</span>
+                        <h2 class="font-manrope text-3xl md:text-5xl leading-tight text-plum font-light mb-8">Considered materials.<br>Elevated spaces.</h2>
+                        <p class="font-inter text-lg md:text-xl text-plum/80 leading-relaxed font-light max-w-xl">
+                            A premium interior-materials destination for architects, interior designers, developers and discerning homeowners seeking a cohesive selection of surfaces, materials and design solutions.
+                        </p>
+                    </div>
+                    
+                    <blockquote class="font-cormorant text-2xl md:text-3xl text-plum italic border-l-2 border-champagne pl-6 py-2 relative">
+                        "Material-led sophistication. A calm, curated world where every surface, finish and detail contributes to the architecture of a space."
+                    </blockquote>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Contact Info -->
-        <div class="footer-col footer-contact-col">
-          <h4 class="footer-heading">CONTACT</h4>
-          <ul class="footer-contact-list">
-            <li class="footer-contact-item">
-              <span class="footer-contact-icon">
-                <svg width="18" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="7.5" r="5"></circle>
-                  <circle cx="12" cy="7.5" r="1.5" fill="currentColor"></circle>
-                  <path d="M9 11.5L6.5 20.5l4-2.5 4 2.5-2.5-9"></path>
-                </svg>
-              </span>
-              <span>123 Design District<br>Singapore 239058</span>
-            </li>
-            <li class="footer-contact-item">
-              <span class="footer-contact-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-              </span>
-              <span>+65 6123 4567</span>
-            </li>
-            <li class="footer-contact-item">
-              <span class="footer-contact-icon">
-                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2.5" y="4" width="19" height="16" rx="4.5"></rect>
-                  <path d="M6.5 10h11v5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 6.5 15v-5z"></path>
-                </svg>
-              </span>
-              <span>enquire@thedecohouse.com</span>
-            </li>
-            <li class="footer-contact-item">
-              <span class="footer-contact-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9.5"></circle>
-                  <polyline points="12 7 12 12 16 12"></polyline>
-                </svg>
-              </span>
-              <span>Mon &ndash; Sat: 10am &ndash; 6pm</span>
-            </li>
-          </ul>
+    <!-- Curated Collections Section -->
+    <section id="surfaces" class="py-32 px-6 md:px-12 bg-stone relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 flex flex-col md:flex-row justify-between items-end gs-fade-up">
+                <div>
+                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-plum mb-4 block">02 / Categories</span>
+                    <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">Curated Collections</h2>
+                </div>
+                <div class="mt-8 md:mt-0 font-inter text-sm text-plum/80 border-b border-plum/30 pb-1 inline-block cursor-pointer hover:text-champagne hover:border-champagne transition-colors">
+                    Explore Categories &rarr;
+                </div>
+            </div>
+
+            <div class="collections-grid h-auto md:h-[600px] gs-fade-up">
+                <!-- Natural Wood -->
+                <div class="relative rounded-[15px] overflow-hidden group col-span-2 row-span-2 h-[350px] md:h-full">
+                    <img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&q=80" alt="Wood Veneers" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-plum/90 via-plum/30 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <h3 class="font-manrope text-3xl text-ivory mb-3 font-light">Architectural Wood</h3>
+                        <p class="font-inter text-sm text-ivory/80 font-light max-w-sm">Premium veneers, solid wood fluted panels, and durable laminates designed for spatial harmony.</p>
+                    </div>
+                </div>
+
+                <!-- Stone & Minerals -->
+                <div class="relative rounded-[15px] overflow-hidden group h-[250px] md:h-full col-span-2 md:col-span-1 md:row-span-1">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2291?auto=format&fit=crop&q=80" alt="Stone Surfaces" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-plum/20 group-hover:bg-plum/40 transition-colors duration-500"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <h3 class="font-manrope text-xl text-ivory font-light">Stone & Minerals</h3>
+                    </div>
+                </div>
+
+                <!-- Metals & Foils -->
+                <div class="relative rounded-[15px] overflow-hidden group h-[250px] md:h-full col-span-2 md:col-span-1 md:row-span-1">
+                    <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&q=80" alt="Architectural Metals" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-plum/20 group-hover:bg-plum/40 transition-colors duration-500"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <h3 class="font-manrope text-xl text-ivory font-light">Metals & Foils</h3>
+                    </div>
+                </div>
+
+                <!-- Acoustic Solutions -->
+                <div class="relative rounded-[15px] overflow-hidden group h-[250px] md:h-full col-span-2 row-span-1 bg-espresso p-8 flex flex-col justify-between" style="background-color: #34252F;">
+                    <div>
+                        <h3 class="font-manrope text-2xl text-ivory mb-2 font-light">Acoustic Solutions</h3>
+                        <p class="font-inter text-sm text-ivory/70 font-light">Senses Akustik and advanced sound-dampening panels.</p>
+                    </div>
+                    <div class="flex justify-end">
+                         <span class="w-10 h-10 rounded-full border border-champagne/50 flex items-center justify-center text-champagne group-hover:bg-champagne group-hover:text-plum transition-all duration-300">&rarr;</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Newsletter Subscription -->
-        <div class="footer-col footer-newsletter-col">
-          <h4 class="footer-heading">STAY IN TOUCH</h4>
-          <p class="footer-newsletter-text">
-            Subscribe to our newsletter for the latest materials, projects and insights.
-          </p>
-          <form class="newsletter-form" id="newsletter-form">
-            <input type="email" placeholder="Your email address" required id="newsletter-email">
-            <button type="submit" class="newsletter-submit-btn" aria-label="Subscribe">
-              <span class="newsletter-arrow">&rarr;</span>
-            </button>
-          </form>
+    <!-- Material Stories (Partners & Brands) -->
+    <section id="materials" class="py-32 px-6 md:px-12 bg-ivory border-t border-champagne/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-24 flex flex-col md:flex-row justify-between items-end gs-fade-up">
+                <div>
+                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-4 block">03 / Curated Partners</span>
+                    <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">The Material Archive</h2>
+                </div>
+                <div class="mt-8 md:mt-0 font-inter text-sm text-plum/60 uppercase tracking-widest">
+                    Tactile &bull; Architectural &bull; Precise
+                </div>
+            </div>
+
+            <!-- Uniquely Arranged Cards (Exactly 15px border-radius) -->
+            <div class="editorial-grid">
+                
+                <!-- Card 1 -->
+                <div class="card-1 group relative overflow-hidden rounded-[15px] bg-stone p-8 md:p-12 flex flex-col justify-between min-h-[400px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
+                    <div class="absolute inset-0 bg-plum opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                    <div class="relative z-10 font-manrope text-3xl font-light text-plum">
+                        Mikasa<br><span class="font-cormorant italic text-plum/70">Laminate & Veneer</span>
+                    </div>
+                    <div class="relative z-10 flex justify-between items-end mt-12">
+                        <p class="font-inter text-sm text-plum/80 w-2/3">Expressive veining and tactile finishes designed to sit effortlessly within a considered interior.</p>
+                        <span class="w-8 h-8 rounded-full border border-plum/30 flex items-center justify-center text-plum group-hover:bg-champagne group-hover:text-ivory group-hover:border-champagne transition-all duration-300">&rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-2 group relative overflow-hidden rounded-[15px] bg-plum p-8 md:p-12 flex flex-col justify-between min-h-[450px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
+                    <div class="relative z-10 font-manrope text-3xl font-light text-ivory">
+                        Greenlam<br><span class="font-cormorant italic text-champagne">& Merinolam</span>
+                    </div>
+                    <div class="relative z-10 flex justify-between items-end mt-12">
+                        <p class="font-inter text-sm text-ivory/80 w-2/3">A study in natural movement and durability. Foundational surfaces for architectural application.</p>
+                        <span class="w-8 h-8 rounded-full border border-champagne/50 flex items-center justify-center text-champagne group-hover:bg-champagne group-hover:text-plum transition-all duration-300">&rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-3 group relative overflow-hidden rounded-[15px] bg-stone p-8 flex flex-col md:flex-row gap-8 justify-between items-center min-h-[250px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
+                     <div class="relative z-10 font-manrope text-3xl font-light text-plum w-full md:w-1/2">
+                        Alpi<br><span class="font-cormorant italic text-plum/70">Veneer</span>
+                    </div>
+                    <p class="font-inter text-sm text-plum/80 w-full md:w-1/2 relative z-10 border-l border-plum/20 pl-6">
+                        Reconstructed wood veneers offering impeccable grain consistency and unique structural patterns for high-end carpentry.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card-4 group relative overflow-hidden rounded-[15px] bg-stone p-8 flex flex-col justify-between min-h-[350px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596414902409-cf8021c1f76e?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-overlay opacity-20"></div>
+                    <div class="relative z-10 font-manrope text-3xl font-light text-plum">
+                        Sibu<br><span class="font-cormorant italic text-plum/70">(Austria)</span>
+                    </div>
+                    <p class="relative z-10 font-inter text-sm text-plum/80 mt-12">
+                        Distinctive, high-impact decorative panels merging aesthetics with spatial innovation.
+                    </p>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="card-5 group relative overflow-hidden rounded-[15px] bg-stone p-8 flex flex-col justify-between min-h-[350px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
+                    <div class="relative z-10 font-manrope text-3xl font-light text-plum">
+                        Valchromat<br><span class="font-cormorant italic text-plum/70">(Portugal)</span>
+                    </div>
+                    <p class="relative z-10 font-inter text-sm text-plum/80 mt-12">
+                        Colored throughout, this innovative engineered wood product allows for three-dimensional routing and unparalleled finish quality.
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="card-6 group relative overflow-hidden rounded-[15px] bg-[#34252F] p-8 md:p-12 flex flex-col justify-between min-h-[400px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
+                    <div class="relative z-10 font-manrope text-3xl font-light text-ivory">
+                        Fenix &<br>Rehau<br><span class="font-cormorant italic text-champagne">Surfaces</span>
+                    </div>
+                    <div class="relative z-10 flex justify-between items-end mt-12">
+                        <p class="font-inter text-sm text-ivory/80 w-3/4">Soft-touch, anti-fingerprint nanotechnology merging with precision edge-banding.</p>
+                        <span class="w-8 h-8 rounded-full border border-champagne/50 flex items-center justify-center text-champagne group-hover:bg-champagne group-hover:text-plum transition-all duration-300">&rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="card-7 group relative overflow-hidden rounded-[15px] bg-stone p-8 flex flex-col md:flex-row gap-8 justify-between items-center min-h-[200px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
+                     <div class="relative z-10 font-manrope text-2xl md:text-3xl font-light text-plum w-full md:w-1/2">
+                        Aludecor, Greenply,<br>Bison Panel & More
+                    </div>
+                    <div class="w-full md:w-1/2 flex items-center justify-between border-t md:border-t-0 md:border-l border-plum/20 pt-6 md:pt-0 md:pl-6 relative z-10">
+                        <p class="font-inter text-sm text-plum/80 max-w-[200px]">
+                            Comprehensive material solutions sourced globally for architectural integrity.
+                        </p>
+                        <span class="font-cormorant italic text-champagne text-xl">Explore Archive &rarr;</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Bottom Row -->
-      <div class="footer-bottom-row reveal-on-scroll reveal-fade">
-        <div class="footer-copy">&copy; 2004 The Deco House. All rights reserved.</div>
-        <div class="footer-legal-links">
-          <a href="#">Privacy Policy</a>
-          <span class="legal-sep">|</span>
-          <a href="#">Terms &amp; Conditions</a>
-          <span class="legal-sep">|</span>
-          <a href="#">Site by Studio Eight</a>
+    <!-- Featured Categories Section -->
+    <section class="py-24 px-6 md:px-12 bg-ivory relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col gap-24">
+            <!-- Panel 1 -->
+            <div class="flex flex-col md:flex-row gap-12 items-center gs-fade-up">
+                <div class="w-full md:w-1/2 rounded-[15px] overflow-hidden h-[350px] md:h-[450px]">
+                    <img src="https://images.unsplash.com/photo-1510172951991-856a654063f9?auto=format&fit=crop&q=80" alt="Premium Veneers" class="w-full h-full object-cover">
+                </div>
+                <div class="w-full md:w-1/2 pl-0 md:pl-12">
+                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-4 block">Focus Material</span>
+                    <h3 class="font-manrope text-4xl text-plum font-light mb-6">Premium Veneers</h3>
+                    <p class="font-inter text-plum/80 mb-8 max-w-md font-light leading-relaxed">Sourced from the finest global mills, our architectural veneers offer unparalleled grain consistency and warmth, providing a timeless foundation for bespoke interiors.</p>
+                    <a href="#" class="font-cormorant italic text-champagne text-xl hover:text-plum transition-colors">Explore Veneers &rarr;</a>
+                </div>
+            </div>
+            <!-- Panel 2 (Reversed) -->
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center gs-fade-up">
+                <div class="w-full md:w-1/2 rounded-[15px] overflow-hidden h-[350px] md:h-[450px]">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&q=80" alt="Acoustic Solutions" class="w-full h-full object-cover">
+                </div>
+                <div class="w-full md:w-1/2 pr-0 md:pr-12">
+                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-4 block">Focus Material</span>
+                    <h3 class="font-manrope text-4xl text-plum font-light mb-6">Acoustic Solutions</h3>
+                    <p class="font-inter text-plum/80 mb-8 max-w-md font-light leading-relaxed">Advanced sound-dampening panels that do not compromise on aesthetics. Featuring Senses Akustik technology for spatial tranquility.</p>
+                    <a href="#" class="font-cormorant italic text-champagne text-xl hover:text-plum transition-colors">Discover Acoustics &rarr;</a>
+                </div>
+            </div>
+            <!-- Panel 3 -->
+            <div class="flex flex-col md:flex-row gap-12 items-center gs-fade-up">
+                <div class="w-full md:w-1/2 rounded-[15px] overflow-hidden h-[350px] md:h-[450px]">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80" alt="Solidwood Panels" class="w-full h-full object-cover">
+                </div>
+                <div class="w-full md:w-1/2 pl-0 md:pl-12">
+                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-4 block">Focus Material</span>
+                    <h3 class="font-manrope text-4xl text-plum font-light mb-6">Solidwood Panels</h3>
+                    <p class="font-inter text-plum/80 mb-8 max-w-md font-light leading-relaxed">Fluted and reeded solid wood panels that introduce profound texture, rhythm, and architectural depth to any vertical surface.</p>
+                    <a href="#" class="font-cormorant italic text-champagne text-xl hover:text-plum transition-colors">View Solidwood &rarr;</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- ==========================================================================
-       CONSULTATION MODAL
-       ========================================================================== -->
-  <div class="modal-overlay" id="consultation-modal">
-    <div class="modal-window">
-      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
-      <h3 class="modal-title">BOOK A CONSULTATION</h3>
-      <p class="modal-subtitle">Our material consultants look forward to assisting your architecture or interior project.</p>
-      <form class="modal-form" id="consult-form">
-        <div class="form-group">
-          <label for="consult-name">Full Name</label>
-          <input type="text" id="consult-name" required placeholder="Alexander Wright">
+    <!-- Our Partners Marquee Section -->
+    <section class="py-12 bg-ivory border-y border-plum/10 overflow-hidden">
+        <div class="marquee-container flex items-center font-manrope text-3xl md:text-5xl font-light text-plum/30 uppercase tracking-widest">
+            <div class="marquee-content flex items-center gap-16 md:gap-32 px-8 min-w-max">
+                <span>Mikasa</span>
+                <span class="text-champagne">&bull;</span>
+                <span>Greenlam</span>
+                <span class="text-champagne">&bull;</span>
+                <span>Fenix</span>
+                <span class="text-champagne">&bull;</span>
+                <span>Valchromat</span>
+                <span class="text-champagne">&bull;</span>
+                <span>Alpi</span>
+                <span class="text-champagne">&bull;</span>
+                <span>Rehau</span>
+                <span class="text-champagne">&bull;</span>
+            </div>
+            <div class="marquee-content flex items-center gap-16 md:gap-32 px-8 min-w-max" aria-hidden="true">
+                <span>Mikasa</span>
+                <span class="text-champagne">&bull;</span>
+                <span>Greenlam</span>
+                <span class="text-champagne">&bull;</span>
+                <span>Fenix</span>
+                <span class="text-champagne">&bull;</span>
+                <span>Valchromat</span>
+                <span class="text-champagne">&bull;</span>
+                <span>Alpi</span>
+                <span class="text-champagne">&bull;</span>
+                <span>Rehau</span>
+                <span class="text-champagne">&bull;</span>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="consult-email">Email Address</label>
-          <input type="email" id="consult-email" required placeholder="alexander@architects.com">
+    </section>
+
+    <!-- The Experience Section -->
+    <section id="solutions" class="py-32 px-6 md:px-12 bg-stone relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 gs-fade-up">
+                <span class="text-xs font-inter uppercase tracking-[0.2em] text-plum mb-4 block">05 / The Experience</span>
+                <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">Architectural Process</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="gs-card flex flex-col group bg-ivory p-6 rounded-[15px] shadow-sm">
+                    <div class="rounded-[15px] overflow-hidden h-[250px] mb-8 relative">
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=80" alt="Curate" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 w-10 h-10 bg-ivory/90 backdrop-blur rounded-full flex items-center justify-center font-cormorant text-xl text-plum">1</div>
+                    </div>
+                    <h3 class="font-manrope text-2xl text-plum mb-4 font-light">Curate</h3>
+                    <p class="font-inter text-plum/70 font-light text-sm leading-relaxed">Collaborate with our material specialists to select the perfect amalgamation of surfaces, ensuring aesthetic and structural harmony.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="gs-card flex flex-col group bg-ivory p-6 rounded-[15px] shadow-sm">
+                    <div class="rounded-[15px] overflow-hidden h-[250px] mb-8 relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80" alt="Specify" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 w-10 h-10 bg-ivory/90 backdrop-blur rounded-full flex items-center justify-center font-cormorant text-xl text-plum">2</div>
+                    </div>
+                    <h3 class="font-manrope text-2xl text-plum mb-4 font-light">Specify</h3>
+                    <p class="font-inter text-plum/70 font-light text-sm leading-relaxed">Receive detailed technical specifications, compliance documentation, and physical samples to confidently integrate into your architectural plans.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="gs-card flex flex-col group bg-ivory p-6 rounded-[15px] shadow-sm">
+                    <div class="rounded-[15px] overflow-hidden h-[250px] mb-8 relative">
+                        <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&q=80" alt="Install" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 w-10 h-10 bg-ivory/90 backdrop-blur rounded-full flex items-center justify-center font-cormorant text-xl text-plum">3</div>
+                    </div>
+                    <h3 class="font-manrope text-2xl text-plum mb-4 font-light">Install</h3>
+                    <p class="font-inter text-plum/70 font-light text-sm leading-relaxed">Benefit from our extensive network of certified installers and dedicated project management to ensure flawless execution on-site.</p>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="consult-type">Project Scope</label>
-          <select id="consult-type">
-            <option>Luxury Residential Interior</option>
-            <option>Commercial / Hospitality</option>
-            <option>Custom Architectural Surfaces</option>
-            <option>Private Villa Specification</option>
-          </select>
+    </section>
+
+    <!-- Editorial / Story Section -->
+    <section class="py-32 px-6 md:px-12 bg-plum relative overflow-hidden flex items-center justify-center min-h-[70vh]">
+        <!-- Background subtle texture -->
+        <div class="absolute inset-0 opacity-10 mix-blend-overlay">
+            <img src="https://images.unsplash.com/photo-1596414902409-cf8021c1f76e?auto=format&fit=crop&q=80" alt="Plum Texture" class="w-full h-full object-cover">
         </div>
-        <div class="form-group">
-          <label for="consult-notes">Project Notes</label>
-          <textarea id="consult-notes" rows="3" placeholder="Tell us about your spaces, timelines, or specific material requirements..."></textarea>
+        
+        <div class="relative z-10 max-w-4xl mx-auto text-center gs-fade-up">
+            <span class="text-xs font-inter uppercase tracking-[0.3em] text-ivory/50 mb-8 block">04 / Philosophy</span>
+            <h2 class="font-cormorant italic text-4xl md:text-6xl lg:text-7xl text-champagne font-light leading-tight mb-8">
+                "The details that<br>define a space."
+            </h2>
+            <p class="font-inter text-ivory/80 max-w-xl mx-auto font-light text-lg">
+                We believe that every surface holds the potential to transform an environment. From the sweeping grain of natural veneer to the resilient matte finish of engineered composites, our archive is curated to inspire and endure.
+            </p>
+            <div class="mt-12">
+                <a href="#materials" class="inline-block px-8 py-4 rounded-[15px] border border-champagne text-champagne font-inter text-sm uppercase tracking-[0.2em] hover:bg-champagne hover:text-plum transition-all duration-300">
+                    Read Our Story
+                </a>
+            </div>
         </div>
-        <button type="submit" class="btn-primary-brass" style="width: 100%; justify-content: center; margin-top: 10px;">
-          CONFIRM RESERVATION <span class="arrow-icon">&rarr;</span>
-        </button>
-      </form>
-    </div>
-  </div>
+    </section>
 
-  <!-- Search Overlay Modal -->
-  <div class="modal-overlay" id="search-modal">
-    <div class="modal-window">
-      <button class="modal-close-btn" id="search-close-btn" aria-label="Close search">&times;</button>
-      <h3 class="modal-title">SEARCH SPECIFICATIONS</h3>
-      <p class="modal-subtitle">Search across natural stones, fluted timbers, architectural hardware, and project archives.</p>
-      <div class="form-group">
-        <input type="text" id="search-input" placeholder="Type marble, walnut, brass, residence..." style="font-size: 16px; padding: 14px;">
-      </div>
-      <div id="search-results-box" style="margin-top: 20px; font-size: 13px; color: var(--color-charcoal-muted);">
-        <p>Suggested searches: <em>Calacatta Marble, Brushed Brass Handles, Fluted Acoustic Panels, Singapore Showroom</em></p>
-      </div>
-    </div>
-  </div>
+    <!-- Consultation CTA Section -->
+    <section id="contact" class="py-32 px-6 md:px-12 bg-ivory relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596414902409-cf8021c1f76e?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-[0.03]"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10 gs-fade-up bg-plum rounded-[15px] p-12 md:p-24 shadow-2xl">
+            <!-- Abstract decorative element -->
+            <div class="w-16 h-[1px] bg-champagne mx-auto mb-8"></div>
+            <h2 class="font-manrope text-3xl md:text-5xl text-ivory font-light mb-8">Begin Your Material Journey</h2>
+            <p class="font-inter text-ivory/70 mb-12 max-w-xl mx-auto font-light text-lg">
+                Request a tactile sample box or schedule an architectural consultation with our dedicated specification team to elevate your next project.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#contact" class="px-8 py-4 rounded-[15px] bg-champagne text-plum font-inter text-sm uppercase tracking-[0.2em] font-medium hover:bg-white transition-all duration-300 text-center">
+                    Request Sample Box
+                </a>
+                <a href="#contact" class="px-8 py-4 rounded-[15px] border border-champagne text-champagne font-inter text-sm uppercase tracking-[0.2em] hover:bg-champagne hover:text-plum transition-all duration-300 text-center">
+                    Book Consultation
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <!-- Toast Notification -->
-  <div class="toast-notice" id="toast-notice"></div>
+    <!-- Footer -->
+    <footer class="bg-plum pt-32 pb-12 px-6 md:px-12 text-ivory">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-0 pb-20 border-b border-champagne/20">
+                <div class="w-full md:w-1/2">
+                    <div class="font-manrope flex flex-col mb-12">
+                        <span class="text-xs uppercase tracking-[0.3em] text-champagne mb-1">The</span>
+                        <span class="text-4xl md:text-5xl font-light tracking-widest leading-none">DECO HOUSE</span>
+                    </div>
+                    <p class="font-inter text-ivory/70 max-w-sm font-light leading-relaxed">
+                        A thoughtfully curated material experience, supported by product knowledge, dependable guidance and a cohesive design point of view.
+                    </p>
+                </div>
+                
+                <div class="w-full md:w-1/2 flex flex-col md:flex-row gap-12 md:gap-24 justify-end font-inter">
+                    <div>
+                        <h4 class="text-champagne text-xs uppercase tracking-widest mb-6">Directory</h4>
+                        <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                            <li><a href="#" class="hover:text-champagne transition-colors">Brand Foundation</a></li>
+                            <li><a href="#surfaces" class="hover:text-champagne transition-colors">Surface Collections</a></li>
+                            <li><a href="#materials" class="hover:text-champagne transition-colors">Material Stories</a></li>
+                            <li><a href="#contact" class="hover:text-champagne transition-colors">Contact Studio</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-champagne text-xs uppercase tracking-widest mb-6">Connect</h4>
+                        <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                            <li><a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">Instagram</a></li>
+                            <li><a href="https://pinterest.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">Pinterest</a></li>
+                            <li><a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center mt-8 font-inter text-xs text-ivory/50 uppercase tracking-widest">
+                <p>&copy; 2026 The Deco House. All Rights Reserved.</p>
+                <p class="mt-4 md:mt-0">Revised Edition</p>
+            </div>
+        </div>
+    </footer>
 
-  <!-- Floating Back to Top Luxury Button -->
-  <button class="back-to-top-btn" id="back-to-top-btn" aria-label="Back to top">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="18 15 12 9 6 15"></polyline>
-    </svg>
-    <span class="back-to-top-text">TOP</span>
-  </button>
-
-  <script src="js/main.js"></script>
+    <!-- GSAP & Lenis Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    
+    <!-- Custom Application Logic -->
+    <script src="js/main.js"></script>
 </body>
 </html>
