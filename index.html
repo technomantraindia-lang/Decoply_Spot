@@ -11,17 +11,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400;500&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS with Official 03 Brand Colour Palette -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        ivory: '#F4F0E9',
-                        plum: '#241923',
-                        champagne: '#B4A17A',
-                        stone: '#D0C5B7',
+                        // Official The Deco House Palette
+                        plum: '#241923',           // Deep Plum — Primary brand anchor
+                        'deep-plum': '#241923',
+                        espresso: '#34252F',       // Espresso Plum — Secondary dark
+                        'espresso-plum': '#34252F',
+                        champagne: '#B4A17A',      // Champagne Brass — Fine accents and foil
+                        'champagne-brass': '#B4A17A',
+                        taupe: '#A79A8B',          // Warm Taupe — Supporting neutral
+                        'warm-taupe': '#A79A8B',
+                        stone: '#D0C5B7',          // Stone Beige — Soft backgrounds
+                        'stone-beige': '#D0C5B7',
+                        ivory: '#F4F0E9',          // Architectural Ivory — Primary light background
+                        'architectural-ivory': '#F4F0E9',
+                        charcoal: '#37332F',       // Soft Charcoal — Body text
+                        'soft-charcoal': '#37332F',
                     },
                     fontFamily: {
                         manrope: ['Manrope', 'sans-serif'],
@@ -77,7 +88,7 @@
                     SHAPED<br>
                     BY POSSIBILITY.
                 </h1>
-                <p class="font-cormorant italic text-xl md:text-2xl mt-8 text-plum/80 max-w-md gs-subtitle">
+                <p class="font-cormorant italic text-xl md:text-2xl mt-8 text-charcoal/90 max-w-md gs-subtitle">
                     Materials, thoughtfully considered.
                 </p>
                 <div class="mt-12 h-[1px] w-24 bg-champagne gs-line"></div>
@@ -108,7 +119,7 @@
                     <div>
                         <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-4 block">01 / Brand Essence</span>
                         <h2 class="font-manrope text-3xl md:text-5xl leading-tight text-plum font-light mb-8">Considered materials.<br>Elevated spaces.</h2>
-                        <p class="font-inter text-lg md:text-xl text-plum/80 leading-relaxed font-light max-w-xl">
+                        <p class="font-inter text-lg md:text-xl text-charcoal leading-relaxed font-light max-w-xl">
                             A premium interior-materials destination for architects, interior designers, developers and discerning homeowners seeking a cohesive selection of surfaces, materials and design solutions.
                         </p>
                     </div>
@@ -126,10 +137,10 @@
         <div class="max-w-7xl mx-auto">
             <div class="mb-16 flex flex-col md:flex-row justify-between items-end gs-fade-up">
                 <div>
-                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-plum mb-4 block">02 / Categories</span>
+                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-charcoal/70 mb-4 block">02 / Categories</span>
                     <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">Curated Collections</h2>
                 </div>
-                <div class="mt-8 md:mt-0 font-inter text-sm text-plum/80 border-b border-plum/30 pb-1 inline-block cursor-pointer hover:text-champagne hover:border-champagne transition-colors">
+                <div class="mt-8 md:mt-0 font-inter text-sm text-charcoal/80 border-b border-charcoal/30 pb-1 inline-block cursor-pointer hover:text-champagne hover:border-champagne transition-colors">
                     Explore Categories &rarr;
                 </div>
             </div>
@@ -164,7 +175,7 @@
                 </div>
 
                 <!-- Acoustic Solutions -->
-                <div class="relative rounded-[15px] overflow-hidden group h-[250px] md:h-full col-span-2 row-span-1 bg-espresso p-8 flex flex-col justify-between" style="background-color: #34252F;">
+                <div class="relative rounded-[15px] overflow-hidden group h-[250px] md:h-full col-span-2 row-span-1 bg-espresso p-8 flex flex-col justify-between">
                     <div>
                         <h3 class="font-manrope text-2xl text-ivory mb-2 font-light">Acoustic Solutions</h3>
                         <p class="font-inter text-sm text-ivory/70 font-light">Senses Akustik and advanced sound-dampening panels.</p>
@@ -185,7 +196,7 @@
                     <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-4 block">03 / Curated Partners</span>
                     <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">The Material Archive</h2>
                 </div>
-                <div class="mt-8 md:mt-0 font-inter text-sm text-plum/60 uppercase tracking-widest">
+                <div class="mt-8 md:mt-0 font-inter text-sm text-taupe uppercase tracking-widest font-medium">
                     Tactile &bull; Architectural &bull; Precise
                 </div>
             </div>
@@ -197,11 +208,11 @@
                 <div class="card-1 group relative overflow-hidden rounded-[15px] bg-stone p-8 md:p-12 flex flex-col justify-between min-h-[400px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
                     <div class="absolute inset-0 bg-plum opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
                     <div class="relative z-10 font-manrope text-3xl font-light text-plum">
-                        Mikasa<br><span class="font-cormorant italic text-plum/70">Laminate & Veneer</span>
+                        Mikasa<br><span class="font-cormorant italic text-charcoal/80">Laminate & Veneer</span>
                     </div>
                     <div class="relative z-10 flex justify-between items-end mt-12">
-                        <p class="font-inter text-sm text-plum/80 w-2/3">Expressive veining and tactile finishes designed to sit effortlessly within a considered interior.</p>
-                        <span class="w-8 h-8 rounded-full border border-plum/30 flex items-center justify-center text-plum group-hover:bg-champagne group-hover:text-ivory group-hover:border-champagne transition-all duration-300">&rarr;</span>
+                        <p class="font-inter text-sm text-charcoal w-2/3">Expressive veining and tactile finishes designed to sit effortlessly within a considered interior.</p>
+                        <span class="w-8 h-8 rounded-full border border-charcoal/30 flex items-center justify-center text-charcoal group-hover:bg-champagne group-hover:text-ivory group-hover:border-champagne transition-all duration-300">&rarr;</span>
                     </div>
                 </div>
 
@@ -219,9 +230,9 @@
                 <!-- Card 3 -->
                 <div class="card-3 group relative overflow-hidden rounded-[15px] bg-stone p-8 flex flex-col md:flex-row gap-8 justify-between items-center min-h-[250px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
                      <div class="relative z-10 font-manrope text-3xl font-light text-plum w-full md:w-1/2">
-                        Alpi<br><span class="font-cormorant italic text-plum/70">Veneer</span>
+                        Alpi<br><span class="font-cormorant italic text-charcoal/80">Veneer</span>
                     </div>
-                    <p class="font-inter text-sm text-plum/80 w-full md:w-1/2 relative z-10 border-l border-plum/20 pl-6">
+                    <p class="font-inter text-sm text-charcoal w-full md:w-1/2 relative z-10 border-l border-taupe/40 pl-6">
                         Reconstructed wood veneers offering impeccable grain consistency and unique structural patterns for high-end carpentry.
                     </p>
                 </div>
@@ -230,9 +241,9 @@
                 <div class="card-4 group relative overflow-hidden rounded-[15px] bg-stone p-8 flex flex-col justify-between min-h-[350px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
                     <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596414902409-cf8021c1f76e?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-overlay opacity-20"></div>
                     <div class="relative z-10 font-manrope text-3xl font-light text-plum">
-                        Sibu<br><span class="font-cormorant italic text-plum/70">(Austria)</span>
+                        Sibu<br><span class="font-cormorant italic text-charcoal/80">(Austria)</span>
                     </div>
-                    <p class="relative z-10 font-inter text-sm text-plum/80 mt-12">
+                    <p class="relative z-10 font-inter text-sm text-charcoal mt-12">
                         Distinctive, high-impact decorative panels merging aesthetics with spatial innovation.
                     </p>
                 </div>
@@ -240,15 +251,15 @@
                 <!-- Card 5 -->
                 <div class="card-5 group relative overflow-hidden rounded-[15px] bg-stone p-8 flex flex-col justify-between min-h-[350px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
                     <div class="relative z-10 font-manrope text-3xl font-light text-plum">
-                        Valchromat<br><span class="font-cormorant italic text-plum/70">(Portugal)</span>
+                        Valchromat<br><span class="font-cormorant italic text-charcoal/80">(Portugal)</span>
                     </div>
-                    <p class="relative z-10 font-inter text-sm text-plum/80 mt-12">
+                    <p class="relative z-10 font-inter text-sm text-charcoal mt-12">
                         Colored throughout, this innovative engineered wood product allows for three-dimensional routing and unparalleled finish quality.
                     </p>
                 </div>
 
                 <!-- Card 6 -->
-                <div class="card-6 group relative overflow-hidden rounded-[15px] bg-[#34252F] p-8 md:p-12 flex flex-col justify-between min-h-[400px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
+                <div class="card-6 group relative overflow-hidden rounded-[15px] bg-espresso p-8 md:p-12 flex flex-col justify-between min-h-[400px] transition-transform duration-700 ease-out hover:-translate-y-2 gs-card">
                     <div class="relative z-10 font-manrope text-3xl font-light text-ivory">
                         Fenix &<br>Rehau<br><span class="font-cormorant italic text-champagne">Surfaces</span>
                     </div>
@@ -263,8 +274,8 @@
                      <div class="relative z-10 font-manrope text-2xl md:text-3xl font-light text-plum w-full md:w-1/2">
                         Aludecor, Greenply,<br>Bison Panel & More
                     </div>
-                    <div class="w-full md:w-1/2 flex items-center justify-between border-t md:border-t-0 md:border-l border-plum/20 pt-6 md:pt-0 md:pl-6 relative z-10">
-                        <p class="font-inter text-sm text-plum/80 max-w-[200px]">
+                    <div class="w-full md:w-1/2 flex items-center justify-between border-t md:border-t-0 md:border-l border-taupe/40 pt-6 md:pt-0 md:pl-6 relative z-10">
+                        <p class="font-inter text-sm text-charcoal max-w-[200px]">
                             Comprehensive material solutions sourced globally for architectural integrity.
                         </p>
                         <span class="font-cormorant italic text-champagne text-xl">Explore Archive &rarr;</span>
@@ -286,7 +297,7 @@
                 <div class="w-full md:w-1/2 pl-0 md:pl-12">
                     <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-4 block">Focus Material</span>
                     <h3 class="font-manrope text-4xl text-plum font-light mb-6">Premium Veneers</h3>
-                    <p class="font-inter text-plum/80 mb-8 max-w-md font-light leading-relaxed">Sourced from the finest global mills, our architectural veneers offer unparalleled grain consistency and warmth, providing a timeless foundation for bespoke interiors.</p>
+                    <p class="font-inter text-charcoal mb-8 max-w-md font-light leading-relaxed">Sourced from the finest global mills, our architectural veneers offer unparalleled grain consistency and warmth, providing a timeless foundation for bespoke interiors.</p>
                     <a href="#" class="font-cormorant italic text-champagne text-xl hover:text-plum transition-colors">Explore Veneers &rarr;</a>
                 </div>
             </div>
@@ -298,7 +309,7 @@
                 <div class="w-full md:w-1/2 pr-0 md:pr-12">
                     <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-4 block">Focus Material</span>
                     <h3 class="font-manrope text-4xl text-plum font-light mb-6">Acoustic Solutions</h3>
-                    <p class="font-inter text-plum/80 mb-8 max-w-md font-light leading-relaxed">Advanced sound-dampening panels that do not compromise on aesthetics. Featuring Senses Akustik technology for spatial tranquility.</p>
+                    <p class="font-inter text-charcoal mb-8 max-w-md font-light leading-relaxed">Advanced sound-dampening panels that do not compromise on aesthetics. Featuring Senses Akustik technology for spatial tranquility.</p>
                     <a href="#" class="font-cormorant italic text-champagne text-xl hover:text-plum transition-colors">Discover Acoustics &rarr;</a>
                 </div>
             </div>
@@ -310,7 +321,7 @@
                 <div class="w-full md:w-1/2 pl-0 md:pl-12">
                     <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-4 block">Focus Material</span>
                     <h3 class="font-manrope text-4xl text-plum font-light mb-6">Solidwood Panels</h3>
-                    <p class="font-inter text-plum/80 mb-8 max-w-md font-light leading-relaxed">Fluted and reeded solid wood panels that introduce profound texture, rhythm, and architectural depth to any vertical surface.</p>
+                    <p class="font-inter text-charcoal mb-8 max-w-md font-light leading-relaxed">Fluted and reeded solid wood panels that introduce profound texture, rhythm, and architectural depth to any vertical surface.</p>
                     <a href="#" class="font-cormorant italic text-champagne text-xl hover:text-plum transition-colors">View Solidwood &rarr;</a>
                 </div>
             </div>
@@ -318,8 +329,8 @@
     </section>
 
     <!-- Our Partners Marquee Section -->
-    <section class="py-12 bg-ivory border-y border-plum/10 overflow-hidden">
-        <div class="marquee-container flex items-center font-manrope text-3xl md:text-5xl font-light text-plum/30 uppercase tracking-widest">
+    <section class="py-12 bg-ivory border-y border-stone/60 overflow-hidden">
+        <div class="marquee-container flex items-center font-manrope text-3xl md:text-5xl font-light text-taupe/60 uppercase tracking-widest">
             <div class="marquee-content flex items-center gap-16 md:gap-32 px-8 min-w-max">
                 <span>Mikasa</span>
                 <span class="text-champagne">&bull;</span>
@@ -355,7 +366,7 @@
     <section id="solutions" class="py-32 px-6 md:px-12 bg-stone relative z-10">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20 gs-fade-up">
-                <span class="text-xs font-inter uppercase tracking-[0.2em] text-plum mb-4 block">05 / The Experience</span>
+                <span class="text-xs font-inter uppercase tracking-[0.2em] text-charcoal/70 mb-4 block">05 / The Experience</span>
                 <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">Architectural Process</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -363,28 +374,28 @@
                 <div class="gs-card flex flex-col group bg-ivory p-6 rounded-[15px] shadow-sm">
                     <div class="rounded-[15px] overflow-hidden h-[250px] mb-8 relative">
                         <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=80" alt="Curate" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
-                        <div class="absolute top-4 left-4 w-10 h-10 bg-ivory/90 backdrop-blur rounded-full flex items-center justify-center font-cormorant text-xl text-plum">1</div>
+                        <div class="absolute top-4 left-4 w-10 h-10 bg-ivory/90 backdrop-blur rounded-full flex items-center justify-center font-cormorant text-xl text-plum border border-champagne/40">1</div>
                     </div>
                     <h3 class="font-manrope text-2xl text-plum mb-4 font-light">Curate</h3>
-                    <p class="font-inter text-plum/70 font-light text-sm leading-relaxed">Collaborate with our material specialists to select the perfect amalgamation of surfaces, ensuring aesthetic and structural harmony.</p>
+                    <p class="font-inter text-charcoal font-light text-sm leading-relaxed">Collaborate with our material specialists to select the perfect amalgamation of surfaces, ensuring aesthetic and structural harmony.</p>
                 </div>
                 <!-- Step 2 -->
                 <div class="gs-card flex flex-col group bg-ivory p-6 rounded-[15px] shadow-sm">
                     <div class="rounded-[15px] overflow-hidden h-[250px] mb-8 relative">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80" alt="Specify" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
-                        <div class="absolute top-4 left-4 w-10 h-10 bg-ivory/90 backdrop-blur rounded-full flex items-center justify-center font-cormorant text-xl text-plum">2</div>
+                        <div class="absolute top-4 left-4 w-10 h-10 bg-ivory/90 backdrop-blur rounded-full flex items-center justify-center font-cormorant text-xl text-plum border border-champagne/40">2</div>
                     </div>
                     <h3 class="font-manrope text-2xl text-plum mb-4 font-light">Specify</h3>
-                    <p class="font-inter text-plum/70 font-light text-sm leading-relaxed">Receive detailed technical specifications, compliance documentation, and physical samples to confidently integrate into your architectural plans.</p>
+                    <p class="font-inter text-charcoal font-light text-sm leading-relaxed">Receive detailed technical specifications, compliance documentation, and physical samples to confidently integrate into your architectural plans.</p>
                 </div>
                 <!-- Step 3 -->
                 <div class="gs-card flex flex-col group bg-ivory p-6 rounded-[15px] shadow-sm">
                     <div class="rounded-[15px] overflow-hidden h-[250px] mb-8 relative">
                         <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&q=80" alt="Install" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
-                        <div class="absolute top-4 left-4 w-10 h-10 bg-ivory/90 backdrop-blur rounded-full flex items-center justify-center font-cormorant text-xl text-plum">3</div>
+                        <div class="absolute top-4 left-4 w-10 h-10 bg-ivory/90 backdrop-blur rounded-full flex items-center justify-center font-cormorant text-xl text-plum border border-champagne/40">3</div>
                     </div>
                     <h3 class="font-manrope text-2xl text-plum mb-4 font-light">Install</h3>
-                    <p class="font-inter text-plum/70 font-light text-sm leading-relaxed">Benefit from our extensive network of certified installers and dedicated project management to ensure flawless execution on-site.</p>
+                    <p class="font-inter text-charcoal font-light text-sm leading-relaxed">Benefit from our extensive network of certified installers and dedicated project management to ensure flawless execution on-site.</p>
                 </div>
             </div>
         </div>
@@ -398,7 +409,7 @@
         </div>
         
         <div class="relative z-10 max-w-4xl mx-auto text-center gs-fade-up">
-            <span class="text-xs font-inter uppercase tracking-[0.3em] text-ivory/50 mb-8 block">04 / Philosophy</span>
+            <span class="text-xs font-inter uppercase tracking-[0.3em] text-taupe mb-8 block">04 / Philosophy</span>
             <h2 class="font-cormorant italic text-4xl md:text-6xl lg:text-7xl text-champagne font-light leading-tight mb-8">
                 "The details that<br>define a space."
             </h2>
@@ -424,7 +435,7 @@
                 Request a tactile sample box or schedule an architectural consultation with our dedicated specification team to elevate your next project.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="#contact" class="px-8 py-4 rounded-[15px] bg-champagne text-plum font-inter text-sm uppercase tracking-[0.2em] font-medium hover:bg-white transition-all duration-300 text-center">
+                <a href="#contact" class="px-8 py-4 rounded-[15px] bg-champagne text-plum font-inter text-sm uppercase tracking-[0.2em] font-medium hover:bg-ivory hover:text-plum transition-all duration-300 text-center">
                     Request Sample Box
                 </a>
                 <a href="#contact" class="px-8 py-4 rounded-[15px] border border-champagne text-champagne font-inter text-sm uppercase tracking-[0.2em] hover:bg-champagne hover:text-plum transition-all duration-300 text-center">
@@ -470,7 +481,7 @@
                 </div>
             </div>
             
-            <div class="flex flex-col md:flex-row justify-between items-center mt-8 font-inter text-xs text-ivory/50 uppercase tracking-widest">
+            <div class="flex flex-col md:flex-row justify-between items-center mt-8 font-inter text-xs text-taupe/80 uppercase tracking-widest">
                 <p>&copy; 2026 The Deco House. All Rights Reserved.</p>
                 <p class="mt-4 md:mt-0">Revised Edition</p>
             </div>

@@ -1,6 +1,24 @@
 /* ==========================================================================
-   THE DECO HOUSE - CORE STYLESHEET
+   THE DECO HOUSE - BRAND COLOR PALETTE & DESIGN SYSTEM
+   03 Colour Palette Guidelines:
+   - Deep Plum:          #241923 (Primary brand anchor)
+   - Espresso Plum:      #34252F (Secondary dark)
+   - Champagne Brass:    #B4A17A (Fine accents and foil)
+   - Warm Taupe:         #A79A8B (Supporting neutral)
+   - Stone Beige:        #D0C5B7 (Soft backgrounds)
+   - Architectural Ivory:#F4F0E9 (Primary light background)
+   - Soft Charcoal:      #37332F (Body text)
    ========================================================================== */
+
+:root {
+    --color-deep-plum: #241923;
+    --color-espresso-plum: #34252F;
+    --color-champagne-brass: #B4A17A;
+    --color-warm-taupe: #A79A8B;
+    --color-stone-beige: #D0C5B7;
+    --color-architectural-ivory: #F4F0E9;
+    --color-soft-charcoal: #37332F;
+}
 
 /* Lenis Smooth Scrolling */
 html.lenis {
@@ -20,8 +38,8 @@ html.lenis {
 }
 
 body {
-    background-color: #F4F0E9; /* Ivory */
-    color: #241923; /* Deep Plum */
+    background-color: var(--color-architectural-ivory); /* #F4F0E9 - Primary light background */
+    color: var(--color-soft-charcoal);                  /* #37332F - Body text */
     overflow-x: hidden;
 }
 
@@ -63,10 +81,10 @@ body {
 
 /* Glassmorphism Header */
 .glass-nav {
-    background: rgba(244, 240, 233, 0.75);
+    background: rgba(244, 240, 233, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(180, 161, 122, 0.2);
+    border-bottom: 1px solid rgba(180, 161, 122, 0.25);
 }
 
 /* Collections Grid Layout */
