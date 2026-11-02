@@ -845,18 +845,22 @@
                         </div>
 
                         <!-- Interactive Quick Request Form -->
-                        <form id="cta-sample-form" class="space-y-4 max-w-xl mb-8" onsubmit="event.preventDefault(); document.getElementById('cta-success-msg').classList.remove('hidden');">
+                        <form id="cta-sample-form" class="space-y-4 max-w-xl mb-8" method="POST" action="https://formsubmit.co/technomantraindia@gmail.com">
+                            <input type="hidden" name="_subject" value="New Sample Box Request - The Deco House">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
                             <div class="flex flex-col sm:flex-row gap-3">
                                 <div class="relative flex-grow">
-                                    <input type="email" required placeholder="Enter architectural studio email" class="w-full px-5 py-4 rounded-[14px] bg-white/10 border border-champagne/40 text-ivory placeholder-ivory/50 font-inter text-sm focus:outline-none focus:border-champagne focus:ring-1 focus:ring-champagne transition-all duration-300 backdrop-blur-md">
+                                    <input type="email" name="email" required placeholder="Enter architectural studio email" class="w-full px-5 py-4 rounded-[14px] bg-white/10 border border-champagne/40 text-ivory placeholder-ivory/50 font-inter text-sm focus:outline-none focus:border-champagne focus:ring-1 focus:ring-champagne transition-all duration-300 backdrop-blur-md">
                                 </div>
-                                <button type="submit" class="px-8 py-4 rounded-[14px] bg-champagne text-plum font-inter text-xs uppercase tracking-[0.2em] font-semibold hover:bg-ivory transition-all duration-300 shadow-lg flex items-center justify-center gap-2 group whitespace-nowrap">
-                                    <span>Request Box</span>
+                                <button id="cta-sample-btn" type="submit" class="px-8 py-4 rounded-[14px] bg-champagne text-plum font-inter text-xs uppercase tracking-[0.2em] font-semibold hover:bg-ivory transition-all duration-300 shadow-lg flex items-center justify-center gap-2 group whitespace-nowrap">
+                                    <span id="cta-btn-text">Request Box</span>
                                     <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                                 </button>
                             </div>
                             <div id="cta-success-msg" class="hidden text-xs font-inter text-champagne bg-champagne/10 border border-champagne/30 px-4 py-2.5 rounded-[10px] mt-2 flex items-center gap-2">
-                                <span>&#10003;</span> Thank you. Our specification curator will contact your studio within 24 hours.
+                                <span>&#10003;</span>
+                                <span>Sample Box Spec Kit dispatched directly to our liaison. We will contact you shortly.</span>
                             </div>
                         </form>
 

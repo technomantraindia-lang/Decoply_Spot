@@ -205,5 +205,36 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-});
 
+    // Direct Email Dispatch for Sample Request Form
+    const ctaSampleForm = document.getElementById('cta-sample-form');
+    const ctaSampleBtn = document.getElementById('cta-sample-btn');
+    const ctaBtnText = document.getElementById('cta-btn-text');
+    const ctaSuccessMsg = document.getElementById('cta-success-msg');
+
+    if (ctaSampleForm) {
+        ctaSampleForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (ctaBtnText) ctaBtnText.textContent = 'Dispatching...';
+            if (ctaSampleBtn) ctaSampleBtn.disabled = true;
+
+            const formData = new FormData(ctaSampleForm);
+            try {
+                const res = await fetch('https://formsubmit.co/ajax/technomantraindia@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: formData
+                });
+                if (ctaSuccessMsg) ctaSuccessMsg.classList.remove('hidden');
+                ctaSampleForm.reset();
+            } catch (err) {
+                console.warn('Fallback direct submit:', err);
+                ctaSampleForm.submit();
+            } finally {
+                if (ctaBtnText) ctaBtnText.textContent = 'Request Box';
+                if (ctaSampleBtn) ctaSampleBtn.disabled = false;
+            }
+        });
+    }
+
+});
