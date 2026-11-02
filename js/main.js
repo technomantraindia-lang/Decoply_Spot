@@ -6,33 +6,32 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 1. Initialize Lenis Smooth Scrolling
     const lenis = new Lenis({
-        duration: 1.2,
+        duration: 1.0,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1.0,
+        touchMultiplier: 1.5,
         infinite: false,
     });
 
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    // Register ScrollTrigger plugin
+    // Synchronize ScrollTrigger with Lenis via GSAP ticker exclusively (no duplicate RAF loop)
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Sync ScrollTrigger with Lenis
         lenis.on('scroll', ScrollTrigger.update);
+
         gsap.ticker.add((time) => {
             lenis.raf(time * 1000);
         });
         gsap.ticker.lagSmoothing(0);
+    } else {
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
     }
 
     // 2. Smooth Anchor Navigation with Lenis
@@ -103,20 +102,20 @@ document.addEventListener('DOMContentLoaded', () => {
           .to('.gs-subtitle', { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.6')
           .to('.gs-line', { width: 96, duration: 0.8, ease: 'power2.out' }, '-=0.4');
 
-        // Fade up standard elements on scroll
+        // Fade up standard elements on scroll (once: true prevents constant repaint lag)
         if (typeof ScrollTrigger !== 'undefined') {
             gsap.utils.toArray('.gs-fade-up').forEach(element => {
                 gsap.fromTo(element, 
-                    { y: 40, opacity: 0 },
+                    { y: 30, opacity: 0 },
                     {
                         y: 0,
                         opacity: 1,
-                        duration: 1,
+                        duration: 0.9,
                         ease: 'power3.out',
                         scrollTrigger: {
                             trigger: element,
-                            start: 'top 85%',
-                            toggleActions: 'play none none reverse'
+                            start: 'top 88%',
+                            once: true
                         }
                     }
                 );
@@ -125,16 +124,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // Staggered Cards Animation
             gsap.utils.toArray('.gs-card').forEach((card) => {
                 gsap.fromTo(card,
-                    { y: 60, opacity: 0 },
+                    { y: 40, opacity: 0 },
                     {
                         y: 0,
                         opacity: 1,
-                        duration: 1.2,
-                        ease: 'expo.out',
+                        duration: 1.0,
+                        ease: 'power3.out',
                         scrollTrigger: {
                             trigger: card,
-                            start: 'top 90%',
-                            toggleActions: 'play none none reverse'
+                            start: 'top 92%',
+                            once: true
                         }
                     }
                 );

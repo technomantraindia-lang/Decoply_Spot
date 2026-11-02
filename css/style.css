@@ -102,6 +102,23 @@ body {
     .row-span-2 { grid-row: span 2; }
 }
 
+/* GPU Acceleration for smooth scrolling & hover transitions */
+.gs-card, .editorial-grid > div, .collections-grid > div {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.editorial-grid img, .collections-grid img {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.glass-nav {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
 /* Marquee Animation */
 .marquee-container {
     display: flex;
