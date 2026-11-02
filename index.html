@@ -137,59 +137,131 @@
     </section>
 
     <!-- Curated Collections Section -->
-    <section id="surfaces" class="py-32 px-6 md:px-12 bg-stone relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-16 flex flex-col md:flex-row justify-between items-end gs-fade-up">
+    <section id="surfaces" class="py-32 px-6 md:px-12 bg-ivory relative overflow-hidden border-t border-champagne/30">
+        <!-- Subtle Architectural Blueprint Grid & Warm Ambient Glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(#D0C5B7_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+        <div class="absolute -top-32 -right-32 w-[600px] h-[600px] bg-champagne/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Header with Dynamic Filter Tabs -->
+            <div class="mb-14 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 gs-fade-up">
                 <div>
-                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-charcoal/70 mb-4 block">02 / Categories</span>
-                    <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">Curated Collections</h2>
+                    <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-4 block font-medium">02 / Categories</span>
+                    <h2 class="font-manrope text-4xl md:text-5xl lg:text-6xl text-plum font-light tracking-tight">Curated Collections</h2>
                 </div>
-                <div class="mt-8 md:mt-0 font-inter text-sm text-charcoal/80 border-b border-charcoal/30 pb-1 inline-block cursor-pointer hover:text-champagne hover:border-champagne transition-colors">
-                    Explore Categories &rarr;
+                
+                <!-- Dynamic Category Filter Tabs -->
+                <div class="flex flex-wrap items-center gap-2" id="collection-tabs">
+                    <button type="button" class="category-pill active px-4 py-2 rounded-full text-xs font-inter uppercase tracking-widest transition-all duration-300 bg-plum text-ivory font-medium shadow-sm">All Surfaces</button>
+                    <button type="button" class="category-pill px-4 py-2 rounded-full text-xs font-inter uppercase tracking-widest transition-all duration-300 bg-stone/40 hover:bg-stone text-charcoal/80 border border-stone">Wood</button>
+                    <button type="button" class="category-pill px-4 py-2 rounded-full text-xs font-inter uppercase tracking-widest transition-all duration-300 bg-stone/40 hover:bg-stone text-charcoal/80 border border-stone">Stone</button>
+                    <button type="button" class="category-pill px-4 py-2 rounded-full text-xs font-inter uppercase tracking-widest transition-all duration-300 bg-stone/40 hover:bg-stone text-charcoal/80 border border-stone">Metals</button>
+                    <button type="button" class="category-pill px-4 py-2 rounded-full text-xs font-inter uppercase tracking-widest transition-all duration-300 bg-stone/40 hover:bg-stone text-charcoal/80 border border-stone">Acoustics</button>
                 </div>
             </div>
 
-            <div class="collections-grid h-auto md:h-[600px] gs-fade-up">
-                <!-- Natural Wood -->
-                <div class="relative rounded-[15px] overflow-hidden group col-span-2 row-span-2 h-[350px] md:h-full">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1000&q=80" alt="Wood Veneers" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+            <!-- Dynamic Collections Bento Grid -->
+            <div class="collections-grid h-auto md:h-[620px] gap-6 gs-fade-up">
+                
+                <!-- 01: Architectural Wood (Featured Large Bento Card: 2 Cols, 2 Rows) -->
+                <div class="collection-card relative rounded-[20px] overflow-hidden group col-span-2 row-span-2 h-[420px] md:h-full border border-stone hover:border-champagne shadow-sm hover:shadow-2xl hover:shadow-plum/10 transition-all duration-500 ease-out" data-category="wood">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80" alt="Architectural Wood Veneers" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-plum/95 via-plum/40 to-transparent"></div>
+                    
+                    <!-- Floating Meta Tags -->
+                    <div class="absolute top-6 left-6 right-6 flex justify-between items-center z-10">
+                        <span class="bg-plum/80 backdrop-blur-md text-ivory text-[0.65rem] font-inter uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full border border-champagne/30">
+                            01 &bull; Timber
+                        </span>
+                        <span class="bg-champagne/90 text-plum text-[0.7rem] font-inter uppercase tracking-wider px-3 py-1 rounded-full font-semibold shadow-md">
+                            48 Finishes
+                        </span>
+                    </div>
+
+                    <!-- Bottom Details -->
+                    <div class="absolute bottom-8 left-8 right-8 z-10">
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="text-[0.65rem] font-inter px-2.5 py-0.5 rounded-full bg-white/10 text-ivory/80 backdrop-blur-sm">Natural Oak</span>
+                            <span class="text-[0.65rem] font-inter px-2.5 py-0.5 rounded-full bg-white/10 text-ivory/80 backdrop-blur-sm">Fluted Solid</span>
+                            <span class="text-[0.65rem] font-inter px-2.5 py-0.5 rounded-full bg-white/10 text-ivory/80 backdrop-blur-sm">Smoked Walnut</span>
+                        </div>
+                        <h3 class="font-manrope text-3xl md:text-4xl text-ivory mb-3 font-light tracking-tight group-hover:text-champagne transition-colors duration-300">
+                            Architectural Wood
+                        </h3>
+                        <p class="font-inter text-sm text-ivory/80 font-light max-w-md leading-relaxed mb-6">
+                            Hand-graded reconstituted and natural veneers, fluted acoustic paneling, and tactile laminates designed for spatial harmony.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs font-inter uppercase tracking-[0.2em] text-champagne font-medium">
+                            <span>Explore Wood Archive</span> &rarr;
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 02: Stone & Minerals (Top-Right Bento Card 1) -->
+                <div class="collection-card relative rounded-[20px] overflow-hidden group h-[260px] md:h-full col-span-2 md:col-span-1 md:row-span-1 border border-stone hover:border-champagne shadow-sm hover:shadow-2xl hover:shadow-plum/10 transition-all duration-500 ease-out" data-category="stone">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1000&q=80" alt="Stone & Mineral Surfaces" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-plum/90 via-plum/30 to-transparent"></div>
-                    <div class="absolute bottom-8 left-8 right-8">
-                        <h3 class="font-manrope text-3xl text-ivory mb-3 font-light">Architectural Wood</h3>
-                        <p class="font-inter text-sm text-ivory/80 font-light max-w-sm">Premium veneers, solid wood fluted panels, and durable laminates designed for spatial harmony.</p>
+                    
+                    <div class="absolute top-4 left-4 z-10">
+                        <span class="bg-plum/80 backdrop-blur-md text-ivory text-[0.65rem] font-inter uppercase tracking-[0.2em] px-3 py-1 rounded-full border border-champagne/30">
+                            02 &bull; Stone
+                        </span>
+                    </div>
+
+                    <div class="absolute bottom-5 left-5 right-5 z-10">
+                        <span class="text-[0.65rem] font-inter text-champagne uppercase tracking-widest block mb-1">Travertine &bull; Quartzite</span>
+                        <h3 class="font-manrope text-xl text-ivory font-light group-hover:text-champagne transition-colors duration-300">
+                            Stone & Minerals
+                        </h3>
                     </div>
                 </div>
 
-                <!-- Stone & Minerals -->
-                <div class="relative rounded-[15px] overflow-hidden group h-[250px] md:h-full col-span-2 md:col-span-1 md:row-span-1">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1000&q=80" alt="Stone Surfaces" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-plum/20 group-hover:bg-plum/40 transition-colors duration-500"></div>
-                    <div class="absolute bottom-6 left-6">
-                        <h3 class="font-manrope text-xl text-ivory font-light">Stone & Minerals</h3>
+                <!-- 03: Metals & Foils (Top-Right Bento Card 2) -->
+                <div class="collection-card relative rounded-[20px] overflow-hidden group h-[260px] md:h-full col-span-2 md:col-span-1 md:row-span-1 border border-stone hover:border-champagne shadow-sm hover:shadow-2xl hover:shadow-plum/10 transition-all duration-500 ease-out" data-category="metals">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1000&q=80" alt="Architectural Metals & Foils" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-plum/90 via-plum/30 to-transparent"></div>
+                    
+                    <div class="absolute top-4 left-4 z-10">
+                        <span class="bg-plum/80 backdrop-blur-md text-ivory text-[0.65rem] font-inter uppercase tracking-[0.2em] px-3 py-1 rounded-full border border-champagne/30">
+                            03 &bull; Metal
+                        </span>
+                    </div>
+
+                    <div class="absolute bottom-5 left-5 right-5 z-10">
+                        <span class="text-[0.65rem] font-inter text-champagne uppercase tracking-widest block mb-1">Champagne &bull; Bronze &bull; Copper</span>
+                        <h3 class="font-manrope text-xl text-ivory font-light group-hover:text-champagne transition-colors duration-300">
+                            Metals & Foils
+                        </h3>
                     </div>
                 </div>
 
-                <!-- Metals & Foils -->
-                <div class="relative rounded-[15px] overflow-hidden group h-[250px] md:h-full col-span-2 md:col-span-1 md:row-span-1">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=1000&q=80" alt="Architectural Metals" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-plum/20 group-hover:bg-plum/40 transition-colors duration-500"></div>
-                    <div class="absolute bottom-6 left-6">
-                        <h3 class="font-manrope text-xl text-ivory font-light">Metals & Foils</h3>
+                <!-- 04: Acoustic Solutions (Bottom-Right Wide Bento Card) -->
+                <div class="collection-card relative rounded-[20px] overflow-hidden group h-[280px] md:h-full col-span-2 row-span-1 p-7 md:p-8 flex flex-col justify-between border border-stone hover:border-champagne shadow-sm hover:shadow-2xl hover:shadow-plum/10 transition-all duration-500 ease-out" data-category="acoustics">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80" alt="Acoustic Architectural Solutions" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-r from-espresso/95 via-espresso/80 to-espresso/60"></div>
+
+                    <div class="relative z-10 flex justify-between items-start">
+                        <div>
+                            <span class="bg-plum/80 backdrop-blur-md text-ivory text-[0.65rem] font-inter uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full border border-champagne/30 inline-block mb-3">
+                                04 &bull; Engineering
+                            </span>
+                            <h3 class="font-manrope text-2xl md:text-3xl text-ivory mb-2 font-light group-hover:text-champagne transition-colors duration-300">
+                                Acoustic Solutions
+                            </h3>
+                            <p class="font-inter text-sm text-ivory/80 font-light max-w-sm leading-relaxed">
+                                Senses Akustik engineering and sound-dampening panels calibrated for high-performance spatial serenity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 flex justify-between items-end pt-4 border-t border-champagne/20">
+                        <div class="flex items-center gap-2 text-xs font-inter uppercase tracking-[0.2em] text-champagne font-medium">
+                            <span>Senses Akustik Specs</span>
+                        </div>
+                        <span class="w-10 h-10 rounded-full border border-champagne/50 flex items-center justify-center text-champagne group-hover:bg-champagne group-hover:text-plum transition-all duration-300">&rarr;</span>
                     </div>
                 </div>
 
-                <!-- Acoustic Solutions -->
-                <div class="relative rounded-[15px] overflow-hidden group h-[250px] md:h-full col-span-2 row-span-1 p-8 flex flex-col justify-between shadow-sm">
-                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1000&q=80" alt="Acoustic Solutions" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-espresso/85 group-hover:bg-espresso/75 transition-colors duration-500"></div>
-                    <div class="relative z-10">
-                        <h3 class="font-manrope text-2xl text-ivory mb-2 font-light">Acoustic Solutions</h3>
-                        <p class="font-inter text-sm text-ivory/80 font-light">Senses Akustik and advanced sound-dampening panels.</p>
-                    </div>
-                    <div class="relative z-10 flex justify-end">
-                         <span class="w-10 h-10 rounded-full border border-champagne/50 flex items-center justify-center text-champagne group-hover:bg-champagne group-hover:text-plum transition-all duration-300">&rarr;</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

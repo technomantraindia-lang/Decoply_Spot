@@ -159,6 +159,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 pill.classList.add('bg-champagne', 'text-plum', 'font-medium', 'shadow-sm');
             });
         });
+
+        // 7. Interactive Category Filter Tabs
+        const catTabs = document.querySelectorAll('.category-pill');
+        const cards = document.querySelectorAll('.collection-card');
+        catTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                catTabs.forEach(t => {
+                    t.classList.remove('bg-plum', 'text-ivory', 'font-medium', 'shadow-sm');
+                    t.classList.add('bg-stone/40', 'text-charcoal/80', 'border', 'border-stone');
+                });
+                tab.classList.remove('bg-stone/40', 'text-charcoal/80', 'border', 'border-stone');
+                tab.classList.add('bg-plum', 'text-ivory', 'font-medium', 'shadow-sm');
+
+                const filter = tab.textContent.trim().toLowerCase();
+                cards.forEach(card => {
+                    const cat = card.getAttribute('data-category');
+                    if (filter.includes('all') || filter.includes(cat)) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    } else {
+                        card.style.opacity = '0.45';
+                        card.style.transform = 'scale(0.98)';
+                    }
+                });
+            });
+        });
     }
 });
 
