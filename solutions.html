@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#F4F0E9]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architectural Solutions | The Deco House</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400;500&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#F4F0E9',
+                        plum: '#241923',
+                        espresso: '#34252F',
+                        champagne: '#B4A17A',
+                        taupe: '#A79A8B',
+                        stone: '#D0C5B7',
+                        charcoal: '#37332F'
+                    },
+                    fontFamily: {
+                        manrope: ['Manrope', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Advanced Custom Styles -->
+    <style>
+        /* Lenis Smooth Scrolling */
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
+        
+        body {
+            background-color: #F4F0E9;
+            color: #37332F;
+            overflow-x: hidden;
+        }
+
+        /* Strict 15px Border Radius Rule */
+        .radius-strict { border-radius: 15px !important; }
+
+        /* Unified Glassmorphism */
+        .glass-nav {
+            background: rgba(244, 240, 233, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(180, 161, 122, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(36, 25, 35, 0.08);
+        }
+
+        .glass-heavy {
+            background: rgba(244, 240, 233, 0.72);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(36, 25, 35, 0.08);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+        }
+        
+        .glass-plum {
+            background: rgba(36, 25, 35, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(180, 161, 122, 0.2);
+            border-radius: 15px;
+        }
+
+        /* Selection styling */
+        ::selection {
+            background: #B4A17A;
+            color: #F4F0E9;
+        }
+
+        /* Spotlight Reveal Styles */
+        .spotlight-reveal {
+            clip-path: circle(0px at 50% 50%);
+            transition: clip-path 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .spotlight-container.active .spotlight-reveal {
+            transition: none;
+        }
+
+        /* Drafting Grid Pattern */
+        .drafting-grid {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(244, 240, 233, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(244, 240, 233, 0.05) 1px, transparent 1px);
+        }
+        
+        /* Tabs Active State */
+        .matrix-tab.active-tab {
+            color: #241923;
+            border-left-color: #B4A17A;
+            padding-left: 2rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="font-inter antialiased selection:bg-champagne selection:text-ivory">
+
+    <!-- 1. Unified Fixed Header -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass-nav px-8 py-3.5 rounded-full">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="the_deco_house_logo_transparent.png" alt="The Deco House | Surfaces, Materials, Solutions" class="h-10 md:h-12 w-auto object-contain">
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-inter text-xs text-plum uppercase tracking-[0.15em] font-medium">
+                <a href="surfaces.html" class="hover:text-champagne transition-colors duration-300">Surfaces</a>
+                <a href="about.html" class="hover:text-champagne transition-colors duration-300">About</a>
+                <a href="materials.html" class="hover:text-champagne transition-colors duration-300">Materials</a>
+                <a href="projects.html" class="hover:text-champagne transition-colors duration-300">Projects</a>
+                <a href="solutions.html" class="text-champagne border-b border-champagne pb-0.5 font-semibold">Solutions</a>
+                <a href="index.html#contact" class="hover:text-champagne transition-colors duration-300">Contact</a>
+            </nav>
+            <div class="hidden md:flex items-center">
+                <a href="index.html#contact" class="px-5 py-2.5 rounded-full bg-plum text-ivory text-xs uppercase tracking-[0.2em] hover:bg-champagne hover:text-plum transition-all duration-300 font-medium">
+                    Consultation
+                </a>
+            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-toggle" aria-label="Toggle navigation menu" class="md:hidden text-plum flex flex-col gap-1.5 p-2 focus:outline-none">
+                <span class="w-6 h-[1.5px] bg-plum transition-transform"></span>
+                <span class="w-4 h-[1.5px] bg-plum transition-opacity ml-auto"></span>
+                <span class="w-6 h-[1.5px] bg-plum transition-transform"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 top-[72px] bg-ivory/95 backdrop-blur-lg z-40 flex flex-col px-8 py-10 gap-6 md:hidden transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-4">
+        <a href="surfaces.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Surfaces</a>
+        <a href="about.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">About</a>
+        <a href="materials.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Materials</a>
+        <a href="projects.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Projects</a>
+        <a href="solutions.html" class="mobile-nav-link text-champagne font-medium text-lg uppercase tracking-widest">Solutions</a>
+        <a href="index.html#contact" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Contact</a>
+        <div class="mt-auto pt-6 border-t border-champagne/30">
+            <a href="index.html#contact" class="w-full inline-block text-center py-3.5 rounded-full bg-plum text-ivory text-xs uppercase tracking-widest font-medium">
+                Book Consultation
+            </a>
+        </div>
+    </div>
+
+    <!-- 2. Split-Screen Pinned Hero -->
+    <section class="relative min-h-[200vh] flex flex-col lg:flex-row px-6 md:px-12 pt-36 pb-32 max-w-[1400px] mx-auto gap-12 lg:gap-0">
+        
+        <!-- Left Sticky Content -->
+        <div class="w-full lg:w-1/2 lg:h-screen lg:sticky top-0 flex flex-col justify-center pb-16 lg:pb-0 z-10 gs-fade-up">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-md border border-champagne/40 mb-6 w-fit">
+                <span class="w-2 h-2 rounded-full bg-champagne animate-pulse"></span>
+                <span class="text-champagne font-inter text-[0.65rem] uppercase tracking-[0.25em] font-medium">Execution &amp; Engineering</span>
+            </div>
+            <h1 class="font-manrope font-light text-5xl md:text-7xl xl:text-[5.5rem] leading-[0.95] tracking-tight text-plum mb-6">
+                Architectural <br>
+                <span class="italic font-cormorant text-champagne">Solutions.</span>
+            </h1>
+            <p class="font-inter text-charcoal/80 text-lg font-light max-w-md leading-relaxed mb-8">
+                From specification to execution. We move beyond material supply, offering comprehensive engineering, custom milling, and acoustic strategies for ambitious architectural projects.
+            </p>
+            <div class="flex items-center gap-4">
+                <a href="index.html#contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-plum text-ivory text-xs uppercase tracking-widest hover:bg-champagne hover:text-plum transition-all duration-300 font-medium shadow-lg hover:-translate-y-0.5">
+                    <span>Initiate Project Spec</span> &rarr;
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Scrolling Cards -->
+        <div class="w-full lg:w-1/2 flex flex-col gap-12 lg:pt-[20vh] z-0">
+            <!-- Card 1 -->
+            <div class="w-full h-[60vh] md:h-[70vh] radius-strict overflow-hidden shadow-2xl border border-plum/10 relative group gs-scroll-card">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=1200" alt="Bespoke Millwork" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-plum/85 via-plum/30 to-transparent"></div>
+                <div class="absolute bottom-8 left-8 right-8">
+                    <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-2 font-medium">Capability 01</span>
+                    <h3 class="font-manrope text-3xl text-ivory font-light mb-1">Custom Millwork</h3>
+                    <p class="font-inter text-xs text-ivory/70 font-light">Sub-millimeter CNC joinery and bookmatched veneers.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="w-full h-[60vh] md:h-[70vh] radius-strict overflow-hidden shadow-2xl border border-plum/10 relative group gs-scroll-card">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=1200" alt="Acoustic Baffles" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-plum/85 via-plum/30 to-transparent"></div>
+                <div class="absolute bottom-8 left-8 right-8">
+                    <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-2 font-medium">Capability 02</span>
+                    <h3 class="font-manrope text-3xl text-ivory font-light mb-1">Acoustic Engineering</h3>
+                    <p class="font-inter text-xs text-ivory/70 font-light">Senses Akustik fluted systems achieving 0.85 NRC rating.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="w-full h-[60vh] md:h-[70vh] radius-strict overflow-hidden shadow-2xl border border-plum/10 relative group gs-scroll-card">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&q=80&w=1200" alt="Volume Procurement" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-plum/85 via-plum/30 to-transparent"></div>
+                <div class="absolute bottom-8 left-8 right-8">
+                    <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-2 font-medium">Capability 03</span>
+                    <h3 class="font-manrope text-3xl text-ivory font-light mb-1">Volume Procurement</h3>
+                    <p class="font-inter text-xs text-ivory/70 font-light">Direct European quarry and mill procurement with lot-matching.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 3. Interactive Solutions Matrix (Tabs) -->
+    <section class="py-32 px-6 md:px-12 bg-stone/40 relative z-20 border-y border-champagne/25">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-24">
+            
+            <!-- Left: Tab Navigation -->
+            <div class="w-full md:w-1/3 flex flex-col justify-center gap-6 gs-fade-up">
+                <span class="text-xs font-inter uppercase tracking-[0.25em] text-champagne font-medium mb-2 block">Our Expertise Matrix</span>
+                
+                <button class="matrix-tab active-tab text-left font-manrope text-2xl lg:text-3xl text-plum/50 font-light border-l-2 border-transparent pl-4 py-2 transition-all duration-300 hover:text-plum" data-target="acoustic">
+                    Acoustic Engineering
+                </button>
+                <button class="matrix-tab text-left font-manrope text-2xl lg:text-3xl text-plum/50 font-light border-l-2 border-transparent pl-4 py-2 transition-all duration-300 hover:text-plum" data-target="millwork">
+                    Bespoke Millwork
+                </button>
+                <button class="matrix-tab text-left font-manrope text-2xl lg:text-3xl text-plum/50 font-light border-l-2 border-transparent pl-4 py-2 transition-all duration-300 hover:text-plum" data-target="procurement">
+                    Volume Procurement
+                </button>
+                <button class="matrix-tab text-left font-manrope text-2xl lg:text-3xl text-plum/50 font-light border-l-2 border-transparent pl-4 py-2 transition-all duration-300 hover:text-plum" data-target="facades">
+                    Turnkey Facades
+                </button>
+            </div>
+
+            <!-- Right: Dynamic Glass Content Area -->
+            <div class="w-full md:w-2/3 h-[520px] lg:h-[600px] relative gs-fade-up">
+                <div class="absolute inset-0 glass-heavy radius-strict overflow-hidden shadow-xl p-3 flex flex-col border border-champagne/30">
+                    
+                    <!-- Image Wrapper -->
+                    <div class="w-full h-3/5 radius-strict overflow-hidden relative">
+                        <img id="matrix-image" src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=1200" alt="Acoustic Solution" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-plum/20"></div>
+                    </div>
+                    
+                    <!-- Text Content Wrapper -->
+                    <div id="matrix-content" class="flex-grow p-8 flex flex-col justify-center bg-ivory/60 radius-strict mt-3 border border-champagne/20">
+                        <span class="text-[0.65rem] uppercase tracking-widest text-champagne mb-2 font-medium" id="matrix-subtitle">Senses Akustik</span>
+                        <h3 class="font-manrope text-3xl text-plum font-light mb-3" id="matrix-title">Sound Calibration</h3>
+                        <p class="font-inter text-sm text-charcoal/80 font-light leading-relaxed max-w-lg" id="matrix-desc">
+                            Integrating high-performance sound absorption seamlessly into architectural timber. We engineer NRC-rated panels that preserve the monolithic aesthetic of open-plan spaces.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. Before & After Scrubber (Interactive) -->
+    <section class="py-32 px-6 md:px-12 bg-ivory relative z-20">
+        <div class="max-w-6xl mx-auto gs-fade-up">
+            <div class="text-center mb-16">
+                <span class="text-xs font-inter uppercase tracking-[0.25em] text-champagne font-medium mb-3 block">Before &amp; After Scrubber</span>
+                <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">The Deco House Effect</h2>
+                <p class="font-inter text-sm text-charcoal/70 max-w-md mx-auto mt-4 font-light">Drag or move your cursor across the frame to reveal how specified materials transform a raw architectural volume into an enduring, tactile space.</p>
+            </div>
+
+            <!-- Scrubber Container -->
+            <div class="scrubber-container relative w-full h-[50vh] md:h-[70vh] radius-strict overflow-hidden shadow-2xl cursor-ew-resize border border-champagne/40 bg-stone/30 select-none">
+                
+                <!-- Background Image (After / Finished Space) -->
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1600" alt="Finished Space" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+                
+                <div class="absolute top-6 right-6 glass-heavy px-4 py-2 text-xs uppercase tracking-widest text-plum radius-strict pointer-events-none border border-champagne/30">
+                    Finished Reality
+                </div>
+
+                <!-- Foreground Image (Before / Raw Space) mapped with clip-path -->
+                <div class="scrubber-before absolute inset-0 w-full h-full pointer-events-none" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1600" alt="Raw Space" class="absolute inset-0 w-full h-full object-cover grayscale opacity-90 contrast-125">
+                    <div class="absolute top-6 left-6 glass-heavy px-4 py-2 text-xs uppercase tracking-widest text-plum radius-strict shadow-sm border border-champagne/30">
+                        Raw Architectural Volume
+                    </div>
+                </div>
+
+                <!-- Divider Line & Handle -->
+                <div class="scrubber-handle absolute top-0 bottom-0 w-[2px] bg-ivory z-10 shadow-[0_0_15px_rgba(0,0,0,0.5)] pointer-events-none" style="left: 50%;">
+                    <!-- Handle Knob -->
+                    <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-champagne radius-strict shadow-lg border-2 border-ivory flex items-center justify-center">
+                        <svg class="w-5 h-5 text-ivory" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l-4 4 4 4m8-8l4 4-4 4"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.1 Hover Spotlight Reveal (Interactive) -->
+    <section class="py-24 px-6 md:px-12 bg-stone/20 relative z-20 border-t border-champagne/20">
+        <div class="max-w-6xl mx-auto gs-fade-up">
+            <div class="text-center mb-16">
+                <span class="text-xs font-inter uppercase tracking-[0.25em] text-champagne font-medium mb-3 block">Tactile Spotlight</span>
+                <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">Interactive Material Reveal</h2>
+                <p class="font-inter text-sm text-charcoal/70 max-w-md mx-auto mt-4 font-light">Hover anywhere over the raw framework to illuminate the tactile richness of the completed room in real-time.</p>
+            </div>
+
+            <!-- Spotlight Container -->
+            <div class="spotlight-container relative w-full h-[50vh] md:h-[70vh] radius-strict overflow-hidden shadow-2xl border border-champagne/40 bg-plum cursor-crosshair">
+                
+                <!-- Background Image (Before / Raw Space) -->
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1600" alt="Raw Space" class="absolute inset-0 w-full h-full object-cover grayscale opacity-50 contrast-125">
+                <div class="absolute top-6 left-6 glass-heavy px-4 py-2 text-xs uppercase tracking-widest text-plum radius-strict pointer-events-none border border-champagne/30">Raw Substructure</div>
+
+                <!-- Foreground Image (After / Finished Space) with Spotlight Mask -->
+                <div class="spotlight-reveal absolute inset-0 w-full h-full pointer-events-none">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1600" alt="Finished Space" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute top-6 right-6 glass-heavy px-4 py-2 text-xs uppercase tracking-widest text-plum radius-strict pointer-events-none shadow-lg border-champagne/30">Cured Curation</div>
+                </div>
+                
+                <!-- Initial Helper Text (Fades on hover) -->
+                <div class="spotlight-helper absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none transition-opacity duration-300">
+                    <div class="w-12 h-12 rounded-full border-2 border-champagne/60 bg-plum/60 backdrop-blur-md flex items-center justify-center animate-pulse mb-3">
+                        <svg class="w-5 h-5 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-ivory/90 bg-plum/70 px-4 py-1.5 rounded-full border border-champagne/30">Hover to Reveal</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Split-Screen Sticky Stacking Methodology -->
+    <section class="bg-plum relative z-20 drafting-grid py-28">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row relative">
+            
+            <!-- Left: Sticky Title Side -->
+            <div class="w-full md:w-2/5 md:sticky top-0 h-auto md:h-screen flex flex-col justify-center pt-12 pb-12 md:py-0 z-10 gs-fade-up">
+                <span class="text-xs font-inter uppercase tracking-[0.25em] text-champagne mb-4 block font-medium">The Methodology</span>
+                <h2 class="font-manrope text-5xl lg:text-7xl text-ivory font-light mb-6">Rigorous.<br><span class="text-champagne font-cormorant italic">Execution.</span></h2>
+                <p class="font-inter text-ivory/60 text-sm max-w-sm font-light leading-relaxed">
+                    A phase-driven architecture from initial blueprint analysis to final on-site installation, ensuring zero-defect realization of your design intent.
+                </p>
+                <div class="mt-8">
+                    <a href="index.html#contact" class="inline-flex items-center gap-2 text-xs font-inter uppercase tracking-widest text-champagne border-b border-champagne/60 pb-1 hover:text-ivory transition-colors">
+                        <span>Review Project Specifications</span> &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Stacking Cards -->
+            <div class="w-full md:w-3/5 flex flex-col pb-32 pt-12 md:pt-[20vh] relative z-20">
+                
+                <!-- Card 1 -->
+                <div class="sticky top-[15vh] w-full mb-12 gs-stack-card">
+                    <div class="glass-plum p-8 md:p-12 radius-strict shadow-2xl w-full border border-champagne/30 flex flex-col gap-6">
+                        <div class="flex justify-between items-start">
+                            <span class="font-manrope text-5xl text-champagne/40 font-light">01</span>
+                            <div class="w-12 h-12 radius-strict border border-champagne/30 bg-plum/60 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-manrope text-3xl text-ivory font-light mb-3">Consultation &amp; Vision</h4>
+                            <p class="font-inter text-sm text-ivory/70 font-light leading-relaxed">We begin by deeply analyzing architectural blueprints, understanding spatial intent, lux levels, reverberation metrics, and specific environmental requirements to formulate a comprehensive material strategy.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="sticky top-[22vh] w-full mb-12 gs-stack-card">
+                    <div class="glass-plum p-8 md:p-12 radius-strict shadow-2xl w-full border border-champagne/30 flex flex-col gap-6">
+                        <div class="flex justify-between items-start">
+                            <span class="font-manrope text-5xl text-champagne/40 font-light">02</span>
+                            <div class="w-12 h-12 radius-strict border border-champagne/30 bg-plum/60 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-manrope text-3xl text-ivory font-light mb-3">Material Specification</h4>
+                            <p class="font-inter text-sm text-ivory/70 font-light leading-relaxed">Drawing from our curated archive of Fenix, Valchromat, Alpi, and Senses Akustik, we compile precise material schedules. We account for critical details including millwork expansion tolerances, fire ratings, and sustainability codes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="sticky top-[29vh] w-full mb-12 gs-stack-card">
+                    <div class="glass-plum p-8 md:p-12 radius-strict shadow-2xl w-full border border-champagne/30 flex flex-col gap-6">
+                        <div class="flex justify-between items-start">
+                            <span class="font-manrope text-5xl text-champagne/40 font-light">03</span>
+                            <div class="w-12 h-12 radius-strict border border-champagne/30 bg-plum/60 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-manrope text-3xl text-ivory font-light mb-3">Custom Fabrication</h4>
+                            <p class="font-inter text-sm text-ivory/70 font-light leading-relaxed">Materials are precision-milled, pressed, and acoustically treated to exact CAD/BIM specifications by our specialized fabrication partners. This off-site preparation guarantees unparalleled quality control.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="sticky top-[36vh] w-full gs-stack-card pb-12">
+                    <div class="glass-plum p-8 md:p-12 radius-strict shadow-2xl w-full border border-champagne/30 flex flex-col gap-6">
+                        <div class="flex justify-between items-start">
+                            <span class="font-manrope text-5xl text-champagne/40 font-light">04</span>
+                            <div class="w-12 h-12 radius-strict border border-champagne/30 bg-plum/60 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-manrope text-3xl text-ivory font-light mb-3">Phased Delivery &amp; Site Support</h4>
+                            <p class="font-inter text-sm text-ivory/70 font-light leading-relaxed">We orchestrate the logistics of large-scale procurement, delivering finished panels and architectural components directly to site, aligned seamlessly with construction staging.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Standardized Footer -->
+    <footer class="bg-plum pt-24 pb-12 px-6 md:px-12 text-ivory relative z-40 border-t border-champagne/20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gs-fade-up pb-16 border-b border-ivory/15 gap-8">
+            <div>
+                <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-2 block font-medium">Initiate A Project</span>
+                <h2 class="font-manrope text-3xl md:text-5xl font-light">
+                    Ready to engineer <br><span class="text-champagne italic font-cormorant">your vision?</span>
+                </h2>
+            </div>
+            <a href="index.html#contact" class="px-8 py-4 rounded-full bg-champagne text-plum font-inter text-xs uppercase tracking-[0.2em] hover:bg-ivory transition-colors duration-300 shadow-xl whitespace-nowrap font-medium">
+                Schedule Studio Consultation
+            </a>
+        </div>
+
+        <div class="max-w-7xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-12 gap-12 gs-fade-up">
+            <div class="md:col-span-4">
+                <a href="index.html" class="inline-block mb-6">
+                    <img loading="lazy" decoding="async" src="assets/the_deco_house_logo_dark.png" alt="The Deco House | Surfaces, Materials, Solutions" class="h-11 md:h-14 w-auto object-contain">
+                </a>
+                <p class="text-ivory/70 text-sm font-light leading-relaxed max-w-sm mb-6">
+                    A curated architectural surface destination bridging global artisanal material manufacturers with visionary architects and developers.
+                </p>
+                <div class="text-xs text-champagne uppercase tracking-widest font-mono">
+                    28.6139° N, 77.2090° E &bull; New Delhi
+                </div>
+            </div>
+            
+            <div class="md:col-span-2 md:col-start-6">
+                <h4 class="text-champagne text-xs uppercase tracking-widest mb-6 font-medium">Directory</h4>
+                <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                    <li><a href="surfaces.html" class="hover:text-champagne transition-colors">Surfaces</a></li>
+                    <li><a href="about.html" class="hover:text-champagne transition-colors">About Us</a></li>
+                    <li><a href="materials.html" class="hover:text-champagne transition-colors">Materials</a></li>
+                    <li><a href="projects.html" class="hover:text-champagne transition-colors">Projects</a></li>
+                    <li><a href="solutions.html" class="hover:text-champagne transition-colors text-champagne">Solutions</a></li>
+                    <li><a href="index.html#contact" class="hover:text-champagne transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-2">
+                <h4 class="text-champagne text-xs uppercase tracking-widest mb-6 font-medium">Connect</h4>
+                <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-champagne transition-colors">Instagram</a></li>
+                    <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-champagne transition-colors">LinkedIn</a></li>
+                    <li><a href="index.html#contact" class="hover:text-champagne transition-colors">Studio Inquiries</a></li>
+                    <li><a href="index.html#contact" class="hover:text-champagne transition-colors">Sample Requests</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-3">
+                <h4 class="text-champagne text-xs uppercase tracking-widest mb-6 font-medium">Studio Inquiries</h4>
+                <p class="text-ivory/70 text-sm font-light leading-relaxed mb-4">
+                    Direct access for architects and interior designers requiring certified test data and rapid sampling.
+                </p>
+                <a href="mailto:info@thedecohouse.com" class="text-champagne text-sm hover:underline font-light">info@thedecohouse.com</a>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-ivory/15 flex flex-col md:flex-row justify-between items-center gap-4 text-[0.65rem] font-inter text-ivory/50 uppercase tracking-widest gs-fade-up">
+            <p>&copy; 2026 THE DECO HOUSE. ALL RIGHTS RESERVED.</p>
+            <div class="flex gap-6">
+                <span>NEW DELHI</span>
+                <span>&bull;</span>
+                <span>GURUGRAM</span>
+                <span>&bull;</span>
+                <span>MUMBAI</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. Mobile Menu Toggle ---
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            let isMenuOpen = false;
+
+            if (mobileToggle && mobileMenu) {
+                mobileToggle.addEventListener('click', () => {
+                    isMenuOpen = !isMenuOpen;
+                    if (isMenuOpen) {
+                        mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+                        mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                    } else {
+                        mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+                        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                    }
+                });
+
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        isMenuOpen = false;
+                        mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+                        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                    });
+                });
+            }
+
+            // --- 2. Lenis Smooth Scrolling Setup (GSAP Ticker Synced) ---
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 0.85
+            });
+
+            // Exclusively sync Lenis via GSAP ticker to eliminate double-render jitter
+            gsap.registerPlugin(ScrollTrigger);
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+
+            // --- 3. Global Entrance Animations ---
+            gsap.utils.toArray('.gs-fade-up').forEach(element => {
+                gsap.fromTo(element, 
+                    { y: 35, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 1.1, ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 88%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+
+            // Card stagger animation for right side of hero
+            gsap.utils.toArray('.gs-scroll-card').forEach(card => {
+                gsap.fromTo(card,
+                    { y: 70, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 90%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+
+            // --- 4. Interactive Solutions Matrix (Tabs) ---
+            const tabData = {
+                'acoustic': {
+                    img: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=1200',
+                    subtitle: 'Senses Akustik',
+                    title: 'Sound Calibration',
+                    desc: 'Integrating high-performance sound absorption seamlessly into architectural timber. We engineer NRC-rated panels that preserve the monolithic aesthetic of open-plan spaces.'
+                },
+                'millwork': {
+                    img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200',
+                    subtitle: 'Mikasa & Alpi',
+                    title: 'Bespoke Millwork',
+                    desc: 'Precision-milled cabinetry and panelling using flawless reconstituted veneers. We supply processed components ready for seamless site integration, ensuring zero natural defects.'
+                },
+                'procurement': {
+                    img: 'https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&q=80&w=1200',
+                    subtitle: 'Global Supply',
+                    title: 'Volume Procurement',
+                    desc: 'Value-engineering without aesthetic compromise for large-scale developments. We manage bulk lot-matching, timeline logistics, and direct mill-to-site delivery.'
+                },
+                'facades': {
+                    img: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200',
+                    subtitle: 'Exterior Grade',
+                    title: 'Turnkey Facades',
+                    desc: 'Weather-resistant, UV-stable architectural panels. We provide full substructure engineering and cutting schedules to envelop exteriors in uncompromising tactile surfaces.'
+                }
+            };
+
+            const tabs = document.querySelectorAll('.matrix-tab');
+            const mImage = document.getElementById('matrix-image');
+            const mSubtitle = document.getElementById('matrix-subtitle');
+            const mTitle = document.getElementById('matrix-title');
+            const mDesc = document.getElementById('matrix-desc');
+            const mContentWrap = document.getElementById('matrix-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    if (tab.classList.contains('active-tab')) return;
+
+                    // Update Tab Classes
+                    tabs.forEach(t => t.classList.remove('active-tab'));
+                    tab.classList.add('active-tab');
+
+                    const target = tab.getAttribute('data-target');
+                    const data = tabData[target];
+
+                    // GSAP Crossfade
+                    const tl = gsap.timeline();
+                    tl.to([mImage, mContentWrap], { opacity: 0, duration: 0.25, ease: 'power2.inOut' })
+                      .call(() => {
+                          mImage.src = data.img;
+                          mSubtitle.textContent = data.subtitle;
+                          mTitle.textContent = data.title;
+                          mDesc.textContent = data.desc;
+                      })
+                      .to([mImage, mContentWrap], { opacity: 1, duration: 0.35, ease: 'power2.out' });
+                });
+            });
+
+            // --- 5. Interactive Before & After Scrubber ---
+            const scrubberContainer = document.querySelector('.scrubber-container');
+            const scrubberBefore = document.querySelector('.scrubber-before');
+            const scrubberHandle = document.querySelector('.scrubber-handle');
+
+            if (scrubberContainer && scrubberBefore && scrubberHandle) {
+                let isDragging = false;
+
+                const updateScrubber = (clientX) => {
+                    const rect = scrubberContainer.getBoundingClientRect();
+                    let x = clientX - rect.left;
+                    let pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+                    scrubberBefore.style.clipPath = `polygon(0 0, ${pct}% 0, ${pct}% 100%, 0 100%)`;
+                    scrubberHandle.style.left = `${pct}%`;
+                };
+
+                scrubberContainer.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    updateScrubber(e.clientX);
+                });
+
+                window.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+
+                scrubberContainer.addEventListener('mousemove', (e) => {
+                    updateScrubber(e.clientX);
+                });
+
+                scrubberContainer.addEventListener('touchstart', (e) => {
+                    if (e.touches.length > 0) updateScrubber(e.touches[0].clientX);
+                }, { passive: true });
+
+                scrubberContainer.addEventListener('touchmove', (e) => {
+                    if (e.touches.length > 0) updateScrubber(e.touches[0].clientX);
+                }, { passive: true });
+            }
+
+            // --- 6. Hover Spotlight Reveal ---
+            const spotlightContainer = document.querySelector('.spotlight-container');
+            const spotlightReveal = document.querySelector('.spotlight-reveal');
+            const spotlightHelper = document.querySelector('.spotlight-helper');
+
+            if (spotlightContainer && spotlightReveal) {
+                const getRadius = () => (window.innerWidth < 768 ? '130px' : '230px');
+
+                spotlightContainer.addEventListener('mousemove', (e) => {
+                    const rect = spotlightContainer.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    spotlightReveal.style.clipPath = `circle(${getRadius()} at ${x}px ${y}px)`;
+                });
+
+                spotlightContainer.addEventListener('mouseenter', () => {
+                    spotlightContainer.classList.add('active');
+                    if (spotlightHelper) spotlightHelper.style.opacity = '0';
+                });
+
+                spotlightContainer.addEventListener('mouseleave', () => {
+                    spotlightContainer.classList.remove('active');
+                    spotlightReveal.style.clipPath = `circle(0px at 50% 50%)`;
+                    if (spotlightHelper) spotlightHelper.style.opacity = '1';
+                });
+            }
+
+            // --- 7. Stacking Methodology Animations ---
+            gsap.utils.toArray('.gs-stack-card').forEach(card => {
+                gsap.fromTo(card,
+                    { y: 50, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+
+        });
+    </script>
+</body>
+</html>
