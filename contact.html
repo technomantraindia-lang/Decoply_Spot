@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#F4F0E9]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact &bull; Studio &amp; Sample Inquiries | The Deco House</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400;500&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#F4F0E9',
+                        plum: '#241923',
+                        espresso: '#34252F',
+                        champagne: '#B4A17A',
+                        taupe: '#A79A8B',
+                        stone: '#D0C5B7',
+                        charcoal: '#37332F',
+                    },
+                    fontFamily: {
+                        manrope: ['Manrope', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Advanced Custom Styles -->
+    <style>
+        /* Lenis Smooth Scrolling */
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
+        
+        body {
+            background-color: #F4F0E9; /* Ivory */
+            color: #37332F; /* Soft Charcoal */
+            overflow-x: hidden;
+        }
+
+        /* Strict 15px Border Radius Rule */
+        .radius-strict { border-radius: 15px !important; }
+
+        /* Unified Glassmorphism */
+        .glass-nav {
+            background: rgba(244, 240, 233, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(180, 161, 122, 0.25);
+        }
+
+        .glass-heavy {
+            background: rgba(244, 240, 233, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(36, 25, 35, 0.08);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+        }
+
+        /* Form Inputs */
+        input, select, textarea {
+            background: rgba(244, 240, 233, 0.6);
+            border: 1px solid rgba(36, 25, 35, 0.15);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #B4A17A; /* Champagne Brass */
+            background: rgba(244, 240, 233, 0.95);
+            box-shadow: 0 0 0 4px rgba(180, 161, 122, 0.15);
+        }
+
+        /* Text Masking Wrappers */
+        .mask-wrap {
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        /* Parallax & Image Handling */
+        .parallax-wrapper {
+            overflow: hidden;
+            position: relative;
+            border-radius: 15px;
+        }
+        .parallax-img {
+            height: 140%;
+            width: 100%;
+            object-fit: cover;
+            will-change: transform;
+        }
+
+        /* Custom Selection */
+        ::selection {
+            background: #B4A17A;
+            color: #F4F0E9;
+        }
+    </style>
+</head>
+<body class="font-inter antialiased selection:bg-champagne selection:text-ivory">
+
+    <!-- Header / Navigation (Matches Home Page Identically) -->
+        <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav px-6 md:px-12 py-4 md:py-5 flex justify-between items-center transition-all duration-300 gs-reveal">
+        <a href="index.html" class="flex items-center transition-opacity duration-300 hover:opacity-80" aria-label="The Deco House">
+            <img src="the_deco_house_logo_transparent.png" alt="The Deco House | Surfaces, Materials, Solutions" class="h-10 md:h-12 w-auto object-contain">
+        </a>
+        <nav class="hidden md:flex gap-8 font-inter text-xs text-plum uppercase tracking-[0.15em] font-medium items-center">
+            <a href="surfaces.html" class="hover:text-champagne transition-colors duration-300">Surfaces</a>
+            <a href="about.html" class="hover:text-champagne transition-colors duration-300">About</a>
+            <a href="materials.html" class="hover:text-champagne transition-colors duration-300">Materials</a>
+            <a href="projects.html" class="hover:text-champagne transition-colors duration-300">Projects</a>
+            <a href="solutions.html" class="hover:text-champagne transition-colors duration-300">Solutions</a>
+            <a href="partners.html" class="hover:text-champagne transition-colors duration-300">Partners</a>
+            <a href="contact.html" class="text-champagne border-b border-champagne pb-0.5 font-semibold">Contact</a>
+        </nav>
+        <button id="mobile-menu-btn" class="md:hidden text-plum p-1 focus:outline-none" aria-label="Toggle navigation menu">
+            <svg id="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg id="close-icon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 top-[72px] bg-ivory/95 backdrop-blur-lg z-40 flex flex-col px-8 py-10 gap-6 md:hidden transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-4">
+        <a href="surfaces.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Surfaces</a>
+        <a href="about.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">About</a>
+        <a href="materials.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Materials</a>
+        <a href="projects.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Projects</a>
+        <a href="solutions.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Solutions</a>
+        <a href="partners.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Partners</a>
+        <a href="contact.html" class="mobile-nav-link text-champagne font-medium text-lg uppercase tracking-widest">Contact</a>
+    </div>
+
+    <!-- 1. Minimalist Hero -->
+    <section class="pt-48 pb-16 px-6 md:px-12 flex flex-col justify-center items-center text-center gs-fade-up">
+        <div class="max-w-5xl mx-auto w-full z-10">
+            <div class="text-champagne font-inter text-xs uppercase tracking-[0.4em] mb-6 overflow-hidden">
+                <span class="inline-block gs-hero-text translate-y-[110%] font-medium">Initiate Dialogue &bull; Studio Inquiries</span>
+            </div>
+            <h1 class="font-manrope font-light text-5xl md:text-7xl lg:text-[6.5rem] leading-[0.95] tracking-tight text-plum flex flex-col items-center">
+                <div class="mask-wrap"><span class="block gs-hero-text translate-y-[110%]">VISIT THE</span></div>
+                <div class="mask-wrap"><span class="block text-champagne gs-hero-text translate-y-[110%] italic font-cormorant">Archive.</span></div>
+            </h1>
+            <div class="mt-8 mask-wrap max-w-lg mx-auto">
+                <p class="font-inter text-charcoal/80 text-base font-light leading-relaxed gs-hero-text translate-y-[110%]">
+                    Schedule a bespoke consultation, request verified physical material sample boxes, or visit our curated architectural sanctuary.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Split-Screen Contact Block -->
+    <section class="py-24 px-6 md:px-12 bg-ivory relative z-10 border-t border-plum/10">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
+            
+            <!-- Left: Editorial Details -->
+            <div class="w-full lg:w-1/2 flex flex-col justify-center gap-12 gs-fade-up">
+                
+                <div>
+                    <h3 class="font-manrope text-xs uppercase tracking-[0.3em] text-champagne mb-4 font-medium">Flagship Design Sanctuary</h3>
+                    <p class="font-manrope text-2xl md:text-3xl text-plum font-light leading-tight">
+                        The Deco House Studio,<br>
+                        Architectural Design District,<br>
+                        New Delhi &bull; 110001
+                    </p>
+                    <div class="mt-4 flex items-center gap-4 text-xs font-inter uppercase tracking-widest text-plum">
+                        <span class="font-mono text-champagne">28.6139° N, 77.2090° E</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-plum/10 pt-8">
+                    <div>
+                        <h4 class="font-inter text-[0.65rem] uppercase tracking-widest text-plum/60 mb-2 font-medium">General Inquiries</h4>
+                        <a href="mailto:info@thedecohouse.com" class="font-manrope text-lg text-plum hover:text-champagne transition-colors">info@thedecohouse.com</a>
+                    </div>
+                    <div>
+                        <h4 class="font-inter text-[0.65rem] uppercase tracking-widest text-plum/60 mb-2 font-medium">Trade &bull; Specification</h4>
+                        <a href="mailto:trade@thedecohouse.com" class="font-manrope text-lg text-plum hover:text-champagne transition-colors">trade@thedecohouse.com</a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-plum/10 pt-8">
+                    <div>
+                        <h4 class="font-inter text-[0.65rem] uppercase tracking-widest text-plum/60 mb-2 font-medium">Studio Concierge</h4>
+                        <a href="tel:+911140000000" class="font-manrope text-lg text-plum hover:text-champagne transition-colors">+91 (011) 4000 0000</a>
+                    </div>
+                    <div>
+                        <h4 class="font-inter text-[0.65rem] uppercase tracking-widest text-plum/60 mb-2 font-medium">Hours &bull; Appointments</h4>
+                        <p class="font-manrope text-lg text-plum">Mon &ndash; Sat: 10am &ndash; 7pm<br><span class="text-sm text-charcoal/60">By Architectural Appointment</span></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right: Glassmorphic Form -->
+            <div class="w-full lg:w-1/2 gs-fade-up">
+                <div class="glass-heavy p-8 md:p-12 border border-champagne/30">
+                    <span class="text-xs font-inter uppercase tracking-[0.25em] text-champagne mb-2 block font-medium">Direct Specification</span>
+                    <h3 class="font-manrope text-3xl text-plum font-light mb-8">Initiate Consultation</h3>
+                    <form class="flex flex-col gap-6" onsubmit="event.preventDefault(); alert('Thank you for contacting The Deco House. Our architectural liaison will reach out shortly.');">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 gs-form-element opacity-0 translate-y-4">
+                            <div class="flex flex-col">
+                                <label class="font-inter text-[0.65rem] uppercase tracking-widest text-plum/70 mb-2 pl-2 font-medium">Full Name</label>
+                                <input type="text" required class="w-full px-5 py-4 text-sm font-manrope text-plum placeholder-plum/40" placeholder="Ar. Rajesh Verma">
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="font-inter text-[0.65rem] uppercase tracking-widest text-plum/70 mb-2 pl-2 font-medium">Email Address</label>
+                                <input type="email" required class="w-full px-5 py-4 text-sm font-manrope text-plum placeholder-plum/40" placeholder="rajesh@studio-arc.com">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gs-form-element opacity-0 translate-y-4">
+                            <label class="font-inter text-[0.65rem] uppercase tracking-widest text-plum/70 mb-2 pl-2 font-medium">Architecture Firm / Studio Name</label>
+                            <input type="text" class="w-full px-5 py-4 text-sm font-manrope text-plum placeholder-plum/40" placeholder="Studio Architecture Associates">
+                        </div>
+
+                        <div class="flex flex-col gs-form-element opacity-0 translate-y-4">
+                            <label class="font-inter text-[0.65rem] uppercase tracking-widest text-plum/70 mb-2 pl-2 font-medium">Inquiry Scope</label>
+                            <select class="w-full px-5 py-4 text-sm font-manrope text-plum appearance-none cursor-pointer">
+                                <option value="sample">Curated Material Sample Box Request</option>
+                                <option value="visit">Schedule Studio &amp; Archive Visit</option>
+                                <option value="consultation">Commercial Project Material Specification</option>
+                                <option value="custom">Custom Milling &amp; Acoustic Engineering</option>
+                                <option value="general">General Studio Dialogue</option>
+                            </select>
+                        </div>
+
+                        <div class="flex flex-col gs-form-element opacity-0 translate-y-4">
+                            <label class="font-inter text-[0.65rem] uppercase tracking-widest text-plum/70 mb-2 pl-2 font-medium">Project Brief &bull; Specific Materials</label>
+                            <textarea class="w-full px-5 py-4 text-sm font-manrope text-plum placeholder-plum/40 resize-none" rows="4" placeholder="Detail square footage, desired veneers, acoustic NRC requirements, or project delivery schedule..."></textarea>
+                        </div>
+
+                        <button type="submit" class="mt-4 w-full bg-plum text-ivory radius-strict px-5 py-5 text-xs font-inter uppercase tracking-widest hover:bg-champagne hover:text-plum transition-all duration-300 shadow-lg font-medium gs-form-element opacity-0 translate-y-4">
+                            Submit Inquiry &rarr;
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. Immersive Location Visual -->
+    <section class="py-24 px-6 md:px-12 bg-ivory">
+        <div class="max-w-7xl mx-auto h-[60vh] md:h-[75vh] parallax-wrapper shadow-2xl gs-fade-up border border-champagne/30">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1600" alt="Showroom Interior" class="parallax-img absolute top-[-20%] gs-parallax" data-speed="0.8">
+            <div class="absolute inset-0 bg-gradient-to-t from-plum/80 via-plum/20 to-transparent"></div>
+            
+            <div class="absolute bottom-8 left-8 right-8 text-center md:text-left md:bottom-12 md:left-12 glass-heavy p-6 md:p-8 w-fit mx-auto md:mx-0 border border-champagne/40">
+                <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1 font-medium">The Sanctuary Destination</span>
+                <h4 class="font-manrope text-2xl md:text-3xl text-plum font-light">The Architectural Material Archive</h4>
+                <p class="font-inter text-xs text-charcoal/70 mt-1">Experience raw scale, natural tactile response, and acoustic clarity in person.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Deep Plum Standardized Footer -->
+    <footer class="bg-plum pt-24 pb-12 px-6 md:px-12 text-ivory relative z-40 border-t border-champagne/20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gs-fade-up pb-16 border-b border-ivory/15 gap-8">
+            <div>
+                <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-2 block font-medium">Connect &bull; Collaborate</span>
+                <h2 class="font-manrope text-3xl md:text-5xl font-light">
+                    Every remarkable space begins with <br><span class="text-champagne italic font-cormorant">a conversation.</span>
+                </h2>
+            </div>
+            <a href="mailto:info@thedecohouse.com" class="px-8 py-4 rounded-full bg-champagne text-plum font-inter text-xs uppercase tracking-[0.2em] hover:bg-ivory transition-colors duration-300 shadow-xl whitespace-nowrap font-medium">
+                Email Studio Directly
+            </a>
+        </div>
+
+        <div class="max-w-7xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-12 gap-12 gs-fade-up">
+            <div class="md:col-span-4">
+                <a href="index.html" class="inline-block mb-6">
+                    <img loading="lazy" decoding="async" src="assets/the_deco_house_logo_dark.png" alt="The Deco House | Surfaces, Materials, Solutions" class="h-11 md:h-14 w-auto object-contain">
+                </a>
+                <p class="text-ivory/70 text-sm font-light leading-relaxed max-w-sm mb-6">
+                    A curated architectural surface destination bridging global artisanal material manufacturers with visionary architects and developers.
+                </p>
+                <div class="text-xs text-champagne uppercase tracking-widest font-mono">
+                    28.6139° N, 77.2090° E &bull; New Delhi
+                </div>
+            </div>
+            
+            <div class="md:col-span-2 md:col-start-6">
+                <h4 class="text-champagne text-xs uppercase tracking-widest mb-6 font-medium">Directory</h4>
+                <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                    <li><a href="surfaces.html" class="hover:text-champagne transition-colors">Surfaces</a></li>
+                    <li><a href="about.html" class="hover:text-champagne transition-colors">About Us</a></li>
+                    <li><a href="materials.html" class="hover:text-champagne transition-colors">Materials</a></li>
+                    <li><a href="projects.html" class="hover:text-champagne transition-colors">Projects</a></li>
+                    <li><a href="solutions.html" class="hover:text-champagne transition-colors">Solutions</a></li>
+                    <li><a href="partners.html" class="hover:text-champagne transition-colors">Partners</a></li>
+                    <li><a href="contact.html" class="hover:text-champagne transition-colors text-champagne">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-2">
+                <h4 class="text-champagne text-xs uppercase tracking-widest mb-6 font-medium">Connect</h4>
+                <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-champagne transition-colors">Instagram</a></li>
+                    <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-champagne transition-colors">LinkedIn</a></li>
+                    <li><a href="contact.html" class="hover:text-champagne transition-colors">Studio Inquiries</a></li>
+                    <li><a href="contact.html" class="hover:text-champagne transition-colors">Sample Requests</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-3">
+                <h4 class="text-champagne text-xs uppercase tracking-widest mb-6 font-medium">Studio Inquiries</h4>
+                <p class="text-ivory/70 text-sm font-light leading-relaxed mb-4">
+                    Direct access for architects and interior designers requiring certified test data and rapid sampling.
+                </p>
+                <a href="mailto:info@thedecohouse.com" class="text-champagne text-sm hover:underline font-light">info@thedecohouse.com</a>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-ivory/15 flex flex-col md:flex-row justify-between items-center gap-4 text-[0.65rem] font-inter text-ivory/50 uppercase tracking-widest gs-fade-up">
+            <p>&copy; 2026 THE DECO HOUSE. ALL RIGHTS RESERVED.</p>
+            <div class="flex gap-6">
+                <span>NEW DELHI</span>
+                <span>&bull;</span>
+                <span>GURUGRAM</span>
+                <span>&bull;</span>
+                <span>MUMBAI</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & Lenis Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Toggle ---
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            function closeMobileMenu() {
+                if (mobileMenu) {
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+                }
+                if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+                if (closeIcon) closeIcon.classList.add('hidden');
+            }
+
+            function openMobileMenu() {
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+                }
+                if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
+                if (closeIcon) closeIcon.classList.remove('hidden');
+            }
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    const isOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (isOpen) {
+                        closeMobileMenu();
+                    } else {
+                        openMobileMenu();
+                    }
+                });
+
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        closeMobileMenu();
+                    });
+                });
+            }
+
+            // --- 1. Initialize Lenis (Smooth Scrolling) via GSAP Ticker Exclusively ---
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 0.85, 
+            });
+
+            gsap.registerPlugin(ScrollTrigger);
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+
+            // --- 2. Entrance Animations ---
+            gsap.to('.gs-fade-in', { opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
+            gsap.to('.gs-hero-text', { y: 0, duration: 1.2, stagger: 0.1, ease: 'power4.out', delay: 0.3 });
+
+            // --- 3. Scroll Fade-ups ---
+            gsap.utils.toArray('.gs-fade-up').forEach(element => {
+                gsap.fromTo(element, 
+                    { y: 35, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 1.1, ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 88%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+
+            // Form Stagger Animation
+            const formContainer = document.querySelector('form');
+            if (formContainer) {
+                gsap.to('.gs-form-element', {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: formContainer,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                });
+            }
+
+            // --- 4. Parallax Image ---
+            gsap.utils.toArray('.gs-parallax').forEach(img => {
+                const speed = img.getAttribute('data-speed') || 1;
+                gsap.to(img, {
+                    yPercent: 15 * speed,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: img.parentElement,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
