@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | The Deco House</title>
+    <link rel="icon" type="image/png" href="the_deco_house_logo_transparent.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400;500;600&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS with Official Brand Palette -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Official The Deco House Palette
+                        plum: '#241923',           // Deep Plum — Primary brand anchor
+                        'deep-plum': '#241923',
+                        espresso: '#34252F',       // Espresso Plum — Secondary dark
+                        'espresso-plum': '#34252F',
+                        champagne: '#B4A17A',      // Champagne Brass — Fine accents and foil
+                        'champagne-brass': '#B4A17A',
+                        taupe: '#A79A8B',          // Warm Taupe — Supporting neutral
+                        'warm-taupe': '#A79A8B',
+                        stone: '#D0C5B7',          // Stone Beige — Soft backgrounds
+                        'stone-beige': '#D0C5B7',
+                        ivory: '#F4F0E9',          // Architectural Ivory — Primary light background
+                        'architectural-ivory': '#F4F0E9',
+                        charcoal: '#37332F',       // Soft Charcoal — Body text
+                        'soft-charcoal': '#37332F',
+                    },
+                    fontFamily: {
+                        manrope: ['Manrope', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Page Specific Styles -->
+    <style>
+        .mask-wrap {
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .parallax-wrapper {
+            overflow: hidden;
+            position: relative;
+            transform: translateZ(0);
+        }
+        .parallax-img {
+            height: 140%;
+            width: 100%;
+            object-fit: cover;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+    </style>
+</head>
+<body class="font-inter antialiased selection:bg-champagne selection:text-plum bg-ivory text-charcoal">
+
+    <!-- Header / Navigation (Matches Home Page) -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav px-6 md:px-12 py-4 md:py-5 flex justify-between items-center transition-all duration-300 gs-reveal">
+        <a href="index.html" class="flex items-center transition-opacity duration-300 hover:opacity-80" aria-label="The Deco House">
+            <img src="the_deco_house_logo_transparent.png" alt="The Deco House | Surfaces, Materials, Solutions" class="h-10 md:h-12 w-auto object-contain">
+        </a>
+        <nav class="hidden md:flex items-center gap-8 font-inter text-xs text-plum uppercase tracking-[0.15em] font-medium">
+            <a href="index.html#surfaces" class="hover:text-champagne transition-colors duration-300">Surfaces</a>
+            <a href="about.html" class="text-champagne border-b border-champagne pb-0.5 font-semibold">About</a>
+            <a href="index.html#materials" class="hover:text-champagne transition-colors duration-300">Materials</a>
+            <a href="index.html#solutions" class="hover:text-champagne transition-colors duration-300">Solutions</a>
+            <a href="index.html#contact" class="hover:text-champagne transition-colors duration-300">Contact</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <a href="index.html#contact" class="hidden sm:inline-flex px-5 py-2 rounded-full border border-champagne/80 text-plum text-xs uppercase tracking-widest font-medium hover:bg-plum hover:text-ivory hover:border-plum transition-all duration-300 shadow-sm">
+                Contact
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-plum p-1 focus:outline-none" aria-label="Toggle navigation menu">
+                <svg id="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg id="close-icon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 top-[72px] bg-ivory/95 backdrop-blur-lg z-40 flex flex-col px-8 py-10 gap-6 md:hidden transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-4">
+        <a href="index.html#surfaces" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Surfaces</a>
+        <a href="about.html" class="mobile-nav-link text-champagne font-medium text-lg uppercase tracking-widest">About</a>
+        <a href="index.html#materials" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Materials</a>
+        <a href="index.html#solutions" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Solutions</a>
+        <a href="index.html#contact" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Contact</a>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <section class="relative min-h-[90vh] w-full pt-36 pb-20 px-6 md:px-12 flex flex-col justify-center overflow-hidden">
+        <!-- Subtle Architectural Blueprint Grid & Warm Ambient Champagne Glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(#D0C5B7_1px,transparent_1px)] [background-size:28px_28px] opacity-40 pointer-events-none"></div>
+        <div class="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-champagne/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-20 relative z-10 my-auto">
+            <!-- Typography Left -->
+            <div class="w-full lg:w-1/2 z-10">
+                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-md border border-champagne/40 mb-8 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-champagne animate-pulse"></span>
+                    <span class="text-[0.65rem] font-inter uppercase tracking-[0.3em] text-plum font-medium">About The Deco House</span>
+                </div>
+
+                <h1 class="font-manrope font-light text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.98] tracking-tight text-plum flex flex-col">
+                    <div class="mask-wrap"><span class="block gs-hero-text translate-y-[110%]">SPACES</span></div>
+                    <div class="mask-wrap"><span class="block gs-hero-text translate-y-[110%]">SHAPED</span></div>
+                    <div class="mask-wrap"><span class="block text-champagne gs-hero-text translate-y-[110%] italic font-cormorant font-normal">by possibility.</span></div>
+                </h1>
+
+                <div class="mt-8 h-[1px] w-24 bg-champagne"></div>
+
+                <div class="mt-8 mask-wrap max-w-lg">
+                    <p class="font-inter text-charcoal/80 text-base md:text-lg font-light leading-relaxed gs-hero-text translate-y-[110%]">
+                        We are an architectural surfaces curator dedicated to material-led sophistication, providing tactile, grounded solutions for elevated interiors.
+                    </p>
+                </div>
+
+                <!-- Typology micro-tags -->
+                <div class="mt-8 flex flex-wrap items-center gap-2 gs-fade-up">
+                    <span class="text-[0.65rem] font-inter uppercase tracking-widest text-charcoal/60 mr-1">Disciplines:</span>
+                    <span class="px-3 py-1 rounded-full text-[0.65rem] font-inter uppercase tracking-wider bg-white/60 backdrop-blur-sm text-plum border border-champagne/30">Curation</span>
+                    <span class="px-3 py-1 rounded-full text-[0.65rem] font-inter uppercase tracking-wider bg-white/60 backdrop-blur-sm text-plum border border-champagne/30">Specification</span>
+                    <span class="px-3 py-1 rounded-full text-[0.65rem] font-inter uppercase tracking-wider bg-white/60 backdrop-blur-sm text-plum border border-champagne/30">Procurement</span>
+                </div>
+            </div>
+
+            <!-- Offset Parallax Image Right -->
+            <div class="w-full lg:w-1/2 flex justify-center lg:justify-end gs-fade-up">
+                <div class="w-full max-w-md h-[480px] md:h-[620px] rounded-[20px] parallax-wrapper shadow-2xl border border-champagne/30 relative group">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200" alt="Modern Architecture Exterior" class="parallax-img absolute top-[-15%] gs-parallax" data-speed="0.8">
+                    <div class="absolute inset-0 bg-gradient-to-t from-plum/60 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="absolute bottom-6 left-6 right-6 z-10 text-ivory pointer-events-none">
+                        <span class="text-[0.65rem] font-inter uppercase tracking-[0.2em] text-champagne block mb-1">Architecture &bull; Sanctuary</span>
+                        <h4 class="font-manrope text-xl font-light">Material-Led Architecture</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Our Story (Split Screen) -->
+    <section class="py-28 px-6 md:px-12 bg-stone/40 relative border-t border-champagne/20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+            
+            <!-- Overlapping Images Left -->
+            <div class="w-full md:w-1/2 relative h-[480px] md:h-[580px] gs-fade-up">
+                <div class="absolute top-0 left-0 w-3/4 h-4/5 rounded-[20px] overflow-hidden parallax-wrapper shadow-lg border border-champagne/30 z-10">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1541123437800-1bb1317bc20f?auto=format&fit=crop&q=80&w=1000" class="parallax-img absolute top-[-10%] gs-parallax" data-speed="0.9" alt="Interior Space">
+                </div>
+                <div class="absolute bottom-0 right-0 w-3/5 h-3/5 rounded-[20px] overflow-hidden parallax-wrapper shadow-2xl border-4 border-ivory z-20">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1000" class="parallax-img absolute top-[-15%] gs-parallax" data-speed="1.1" alt="Material Detail">
+                </div>
+            </div>
+
+            <!-- Text Content Right -->
+            <div class="w-full md:w-1/2 flex flex-col gap-8 gs-fade-up pl-0 lg:pl-10">
+                <div>
+                    <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-4 block font-medium">01 / Our Origin</span>
+                    <h2 class="font-manrope text-3xl md:text-5xl text-plum font-light leading-tight">
+                        Considered origins, <br>
+                        <span class="text-champagne italic font-cormorant font-normal">enduring impact.</span>
+                    </h2>
+                </div>
+                <div class="font-inter text-charcoal/80 text-sm md:text-base font-light space-y-6 leading-relaxed">
+                    <p>
+                        The Deco House emerged from a fundamental desire to simplify the specification process for architects and designers. We observed a fragmented marketplace and responded by creating a curated sanctuary of materials.
+                    </p>
+                    <p>
+                        Every stone, natural veneer, engineered composite, and acoustic panel in our collection is rigorously evaluated not just for its immediate aesthetic appeal, but for how it responds to natural light, daily touch, and the passage of time.
+                    </p>
+                </div>
+                <div class="pt-4 flex items-center gap-6">
+                    <div>
+                        <span class="font-manrope text-3xl font-light text-plum block">150+</span>
+                        <span class="text-[0.65rem] font-inter uppercase tracking-widest text-charcoal/60">Archived Finishes</span>
+                    </div>
+                    <div class="w-[1px] h-10 bg-champagne/40"></div>
+                    <div>
+                        <span class="font-manrope text-3xl font-light text-plum block">100%</span>
+                        <span class="text-[0.65rem] font-inter uppercase tracking-widest text-charcoal/60">Authentic Mills</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. The Material Archive (Asymmetrical Editorial Grid) -->
+    <section class="py-32 px-6 md:px-12 bg-ivory relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16 gs-fade-up border-b border-champagne/30 pb-6 gap-4">
+                <div>
+                    <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-2 block font-medium">02 / Curation</span>
+                    <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">The Material Archive</h2>
+                </div>
+                <span class="text-xs font-inter uppercase tracking-[0.2em] text-charcoal/60">Curated &amp; Refined Surfaces</span>
+            </div>
+
+            <!-- CSS Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-auto">
+                
+                <!-- Row 1: Wide Stone Card -->
+                <div class="md:col-span-6 lg:col-span-5 bg-stone/50 border border-stone rounded-[20px] p-8 md:p-12 flex flex-col justify-between min-h-[300px] shadow-sm hover:shadow-xl transition-all duration-300 gs-fade-up">
+                    <div class="flex justify-between items-start mb-12">
+                        <span class="font-manrope text-2xl text-plum/40 font-light">01</span>
+                        <span class="w-8 h-8 rounded-full border border-plum/20 flex items-center justify-center text-plum/60">&plus;</span>
+                    </div>
+                    <div>
+                        <h3 class="font-manrope text-2xl text-plum font-light mb-2">Architectural Wood</h3>
+                        <p class="font-inter text-xs text-charcoal/70 uppercase tracking-widest">Mikasa / Alpi / Greenlam Veneers</p>
+                    </div>
+                </div>
+
+                <!-- Dark Plum Accent Card -->
+                <div class="md:col-span-6 lg:col-span-7 bg-plum rounded-[20px] p-8 md:p-12 flex flex-col justify-between min-h-[300px] text-ivory border border-champagne/30 shadow-xl gs-fade-up" style="transition-delay: 100ms;">
+                    <div class="flex justify-between items-center mb-12">
+                        <span class="font-manrope text-2xl text-champagne/40 font-light">02</span>
+                        <span class="font-inter text-[0.65rem] uppercase tracking-widest text-champagne border border-champagne/40 px-3.5 py-1.5 rounded-full bg-white/5">Premium Veneers</span>
+                    </div>
+                    <div>
+                        <p class="font-cormorant italic text-3xl md:text-4xl text-champagne mb-4">"Tactility grounded in texture."</p>
+                        <p class="font-inter text-sm text-ivory/70 font-light">Flawless grain matching, zero defects, and architectural veneer grading.</p>
+                    </div>
+                </div>
+
+                <!-- Row 2: Small Ivory Offset Card -->
+                <div class="md:col-span-4 lg:col-span-4 bg-white border border-champagne/30 rounded-[20px] p-8 flex flex-col justify-center min-h-[250px] shadow-sm gs-fade-up">
+                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-3 block">03 / Ecology</span>
+                    <h4 class="font-manrope text-2xl text-plum font-light mb-2">Sustainable Core</h4>
+                    <p class="font-inter text-xs text-charcoal/70 leading-relaxed">FSC-certified materials prioritizing ecological health, indoor air purity, and multi-decade longevity.</p>
+                </div>
+
+                <!-- Wide Taupe Card -->
+                <div class="md:col-span-8 lg:col-span-8 bg-taupe/90 rounded-[20px] p-8 md:p-12 flex flex-col justify-between min-h-[250px] text-ivory shadow-sm gs-fade-up" style="transition-delay: 100ms;">
+                    <div class="flex justify-between items-center mb-8">
+                        <span class="font-manrope text-2xl text-ivory/40 font-light">04</span>
+                        <span class="text-[0.65rem] font-inter uppercase tracking-widest text-ivory/80">Engineered Composites</span>
+                    </div>
+                    <div>
+                        <h3 class="font-manrope text-2xl md:text-3xl text-ivory font-light mb-3">Solid Surfaces &amp; Minerals</h3>
+                        <p class="font-inter text-xs text-ivory/80 uppercase tracking-widest">Natural Quartzite / Fenix NTM / Anodized Foils</p>
+                    </div>
+                </div>
+
+                <!-- Row 3: Visual Break & Parallax Image -->
+                <div class="md:col-span-5 lg:col-span-5 h-[360px] rounded-[20px] overflow-hidden parallax-wrapper shadow-lg border border-champagne/30 gs-fade-up mt-4">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000" class="parallax-img absolute top-[-10%] gs-parallax" data-speed="0.8" alt="Material Texture">
+                </div>
+                
+                <div class="md:col-span-7 lg:col-span-7 flex flex-col justify-center px-4 md:px-12 gs-fade-up mt-4">
+                    <span class="text-xs font-inter uppercase tracking-[0.25em] text-champagne mb-3 block font-medium">Architectural Philosophy</span>
+                    <h3 class="font-manrope text-3xl md:text-4xl text-plum font-light mb-6">The details that define a space.</h3>
+                    <p class="font-inter text-charcoal/80 text-sm md:text-base leading-relaxed max-w-lg font-light mb-6">
+                        A curated material experience, supported by deep product knowledge, dependable guidance, and a cohesive design point of view for discerning specifiers.
+                    </p>
+                    <a href="index.html#surfaces" class="inline-flex items-center gap-2 text-xs font-inter uppercase tracking-[0.2em] text-plum font-medium hover:text-champagne transition-colors">
+                        <span>Explore Full Archive</span> &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Craftsmanship & Curation (Gallery Grid) -->
+    <section class="py-28 px-6 md:px-12 bg-stone/30 border-t border-champagne/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 gs-fade-up">
+                <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-3 block font-medium">03 / Craftsmanship</span>
+                <h2 class="font-manrope text-3xl md:text-5xl text-plum font-light">Material Tactility in Detail</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Image 1 -->
+                <div class="rounded-[20px] overflow-hidden h-[420px] parallax-wrapper gs-fade-up shadow-lg border border-champagne/30 group">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover parallax-img gs-parallax transition-transform duration-700 group-hover:scale-105" data-speed="0.9" alt="Wood Grain">
+                    <div class="absolute bottom-6 left-6 bg-plum/80 backdrop-blur-md px-4 py-2 rounded-full border border-champagne/30 text-ivory text-xs font-inter">
+                        Natural Oak Veneer
+                    </div>
+                </div>
+                <!-- Image 2 -->
+                <div class="rounded-[20px] overflow-hidden h-[420px] parallax-wrapper gs-fade-up shadow-lg border border-champagne/30 group lg:mt-12" style="transition-delay: 100ms;">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover parallax-img gs-parallax transition-transform duration-700 group-hover:scale-105" data-speed="1.1" alt="Stone Texture">
+                    <div class="absolute bottom-6 left-6 bg-plum/80 backdrop-blur-md px-4 py-2 rounded-full border border-champagne/30 text-ivory text-xs font-inter">
+                        Honed Mineral Surface
+                    </div>
+                </div>
+                <!-- Image 3 -->
+                <div class="rounded-[20px] overflow-hidden h-[420px] parallax-wrapper gs-fade-up shadow-lg border border-champagne/30 group md:col-span-2 lg:col-span-1 lg:mt-24" style="transition-delay: 200ms;">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1617325247661-675ab03407b3?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover parallax-img gs-parallax transition-transform duration-700 group-hover:scale-105" data-speed="0.8" alt="Matte Finish">
+                    <div class="absolute bottom-6 left-6 bg-plum/80 backdrop-blur-md px-4 py-2 rounded-full border border-champagne/30 text-ivory text-xs font-inter">
+                        Senses Akustik Acoustic
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Partner Marquee -->
+            <div class="mt-28 border-y border-champagne/30 py-6 overflow-hidden flex relative bg-stone/40">
+                <div class="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap items-center font-inter text-[0.7rem] uppercase tracking-[0.3em] text-plum/70 font-medium min-w-max">
+                    <span class="mx-8">Mikasa</span> &bull;
+                    <span class="mx-8">Greenlam</span> &bull;
+                    <span class="mx-8">Fenix NTM</span> &bull;
+                    <span class="mx-8">Valchromat</span> &bull;
+                    <span class="mx-8">Alpi</span> &bull;
+                    <span class="mx-8">Rehau</span> &bull;
+                    <span class="mx-8">Sibu Design</span> &bull;
+                </div>
+                <div class="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap items-center font-inter text-[0.7rem] uppercase tracking-[0.3em] text-plum/70 font-medium min-w-max absolute top-6 left-full">
+                    <span class="mx-8">Mikasa</span> &bull;
+                    <span class="mx-8">Greenlam</span> &bull;
+                    <span class="mx-8">Fenix NTM</span> &bull;
+                    <span class="mx-8">Valchromat</span> &bull;
+                    <span class="mx-8">Alpi</span> &bull;
+                    <span class="mx-8">Rehau</span> &bull;
+                    <span class="mx-8">Sibu Design</span> &bull;
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. The Showroom Experience -->
+    <section class="py-32 px-6 md:px-12 bg-ivory relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="w-full h-[75vh] min-h-[550px] parallax-wrapper rounded-[24px] overflow-hidden relative gs-fade-up shadow-2xl border border-champagne/30">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600" alt="Showroom Interior" class="parallax-img absolute top-[-15%] gs-parallax" data-speed="0.7">
+                <div class="absolute inset-0 bg-gradient-to-t from-plum/60 via-transparent to-transparent"></div>
+
+                <!-- Floating Info Card -->
+                <div class="absolute bottom-8 right-8 md:bottom-14 md:right-14 bg-ivory/95 backdrop-blur-xl p-8 md:p-10 rounded-[20px] max-w-sm shadow-2xl border border-champagne/40 gs-fade-up text-left">
+                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-3 block font-medium">The Sanctuary</span>
+                    <h3 class="font-manrope text-3xl text-plum font-light mb-4">A tactile destination.</h3>
+                    <p class="font-inter text-charcoal/70 text-sm font-light leading-relaxed mb-6">
+                        Experience the true scale, weight, and light response of our curated collections in a space designed around architectural restraint.
+                    </p>
+                    <a href="index.html#contact" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-plum border-b border-champagne pb-1 hover:text-champagne transition-colors font-medium">
+                        <span>Book Studio Consultation</span> &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5.1 Cinematic Video Banner -->
+    <section class="py-24 px-6 md:px-12 bg-ivory relative z-10 border-t border-champagne/20">
+        <div class="max-w-7xl mx-auto h-[55vh] md:h-[70vh] rounded-[24px] overflow-hidden relative shadow-2xl group border border-champagne/40 gs-fade-up">
+            <video autoplay muted loop playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <source src="video.mp4" type="video/mp4">
+                <source src="assets/video.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-plum/50 transition-colors duration-500 group-hover:bg-plum/40 backdrop-blur-[1px]"></div>
+            
+            <!-- Video Overlay -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-ivory/20 backdrop-blur-md border border-ivory/50 flex items-center justify-center text-ivory mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-champagne/90 group-hover:text-plum group-hover:border-champagne shadow-xl">
+                    <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <h3 class="font-manrope text-3xl md:text-5xl text-ivory font-light tracking-wide mb-3">The Making of Restraint</h3>
+                <p class="font-inter text-xs text-champagne uppercase tracking-[0.25em]">Architectural Surface Film &bull; Code-A</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5.2 Global Sourcing (Asymmetrical Grid) -->
+    <section class="py-32 px-6 md:px-12 bg-stone/40 relative z-10 border-t border-champagne/25">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gs-fade-up gap-8 border-b border-champagne/20 pb-8">
+                <div>
+                    <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-3 block font-medium">04 / Global Procurement</span>
+                    <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light leading-tight">Curated from <br>the source.</h2>
+                </div>
+                <p class="font-inter text-charcoal/70 text-sm max-w-sm font-light leading-relaxed">
+                    Our materials trace distinct geographies. We partner directly with specialized mills and quarries globally to ensure unmatched provenance and authentic craftsmanship.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 auto-rows-auto">
+                
+                <!-- Portugal Card -->
+                <div class="lg:col-span-7 bg-ivory rounded-[20px] p-8 md:p-12 flex flex-col justify-between gs-fade-up relative overflow-hidden shadow-sm border border-champagne/30">
+                    <div class="relative z-10 flex flex-col h-full justify-between w-full">
+                        <span class="font-manrope text-xl text-champagne font-light block mb-6">01 / Portugal</span>
+                        <div>
+                            <h3 class="font-manrope text-3xl text-plum font-light mb-4">Valchromat Origins</h3>
+                            <p class="font-inter text-sm text-charcoal/80 mb-6 leading-relaxed font-light">Engineered wood fiber panels infused with organic dyes, sourced directly from specialized Portuguese manufacturers prioritizing sustainable forestry.</p>
+                            <a href="index.html#materials" class="text-xs uppercase tracking-widest text-plum hover:text-champagne transition-colors border-b border-champagne/60 pb-1 font-medium">Explore Range &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vertical Detail Image -->
+                <div class="lg:col-span-5 rounded-[20px] overflow-hidden parallax-wrapper gs-fade-up shadow-sm border border-champagne/30 h-[340px] lg:h-auto">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&q=80&w=1000" class="parallax-img absolute top-[-10%] gs-parallax" data-speed="0.9" alt="Material Stack">
+                </div>
+
+                <!-- Austria Card -->
+                <div class="lg:col-span-5 rounded-[20px] overflow-hidden parallax-wrapper gs-fade-up shadow-sm border border-champagne/30 h-[320px] relative">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1502672260266-1c1c24240f57?auto=format&fit=crop&q=80&w=1000" class="parallax-img absolute top-[-10%] gs-parallax" data-speed="1.1" alt="Austria Origin">
+                    <div class="absolute inset-0 bg-gradient-to-t from-plum/90 via-plum/30 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8 text-ivory">
+                        <span class="font-manrope text-lg text-champagne block mb-1">02 / Austria</span>
+                        <h3 class="font-manrope text-2xl font-light mb-1">Sibu Design Panels</h3>
+                        <p class="font-inter text-xs text-ivory/70">Precision decorative and acoustic architectural elements.</p>
+                    </div>
+                </div>
+
+                <!-- Concept Card -->
+                <div class="lg:col-span-7 bg-plum rounded-[20px] p-8 md:p-12 flex flex-col justify-center text-ivory gs-fade-up shadow-xl border border-champagne/30" style="transition-delay: 100ms;">
+                    <span class="text-xs font-inter uppercase tracking-[0.25em] text-champagne mb-4 block">Uncompromising Quality</span>
+                    <h3 class="font-cormorant italic text-3xl md:text-4xl text-champagne mb-4">"An unbroken chain of authenticity."</h3>
+                    <p class="font-inter text-sm text-ivory/70 font-light max-w-xl leading-relaxed">
+                        From the dense forestry of Austria to the precision pressing facilities in Italy (Fenix), we eliminate unnecessary intermediaries. This direct sourcing model guarantees that every surface shaping your spaces performs to exacting standards.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Our Heritage Timeline -->
+    <section class="py-32 px-6 md:px-12 bg-ivory relative timeline-section overflow-hidden border-t border-champagne/20">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-24 gs-fade-up relative z-10">
+                <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-3 block font-medium">05 / Chronology</span>
+                <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light mb-4">Evolution of Restraint</h2>
+                <p class="font-inter text-charcoal/70 text-sm max-w-md mx-auto font-light">A timeline of our ongoing commitment to architectural surface excellence.</p>
+            </div>
+
+            <!-- Vertical Timeline Container -->
+            <div class="relative w-full">
+                <!-- Static Background Line -->
+                <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[1px] bg-champagne/30"></div>
+                
+                <!-- Dynamic Progress Line (GSAP Target) -->
+                <div class="tl-line-progress absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 w-[2px] bg-champagne origin-top h-0 z-0 shadow-sm"></div>
+                
+                <!-- Item 1 (Left) -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-24 z-10">
+                    <div class="tl-node flex items-center justify-center w-12 h-12 rounded-full border-2 border-champagne/40 bg-ivory text-plum font-manrope text-sm absolute left-0 md:left-1/2 md:-translate-x-1/2 shadow-md transition-colors duration-500 z-20">
+                        '15
+                    </div>
+                    <div class="tl-content-left w-[calc(100%-4rem)] md:w-[calc(50%-4rem)] pl-16 md:pl-0 md:pr-16 text-left md:text-right flex flex-col md:items-end">
+                        <div class="bg-white/80 rounded-[20px] p-6 md:p-8 backdrop-blur-md border border-champagne/30 shadow-sm group-hover:shadow-xl transition-all duration-500 w-full max-w-md cursor-pointer">
+                            <span class="text-[0.65rem] font-inter uppercase tracking-widest text-champagne block mb-1">Inception</span>
+                            <h4 class="font-manrope text-2xl text-plum mb-3 font-light">Foundation</h4>
+                            <p class="font-inter text-sm text-charcoal/70 mb-6 font-light leading-relaxed">Established in response to a need for a curated, premium materials destination for architects.</p>
+                            <div class="w-full h-44 rounded-[14px] overflow-hidden relative">
+                                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Foundation" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-plum/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 (Right) -->
+                <div class="relative flex items-center justify-between md:justify-normal group mb-24 z-10">
+                    <div class="tl-node flex items-center justify-center w-12 h-12 rounded-full border-2 border-champagne/40 bg-ivory text-plum font-manrope text-sm absolute left-0 md:left-1/2 md:-translate-x-1/2 shadow-md transition-colors duration-500 z-20">
+                        '19
+                    </div>
+                    <div class="tl-content-right w-[calc(100%-4rem)] md:w-[calc(50%-4rem)] pl-16 md:pl-16 text-left">
+                        <div class="bg-white/80 rounded-[20px] p-6 md:p-8 backdrop-blur-md border border-champagne/30 shadow-sm group-hover:shadow-xl transition-all duration-500 w-full max-w-md cursor-pointer">
+                            <span class="text-[0.65rem] font-inter uppercase tracking-widest text-champagne block mb-1">Alliances</span>
+                            <h4 class="font-manrope text-2xl text-plum mb-3 font-light">European Expansion</h4>
+                            <p class="font-inter text-sm text-charcoal/70 mb-6 font-light leading-relaxed">Secured exclusive partnerships with Fenix and Valchromat, bringing advanced surfacing technologies to our market.</p>
+                            <div class="w-full h-44 rounded-[14px] overflow-hidden relative">
+                                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&q=80&w=800" alt="European Expansion" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-plum/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 (Left) -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-24 z-10">
+                    <div class="tl-node flex items-center justify-center w-12 h-12 rounded-full border-2 border-champagne/40 bg-ivory text-plum font-manrope text-sm absolute left-0 md:left-1/2 md:-translate-x-1/2 shadow-md transition-colors duration-500 z-20">
+                        '22
+                    </div>
+                    <div class="tl-content-left w-[calc(100%-4rem)] md:w-[calc(50%-4rem)] pl-16 md:pl-0 md:pr-16 text-left md:text-right flex flex-col md:items-end">
+                        <div class="bg-white/80 rounded-[20px] p-6 md:p-8 backdrop-blur-md border border-champagne/30 shadow-sm group-hover:shadow-xl transition-all duration-500 w-full max-w-md cursor-pointer">
+                            <span class="text-[0.65rem] font-inter uppercase tracking-widest text-champagne block mb-1">Acoustics</span>
+                            <h4 class="font-manrope text-2xl text-plum mb-3 font-light">Acoustic Division</h4>
+                            <p class="font-inter text-sm text-charcoal/70 mb-6 font-light leading-relaxed">Launched the Senses Akustik line, blending high-end wood aesthetics with rigorous architectural acoustic standards.</p>
+                            <div class="w-full h-44 rounded-[14px] overflow-hidden relative">
+                                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1510074218659-3faeb5ee8db0?auto=format&fit=crop&q=80&w=800" alt="Acoustic Division" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-plum/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 (Right) -->
+                <div class="relative flex items-center justify-between md:justify-normal group mb-12 z-10">
+                    <div class="tl-node flex items-center justify-center w-12 h-12 rounded-full border-2 border-champagne/40 bg-ivory text-plum font-manrope text-sm absolute left-0 md:left-1/2 md:-translate-x-1/2 shadow-md transition-colors duration-500 z-20">
+                        '26
+                    </div>
+                    <div class="tl-content-right w-[calc(100%-4rem)] md:w-[calc(50%-4rem)] pl-16 md:pl-16 text-left">
+                        <div class="bg-white/80 rounded-[20px] p-6 md:p-8 backdrop-blur-md border border-champagne/30 shadow-sm group-hover:shadow-xl transition-all duration-500 w-full max-w-md cursor-pointer">
+                            <span class="text-[0.65rem] font-inter uppercase tracking-widest text-champagne block mb-1">Evolution</span>
+                            <h4 class="font-manrope text-2xl text-plum mb-3 font-light">The Deco House</h4>
+                            <p class="font-inter text-sm text-charcoal/70 mb-6 font-light leading-relaxed">A complete brand elevation, cementing our position as the ultimate design destination for discerning material specifiers.</p>
+                            <div class="w-full h-44 rounded-[14px] overflow-hidden relative">
+                                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800" alt="The Deco House" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-plum/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Call to Action (Begin Your Material Journey) -->
+    <section class="py-28 px-6 md:px-12 bg-ivory relative z-10 border-t border-champagne/30">
+        <div class="max-w-7xl mx-auto flex flex-col items-center text-center gs-fade-up">
+            <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-4 block font-medium">06 / Consultation</span>
+            <h2 class="font-manrope text-4xl md:text-6xl font-light mb-6 text-plum leading-tight">
+                "The details that<br><span class="text-champagne italic font-cormorant font-normal">define a space."</span>
+            </h2>
+            <p class="font-inter text-charcoal/70 text-sm md:text-base max-w-md mx-auto mb-10 font-light leading-relaxed">
+                Discover a carefully curated selection of architectural surfaces. We supply solutions built on architectural restraint and tactile beauty.
+            </p>
+
+            <div class="bg-plum p-8 md:p-14 rounded-[24px] border border-champagne/30 w-full max-w-2xl relative overflow-hidden group shadow-2xl">
+                <!-- Ambient champagne glow -->
+                <div class="absolute -top-24 -right-24 w-60 h-60 bg-champagne/20 rounded-full blur-[80px] pointer-events-none"></div>
+                
+                <h3 class="font-manrope text-2xl md:text-4xl font-light mb-3 relative z-10 text-ivory">Begin your material journey.</h3>
+                <p class="font-inter text-xs text-ivory/60 uppercase tracking-widest mb-8 relative z-10">Request a physical sample box or technical consultation.</p>
+                
+                <div class="flex flex-wrap items-center justify-center gap-4 relative z-10">
+                    <a href="index.html#contact" class="px-8 py-4 rounded-full bg-champagne text-plum font-inter text-xs uppercase tracking-[0.2em] font-semibold hover:bg-ivory hover:shadow-xl transition-all duration-300">
+                        Request Sample Box &rarr;
+                    </a>
+                    <a href="mailto:contact@thedecoholse.com" class="px-8 py-4 rounded-full border border-champagne/60 text-ivory font-inter text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all duration-300">
+                        Book Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Matches Home Page Exactly) -->
+    <footer class="bg-plum pt-28 pb-12 px-6 md:px-12 text-ivory border-t border-champagne/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-0 pb-20 border-b border-champagne/20">
+                <div class="w-full md:w-1/2">
+                    <div class="mb-8">
+                        <a href="index.html" class="inline-block transition-opacity duration-300 hover:opacity-80" aria-label="The Deco House">
+                            <img loading="lazy" decoding="async" src="assets/the_deco_house_logo_dark.png" alt="The Deco House | Surfaces, Materials, Solutions" class="h-11 md:h-14 w-auto object-contain">
+                        </a>
+                    </div>
+                    <p class="font-inter text-ivory/70 max-w-sm font-light leading-relaxed">
+                        A thoughtfully curated material experience, supported by product knowledge, dependable guidance and a cohesive design point of view.
+                    </p>
+                </div>
+                
+                <div class="w-full md:w-1/2 flex flex-col md:flex-row gap-12 md:gap-24 justify-end font-inter">
+                    <div>
+                        <h4 class="text-champagne text-xs uppercase tracking-widest mb-6">Directory</h4>
+                        <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                            <li><a href="about.html" class="hover:text-champagne transition-colors">About Us</a></li>
+                            <li><a href="index.html#surfaces" class="hover:text-champagne transition-colors">Surface Collections</a></li>
+                            <li><a href="index.html#materials" class="hover:text-champagne transition-colors">Material Stories</a></li>
+                            <li><a href="index.html#contact" class="hover:text-champagne transition-colors">Contact Studio</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-champagne text-xs uppercase tracking-widest mb-6">Connect</h4>
+                        <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                            <li><a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">Instagram</a></li>
+                            <li><a href="https://pinterest.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">Pinterest</a></li>
+                            <li><a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center mt-8 font-inter text-xs text-taupe/80 uppercase tracking-widest">
+                <p>&copy; 2026 The Deco House. All Rights Reserved.</p>
+                <p class="mt-4 md:mt-0">Revised Edition</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & Lenis Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Initialize Lenis (Smooth Scrolling)
+            const lenis = new Lenis({
+                duration: 1.0,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                orientation: 'vertical',
+                gestureOrientation: 'vertical',
+                smoothWheel: true,
+                wheelMultiplier: 1.0,
+                touchMultiplier: 1.5,
+                infinite: false,
+            });
+
+            // Synchronize ScrollTrigger with Lenis via GSAP ticker exclusively (no duplicate RAF loop)
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                lenis.on('scroll', ScrollTrigger.update);
+                gsap.ticker.add((time) => {
+                    lenis.raf(time * 1000);
+                });
+                gsap.ticker.lagSmoothing(0);
+            } else {
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+            }
+
+            // 2. Mobile Menu Navigation
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+
+            function closeMobileMenu() {
+                if (mobileMenu) {
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+                }
+                if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+                if (closeIcon) closeIcon.classList.add('hidden');
+            }
+
+            function openMobileMenu() {
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+                }
+                if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
+                if (closeIcon) closeIcon.classList.remove('hidden');
+            }
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    const isOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (isOpen) {
+                        closeMobileMenu();
+                    } else {
+                        openMobileMenu();
+                    }
+                });
+            }
+
+            // 3. Entrance Animations
+            gsap.to('.gs-hero-text', {
+                y: 0, 
+                duration: 1.2, 
+                stagger: 0.12, 
+                ease: 'power4.out', 
+                delay: 0.2 
+            });
+
+            // 4. Parallax Images
+            gsap.utils.toArray('.gs-parallax').forEach(img => {
+                const speed = parseFloat(img.getAttribute('data-speed')) || 1;
+                gsap.to(img, {
+                    yPercent: 14 * speed,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: img.parentElement,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                });
+            });
+
+            // 5. Staggered Fade Ups for Cards and Sections
+            gsap.utils.toArray('.gs-fade-up').forEach(element => {
+                gsap.fromTo(element, 
+                    { y: 40, opacity: 0 },
+                    {
+                        y: 0, 
+                        opacity: 1, 
+                        duration: 1.0, 
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 88%',
+                            once: true
+                        }
+                    }
+                );
+            });
+            
+            // 6. Dynamic Heritage Timeline Animations
+            gsap.to('.tl-line-progress', {
+                height: '100%',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.timeline-section',
+                    start: 'top 55%',
+                    end: 'bottom 85%',
+                    scrub: 0.5
+                }
+            });
+
+            // Animate Nodes & Content
+            gsap.utils.toArray('.tl-node').forEach((node, i) => {
+                const isLeft = i % 2 === 0; 
+                const contentClass = isLeft ? '.tl-content-left' : '.tl-content-right';
+                const content = node.parentElement.querySelector(contentClass);
+                
+                // Animate Node Scale & Accent Color
+                gsap.fromTo(node, 
+                    { scale: 0.6, borderColor: 'rgba(180,161,122,0.3)', color: '#37332F' },
+                    {
+                        scale: 1, 
+                        borderColor: '#B4A17A', 
+                        color: '#B4A17A',
+                        backgroundColor: '#241923',
+                        duration: 0.5,
+                        ease: 'back.out(1.7)',
+                        scrollTrigger: {
+                            trigger: node,
+                            start: 'top 78%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+
+                // Slide In Content Cards
+                if (content) {
+                    gsap.fromTo(content,
+                        { x: isLeft ? -40 : 40, opacity: 0 },
+                        {
+                            x: 0, 
+                            opacity: 1,
+                            duration: 0.8,
+                            ease: 'power3.out',
+                            delay: 0.15,
+                            scrollTrigger: {
+                                trigger: node,
+                                start: 'top 82%',
+                                toggleActions: 'play none none reverse'
+                            }
+                        }
+                    );
+                }
+            });
+        });
+    </script>
+</body>
+</html>

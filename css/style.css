@@ -134,3 +134,25 @@ body {
     100% { transform: translateX(-100%); }
 }
 
+/* Text Masking Wrappers */
+.mask-wrap {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Parallax & Image Handling */
+.parallax-wrapper {
+    overflow: hidden;
+    position: relative;
+    transform: translateZ(0);
+}
+.parallax-img {
+    height: 140%;
+    width: 100%;
+    object-fit: cover;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+
