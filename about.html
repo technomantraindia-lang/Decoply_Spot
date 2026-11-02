@@ -214,46 +214,63 @@
             <!-- CSS Grid -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-auto">
                 
-                <!-- Row 1: Wide Stone Card -->
-                <div class="md:col-span-6 lg:col-span-5 bg-stone/50 border border-stone rounded-[20px] p-8 md:p-12 flex flex-col justify-between min-h-[300px] shadow-sm hover:shadow-xl transition-all duration-300 gs-fade-up">
-                    <div class="flex justify-between items-start mb-12">
-                        <span class="font-manrope text-2xl text-plum/40 font-light">01</span>
-                        <span class="w-8 h-8 rounded-full border border-plum/20 flex items-center justify-center text-plum/60">&plus;</span>
+                <!-- Row 1: Wide Stone Card (Architectural Wood) -->
+                <div class="md:col-span-6 lg:col-span-5 relative rounded-[20px] overflow-hidden group border border-champagne/30 p-8 md:p-12 flex flex-col justify-between min-h-[320px] shadow-lg hover:shadow-2xl transition-all duration-500 ease-out gs-fade-up">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&w=1000&q=80" alt="Architectural Wood Veneer" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-plum/95 via-plum/70 to-plum/40"></div>
+
+                    <div class="relative z-10 flex justify-between items-start mb-12">
+                        <span class="font-manrope text-2xl text-champagne font-light">01</span>
+                        <span class="w-8 h-8 rounded-full border border-champagne/40 bg-plum/60 backdrop-blur-md flex items-center justify-center text-champagne group-hover:bg-champagne group-hover:text-plum transition-all duration-300">&plus;</span>
                     </div>
-                    <div>
-                        <h3 class="font-manrope text-2xl text-plum font-light mb-2">Architectural Wood</h3>
-                        <p class="font-inter text-xs text-charcoal/70 uppercase tracking-widest">Mikasa / Alpi / Greenlam Veneers</p>
+                    <div class="relative z-10">
+                        <h3 class="font-manrope text-2xl md:text-3xl text-ivory font-light mb-2 group-hover:text-champagne transition-colors duration-300">Architectural Wood</h3>
+                        <p class="font-inter text-xs text-champagne/90 uppercase tracking-widest font-medium">Mikasa / Alpi / Greenlam Veneers</p>
                     </div>
                 </div>
 
-                <!-- Dark Plum Accent Card -->
-                <div class="md:col-span-6 lg:col-span-7 bg-plum rounded-[20px] p-8 md:p-12 flex flex-col justify-between min-h-[300px] text-ivory border border-champagne/30 shadow-xl gs-fade-up" style="transition-delay: 100ms;">
-                    <div class="flex justify-between items-center mb-12">
-                        <span class="font-manrope text-2xl text-champagne/40 font-light">02</span>
-                        <span class="font-inter text-[0.65rem] uppercase tracking-widest text-champagne border border-champagne/40 px-3.5 py-1.5 rounded-full bg-white/5">Premium Veneers</span>
+                <!-- Dark Plum Accent Card (Premium Veneers) -->
+                <div class="md:col-span-6 lg:col-span-7 relative rounded-[20px] overflow-hidden group border border-champagne/30 p-8 md:p-12 flex flex-col justify-between min-h-[320px] shadow-xl hover:shadow-2xl transition-all duration-500 ease-out gs-fade-up" style="transition-delay: 100ms;">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1000&q=80" alt="Premium Veneer Textures" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-plum/95 via-plum/75 to-plum/50"></div>
+
+                    <div class="relative z-10 flex justify-between items-center mb-10">
+                        <span class="font-manrope text-2xl text-champagne font-light">02</span>
+                        <span class="font-inter text-[0.65rem] uppercase tracking-widest text-champagne border border-champagne/40 px-3.5 py-1.5 rounded-full bg-plum/80 backdrop-blur-md font-medium">Premium Veneers</span>
                     </div>
-                    <div>
-                        <p class="font-cormorant italic text-3xl md:text-4xl text-champagne mb-4">"Tactility grounded in texture."</p>
-                        <p class="font-inter text-sm text-ivory/70 font-light">Flawless grain matching, zero defects, and architectural veneer grading.</p>
+                    <div class="relative z-10">
+                        <p class="font-cormorant italic text-3xl md:text-4xl text-champagne mb-3">"Tactility grounded in texture."</p>
+                        <p class="font-inter text-sm text-ivory/80 font-light">Flawless grain matching, zero defects, and architectural veneer grading.</p>
                     </div>
                 </div>
 
-                <!-- Row 2: Small Ivory Offset Card -->
-                <div class="md:col-span-4 lg:col-span-4 bg-white border border-champagne/30 rounded-[20px] p-8 flex flex-col justify-center min-h-[250px] shadow-sm gs-fade-up">
-                    <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-3 block">03 / Ecology</span>
-                    <h4 class="font-manrope text-2xl text-plum font-light mb-2">Sustainable Core</h4>
-                    <p class="font-inter text-xs text-charcoal/70 leading-relaxed">FSC-certified materials prioritizing ecological health, indoor air purity, and multi-decade longevity.</p>
+                <!-- Row 2: Small Ivory Offset Card (Sustainable Core) -->
+                <div class="md:col-span-4 lg:col-span-4 relative rounded-[20px] overflow-hidden group border border-champagne/30 p-8 flex flex-col justify-between min-h-[260px] shadow-md hover:shadow-2xl transition-all duration-500 ease-out gs-fade-up">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" alt="Sustainable Core Architecture" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-plum/95 via-plum/70 to-plum/45"></div>
+
+                    <div class="relative z-10 flex justify-between items-start mb-4">
+                        <span class="font-manrope text-2xl text-champagne font-light">03</span>
+                        <span class="text-[0.65rem] font-inter uppercase tracking-[0.2em] text-champagne px-3 py-1 rounded-full bg-plum/80 backdrop-blur-md border border-champagne/30">Ecology</span>
+                    </div>
+                    <div class="relative z-10">
+                        <h4 class="font-manrope text-2xl text-ivory font-light mb-2 group-hover:text-champagne transition-colors duration-300">Sustainable Core</h4>
+                        <p class="font-inter text-xs text-ivory/80 leading-relaxed font-light">FSC-certified materials prioritizing ecological health, indoor air purity, and multi-decade longevity.</p>
+                    </div>
                 </div>
 
-                <!-- Wide Taupe Card -->
-                <div class="md:col-span-8 lg:col-span-8 bg-taupe/90 rounded-[20px] p-8 md:p-12 flex flex-col justify-between min-h-[250px] text-ivory shadow-sm gs-fade-up" style="transition-delay: 100ms;">
-                    <div class="flex justify-between items-center mb-8">
-                        <span class="font-manrope text-2xl text-ivory/40 font-light">04</span>
-                        <span class="text-[0.65rem] font-inter uppercase tracking-widest text-ivory/80">Engineered Composites</span>
+                <!-- Wide Taupe Card (Solid Surfaces & Minerals) -->
+                <div class="md:col-span-8 lg:col-span-8 relative rounded-[20px] overflow-hidden group border border-champagne/30 p-8 md:p-12 flex flex-col justify-between min-h-[260px] shadow-lg hover:shadow-2xl transition-all duration-500 ease-out gs-fade-up" style="transition-delay: 100ms;">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?auto=format&fit=crop&w=1000&q=80" alt="Solid Surfaces & Minerals" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-espresso/95 via-espresso/75 to-espresso/50"></div>
+
+                    <div class="relative z-10 flex justify-between items-center mb-8">
+                        <span class="font-manrope text-2xl text-champagne font-light">04</span>
+                        <span class="text-[0.65rem] font-inter uppercase tracking-widest text-champagne px-3.5 py-1.5 rounded-full bg-plum/80 backdrop-blur-md border border-champagne/30 font-medium">Engineered Composites</span>
                     </div>
-                    <div>
-                        <h3 class="font-manrope text-2xl md:text-3xl text-ivory font-light mb-3">Solid Surfaces &amp; Minerals</h3>
-                        <p class="font-inter text-xs text-ivory/80 uppercase tracking-widest">Natural Quartzite / Fenix NTM / Anodized Foils</p>
+                    <div class="relative z-10">
+                        <h3 class="font-manrope text-2xl md:text-3xl text-ivory font-light mb-2 group-hover:text-champagne transition-colors duration-300">Solid Surfaces &amp; Minerals</h3>
+                        <p class="font-inter text-xs text-champagne/90 uppercase tracking-widest font-medium">Natural Quartzite / Fenix NTM / Anodized Foils</p>
                     </div>
                 </div>
 
