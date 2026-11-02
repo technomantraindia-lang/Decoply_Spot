@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Spaces | The Deco House</title>
+    <link rel="icon" type="image/png" href="the_deco_house_logo_transparent.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400;500;600&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS with Official Brand Palette -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plum: '#241923',           // Deep Plum
+                        'deep-plum': '#241923',
+                        espresso: '#34252F',       // Espresso Plum
+                        'espresso-plum': '#34252F',
+                        champagne: '#B4A17A',      // Champagne Brass
+                        'champagne-brass': '#B4A17A',
+                        taupe: '#A79A8B',          // Warm Taupe
+                        'warm-taupe': '#A79A8B',
+                        stone: '#D0C5B7',          // Stone Beige
+                        'stone-beige': '#D0C5B7',
+                        ivory: '#F4F0E9',          // Architectural Ivory
+                        'architectural-ivory': '#F4F0E9',
+                        charcoal: '#37332F',       // Soft Charcoal
+                        'soft-charcoal': '#37332F',
+                    },
+                    fontFamily: {
+                        manrope: ['Manrope', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Advanced Styles -->
+    <style>
+        .mask-wrap {
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .parallax-wrapper {
+            overflow: hidden;
+            position: relative;
+            transform: translateZ(0);
+        }
+        .parallax-img {
+            height: 140%;
+            width: 100%;
+            object-fit: cover;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .glass-heavy {
+            background: rgba(244, 240, 233, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(180, 161, 122, 0.3);
+            box-shadow: 0 10px 40px rgba(36, 25, 35, 0.05);
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="font-inter antialiased selection:bg-champagne selection:text-plum bg-ivory text-charcoal">
+
+    <!-- Header / Navigation (Matches All Pages) -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav px-6 md:px-12 py-4 md:py-5 flex justify-between items-center transition-all duration-300 gs-reveal">
+        <a href="index.html" class="flex items-center transition-opacity duration-300 hover:opacity-80" aria-label="The Deco House">
+            <img src="the_deco_house_logo_transparent.png" alt="The Deco House | Surfaces, Materials, Solutions" class="h-10 md:h-12 w-auto object-contain">
+        </a>
+        <nav class="hidden md:flex items-center gap-8 font-inter text-xs text-plum uppercase tracking-[0.15em] font-medium">
+            <a href="index.html#surfaces" class="hover:text-champagne transition-colors duration-300">Surfaces</a>
+            <a href="about.html" class="hover:text-champagne transition-colors duration-300">About</a>
+            <a href="materials.html" class="hover:text-champagne transition-colors duration-300">Materials</a>
+            <a href="projects.html" class="text-champagne border-b border-champagne pb-0.5 font-semibold">Projects</a>
+            <a href="index.html#solutions" class="hover:text-champagne transition-colors duration-300">Solutions</a>
+            <a href="index.html#contact" class="hover:text-champagne transition-colors duration-300">Contact</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <a href="index.html#contact" class="hidden sm:inline-flex px-5 py-2 rounded-full border border-champagne/80 text-plum text-xs uppercase tracking-widest font-medium hover:bg-plum hover:text-ivory hover:border-plum transition-all duration-300 shadow-sm">
+                Contact
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-plum p-1 focus:outline-none" aria-label="Toggle navigation menu">
+                <svg id="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg id="close-icon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 top-[72px] bg-ivory/95 backdrop-blur-lg z-40 flex flex-col px-8 py-10 gap-6 md:hidden transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-4">
+        <a href="index.html#surfaces" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Surfaces</a>
+        <a href="about.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">About</a>
+        <a href="materials.html" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Materials</a>
+        <a href="projects.html" class="mobile-nav-link text-champagne font-medium text-lg uppercase tracking-widest">Projects</a>
+        <a href="index.html#solutions" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Solutions</a>
+        <a href="index.html#contact" class="mobile-nav-link text-plum text-lg uppercase tracking-widest font-light hover:text-champagne">Contact</a>
+    </div>
+
+    <!-- 2. Parallax Hero Section -->
+    <section class="relative pt-44 pb-20 px-6 md:px-12 flex flex-col justify-center items-center overflow-hidden">
+        <!-- Subtle Blueprint Radial Grid & Ambient Glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(#D0C5B7_1px,transparent_1px)] [background-size:28px_28px] opacity-40 pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-champagne/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="w-full max-w-7xl mx-auto flex flex-col items-center text-center z-10 mb-14 relative">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-md border border-champagne/40 mb-8 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-champagne animate-pulse"></span>
+                <span class="text-[0.65rem] font-inter uppercase tracking-[0.3em] text-plum font-medium">Architectural Archives &bull; Vol. 2026</span>
+            </div>
+
+            <h1 class="font-manrope font-light text-5xl md:text-7xl lg:text-[6rem] leading-[0.95] tracking-tight text-plum flex flex-col items-center">
+                <div class="mask-wrap"><span class="block gs-hero-text translate-y-[110%]">FEATURED</span></div>
+                <div class="mask-wrap"><span class="block text-champagne gs-hero-text translate-y-[110%] italic font-cormorant font-normal">Spaces.</span></div>
+            </h1>
+
+            <div class="mt-8 h-[1px] w-24 bg-champagne mx-auto"></div>
+
+            <div class="mt-8 mask-wrap max-w-lg mx-auto">
+                <p class="font-inter text-charcoal/80 text-base md:text-lg font-light leading-relaxed gs-hero-text translate-y-[110%]">
+                    Where material meets meaning. Explore how our curated surfaces perform in completed, world-class architectural environments.
+                </p>
+            </div>
+        </div>
+
+        <div class="w-full max-w-7xl mx-auto h-[55vh] md:h-[72vh] parallax-wrapper rounded-[24px] shadow-2xl border border-champagne/40 gs-fade-up relative">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=2000" alt="Hero Architecture" class="parallax-img absolute top-[-20%] gs-parallax" data-speed="0.8">
+            <div class="absolute inset-0 bg-gradient-to-t from-plum/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-8 left-8 right-8 z-10 text-ivory flex justify-between items-end">
+                <div>
+                    <span class="text-[0.65rem] font-inter uppercase tracking-[0.2em] text-champagne block mb-1">Featured Retrospective</span>
+                    <h3 class="font-manrope text-2xl md:text-3xl font-light">Monolithic Expressions</h3>
+                </div>
+                <span class="hidden md:inline-block px-4 py-2 rounded-full bg-plum/80 backdrop-blur-md border border-champagne/30 text-xs text-champagne font-inter uppercase tracking-widest">
+                    Global Case Studies
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Masonry Project Grid -->
+    <section class="py-28 px-6 md:px-12 bg-ivory relative z-10 border-t border-champagne/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16 gs-fade-up border-b border-champagne/30 pb-6">
+                <div>
+                    <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-3 block font-medium">01 / Case Studies</span>
+                    <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">Select Works</h2>
+                </div>
+                <span class="text-xs font-inter uppercase tracking-[0.2em] text-charcoal/60 hidden md:block">Residential &bull; Commercial &bull; Hospitality</span>
+            </div>
+
+            <!-- Asymmetrical CSS Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+                
+                <!-- Project 1 (Large, spans 8 cols, 2 rows) -->
+                <div class="md:col-span-8 md:row-span-2 rounded-[24px] overflow-hidden relative group parallax-wrapper shadow-lg border border-champagne/30 gs-fade-up cursor-pointer">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200" alt="The Minimalist Kitchen" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 parallax-img gs-parallax" data-speed="0.9">
+                    
+                    <!-- Default State Label -->
+                    <div class="absolute bottom-8 left-8 right-8 transition-opacity duration-500 group-hover:opacity-0 z-10">
+                        <span class="text-[0.65rem] font-inter uppercase tracking-widest text-champagne block mb-1">Residential &bull; Switzerland</span>
+                        <h3 class="font-manrope text-3xl md:text-4xl text-ivory font-light drop-shadow-md">The Minimalist Kitchen</h3>
+                    </div>
+
+                    <!-- Hover Reveal State -->
+                    <div class="absolute inset-0 bg-plum/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out flex flex-col justify-end p-8 md:p-12 z-20">
+                        <div class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                            <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-2 block">Case Study 01</span>
+                            <h3 class="font-manrope text-3xl md:text-4xl text-ivory font-light mb-4">The Minimalist Kitchen</h3>
+                            <p class="font-inter text-sm text-ivory/80 font-light mb-8 max-w-md leading-relaxed">A study in monolithic design. The island and cabinetry utilize zero-reflection nanotech laminates to absorb light, creating a quiet architectural focal point.</p>
+                            
+                            <div class="border-t border-ivory/20 pt-6 flex flex-wrap gap-8">
+                                <div>
+                                    <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1">Surfaces</span>
+                                    <span class="font-inter text-sm text-ivory">Fenix NTM&reg; Matte</span>
+                                </div>
+                                <div>
+                                    <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1">Accents</span>
+                                    <span class="font-inter text-sm text-ivory">Greenlam Honed Stone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 (Top Right, spans 4 cols, 1 row) -->
+                <div class="md:col-span-4 md:row-span-1 rounded-[24px] overflow-hidden relative group shadow-md border border-champagne/30 gs-fade-up cursor-pointer">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Corporate HQ" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    
+                    <div class="absolute bottom-6 left-6 transition-opacity duration-500 group-hover:opacity-0 z-10">
+                        <span class="text-[0.6rem] font-inter uppercase tracking-widest text-champagne block mb-0.5">Commercial</span>
+                        <h3 class="font-manrope text-xl text-ivory font-light drop-shadow-md">Corporate HQ</h3>
+                    </div>
+
+                    <div class="absolute inset-0 bg-plum/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out flex flex-col justify-end p-6 z-20">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                            <h3 class="font-manrope text-xl text-ivory font-light mb-3">Corporate HQ</h3>
+                            <div>
+                                <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1">Primary Material</span>
+                                <span class="font-inter text-sm text-ivory">Mikasa Decowood Veneer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 (Bottom Right, spans 4 cols, 1 row) -->
+                <div class="md:col-span-4 md:row-span-1 rounded-[24px] overflow-hidden relative group shadow-md border border-champagne/30 gs-fade-up cursor-pointer">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800" alt="Acoustic Lounge" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                    
+                    <div class="absolute bottom-6 left-6 transition-opacity duration-500 group-hover:opacity-0 z-10">
+                        <span class="text-[0.6rem] font-inter uppercase tracking-widest text-champagne block mb-0.5">Hospitality</span>
+                        <h3 class="font-manrope text-xl text-ivory font-light drop-shadow-md">Acoustic Lounge</h3>
+                    </div>
+
+                    <div class="absolute inset-0 bg-plum/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out flex flex-col justify-end p-6 z-20">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                            <h3 class="font-manrope text-xl text-ivory font-light mb-3">Acoustic Lounge</h3>
+                            <div>
+                                <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1">Primary Material</span>
+                                <span class="font-inter text-sm text-ivory">Senses Akustik Sound Panels</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 (Wide, spans 12 cols, custom height) -->
+                <div class="md:col-span-12 h-[460px] rounded-[24px] overflow-hidden relative group parallax-wrapper shadow-lg border border-champagne/30 gs-fade-up cursor-pointer mt-4">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1600" alt="Alpine Retreat" class="w-full h-[140%] object-cover absolute top-[-20%] parallax-img gs-parallax transition-transform duration-1000 group-hover:scale-105" data-speed="0.7">
+                    <div class="absolute inset-0 bg-plum/30"></div>
+                    
+                    <div class="absolute bottom-8 left-8 transition-opacity duration-500 group-hover:opacity-0 z-10">
+                        <span class="text-xs font-inter uppercase tracking-widest text-champagne block mb-1">Residential &bull; St. Moritz</span>
+                        <h3 class="font-manrope text-3xl md:text-4xl text-ivory font-light drop-shadow-md">The Alpine Retreat</h3>
+                    </div>
+
+                    <div class="absolute inset-0 bg-plum/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out flex flex-col md:flex-row items-end justify-between p-8 md:p-14 z-20">
+                        <div class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out w-full md:w-1/2">
+                            <span class="text-xs font-inter uppercase tracking-[0.2em] text-champagne mb-2 block">Case Study 04</span>
+                            <h3 class="font-manrope text-3xl md:text-4xl text-ivory font-light mb-4">The Alpine Retreat</h3>
+                            <p class="font-inter text-sm text-ivory/80 font-light max-w-md leading-relaxed">Integrating the warmth of deep-toned timber with the ruggedness of the external mountain environment. A complete interior application of our curated European veneers and color-core substrates.</p>
+                        </div>
+                        <div class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out delay-100 w-full md:w-auto mt-8 md:mt-0">
+                            <div class="flex gap-12 border-l border-champagne/30 pl-8">
+                                <div>
+                                    <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1">Wall Paneling</span>
+                                    <span class="font-inter text-sm text-ivory">Valchromat Earth</span>
+                                </div>
+                                <div>
+                                    <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1">Joinery</span>
+                                    <span class="font-inter text-sm text-ivory">Alpi Designer Veneer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Anatomy of a Space (Material Breakdown) -->
+    <section class="py-32 px-6 md:px-12 bg-ivory relative z-10 border-t border-champagne/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 gs-fade-up text-center">
+                <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-3 block font-medium">02 / Material Breakdown</span>
+                <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light mb-4">Anatomy of a Space</h2>
+                <p class="font-inter text-sm text-charcoal/70 max-w-lg mx-auto font-light leading-relaxed">Deconstructing the architectural surfaces that shape our most iconic interior collaborations.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <!-- Left: Large Architectural Image -->
+                <div class="w-full lg:w-3/5 h-[480px] md:h-[650px] rounded-[24px] overflow-hidden relative parallax-wrapper shadow-2xl border border-champagne/30 gs-fade-up">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=80&w=1200" alt="Anatomy Space" class="parallax-img absolute top-[-10%] gs-parallax" data-speed="0.8">
+                    <div class="absolute inset-0 bg-gradient-to-t from-plum/60 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 text-ivory">
+                        <span class="text-xs font-inter uppercase tracking-widest text-champagne block mb-1">Villa Solis</span>
+                        <h3 class="font-manrope text-2xl font-light">Tri-Material Composition</h3>
+                    </div>
+                </div>
+
+                <!-- Right: Stacked Glass Cards -->
+                <div class="w-full lg:w-2/5 flex flex-col gap-6 justify-center">
+                    
+                    <!-- Material 1 -->
+                    <div class="glass-heavy p-6 rounded-[20px] flex items-center gap-6 gs-fade-up border border-champagne/40 shadow-lg">
+                        <div class="w-20 h-20 shrink-0 rounded-[14px] overflow-hidden shadow-md">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=300" alt="Fenix NTM" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1 font-medium">Cabinetry &bull; Island</span>
+                            <h4 class="font-manrope text-xl text-plum font-light mb-1">Fenix NTM&reg;</h4>
+                            <p class="font-inter text-xs text-charcoal/70 leading-relaxed font-light">Low light reflectivity, anti-fingerprint thermal healing matte surface.</p>
+                        </div>
+                    </div>
+
+                    <!-- Material 2 -->
+                    <div class="glass-heavy p-6 rounded-[20px] flex items-center gap-6 gs-fade-up border border-champagne/40 shadow-lg" style="transition-delay: 100ms;">
+                        <div class="w-20 h-20 shrink-0 rounded-[14px] overflow-hidden shadow-md">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&q=80&w=300" alt="Valchromat Earth" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1 font-medium">Wall Paneling</span>
+                            <h4 class="font-manrope text-xl text-plum font-light mb-1">Valchromat Earth</h4>
+                            <p class="font-inter text-xs text-charcoal/70 leading-relaxed font-light">Through-color organic wood fiber panels for deep textural richness.</p>
+                        </div>
+                    </div>
+
+                    <!-- Material 3 -->
+                    <div class="glass-heavy p-6 rounded-[20px] flex items-center gap-6 gs-fade-up border border-champagne/40 shadow-lg" style="transition-delay: 200ms;">
+                        <div class="w-20 h-20 shrink-0 rounded-[14px] overflow-hidden shadow-md">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=300" alt="Mikasa Decowood" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1 font-medium">Ceiling Baffles</span>
+                            <h4 class="font-manrope text-xl text-plum font-light mb-1">Mikasa Decowood</h4>
+                            <p class="font-inter text-xs text-charcoal/70 leading-relaxed font-light">Premium natural architectural wood veneer for acoustic diffusion.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Signature Project (Horizontal Scroll Pinned Section) -->
+    <section class="hs-container min-h-screen bg-stone/20 relative border-y border-champagne/30 overflow-hidden flex items-center py-16">
+        <div class="hs-track flex gap-8 px-6 md:px-[8vw] items-center h-full w-max">
+            
+            <!-- Intro Text Card -->
+            <div class="w-[85vw] md:w-[35vw] flex flex-col justify-center px-4 md:px-8 shrink-0">
+                <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-4 block font-medium">03 / Signature Archive</span>
+                <h2 class="font-manrope text-4xl md:text-6xl text-plum font-light leading-none mb-6">The<br><span class="italic font-cormorant text-champagne font-normal">Obsidian</span><br>Gallery.</h2>
+                <p class="font-inter text-sm md:text-base text-charcoal/80 font-light mb-8 max-w-sm leading-relaxed">
+                    An exhaustive case study in textural restraint. This 12,000 sq ft commercial gallery space relies exclusively on a palette of 3 core Deco House materials to guide visitor flow and acoustic comfort.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[0.65rem] border border-champagne/40 bg-white/60 px-3.5 py-1.5 rounded-full uppercase tracking-widest text-plum font-medium">Fenix NTM&reg;</span>
+                    <span class="text-[0.65rem] border border-champagne/40 bg-white/60 px-3.5 py-1.5 rounded-full uppercase tracking-widest text-plum font-medium">Senses Akustik</span>
+                    <span class="text-[0.65rem] border border-champagne/40 bg-white/60 px-3.5 py-1.5 rounded-full uppercase tracking-widest text-plum font-medium">Valchromat</span>
+                </div>
+            </div>
+
+            <!-- Gallery Image 1 -->
+            <div class="w-[85vw] md:w-[55vw] h-[65vh] shrink-0 rounded-[24px] shadow-2xl relative overflow-hidden group border border-champagne/30">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=1200" alt="Obsidian Gallery Entrance" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div class="absolute bottom-8 left-8 glass-heavy p-4 rounded-[16px] border border-champagne/40">
+                    <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1 font-medium">01 / The Foyer</span>
+                    <span class="font-manrope text-xl text-plum">Acoustic Ceiling Baffles</span>
+                </div>
+            </div>
+
+            <!-- Gallery Image 2 -->
+            <div class="w-[85vw] md:w-[55vw] h-[65vh] shrink-0 rounded-[24px] shadow-2xl relative overflow-hidden group border border-champagne/30">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1200" alt="Obsidian Gallery Main Hall" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div class="absolute bottom-8 left-8 glass-heavy p-4 rounded-[16px] border border-champagne/40">
+                    <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1 font-medium">02 / Main Exhibition</span>
+                    <span class="font-manrope text-xl text-plum">Monolithic Fenix Walls</span>
+                </div>
+            </div>
+
+            <!-- Gallery Image 3 -->
+            <div class="w-[85vw] md:w-[45vw] h-[65vh] shrink-0 rounded-[24px] shadow-2xl relative overflow-hidden group border border-champagne/30">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&q=80&w=1000" alt="Obsidian Gallery Details" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div class="absolute bottom-8 left-8 glass-heavy p-4 rounded-[16px] border border-champagne/40">
+                    <span class="text-[0.65rem] uppercase tracking-widest text-champagne block mb-1 font-medium">03 / Joinery Detail</span>
+                    <span class="font-manrope text-xl text-plum">Valchromat &amp; Metallic Foils</span>
+                </div>
+            </div>
+
+            <!-- End Spacer -->
+            <div class="w-[8vw] shrink-0"></div>
+        </div>
+    </section>
+
+    <!-- 6. Architect Perspectives (Testimonials) -->
+    <section class="py-32 px-6 md:px-12 bg-ivory relative z-10 border-b border-champagne/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gs-fade-up gap-8 border-b border-champagne/30 pb-8">
+                <div>
+                    <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-3 block font-medium">04 / Testimonials</span>
+                    <h2 class="font-manrope text-4xl md:text-5xl text-plum font-light">Architect Perspectives</h2>
+                </div>
+                <p class="font-inter text-sm text-charcoal/70 max-w-sm font-light leading-relaxed">Words from the visionaries who specify our materials to bring their most ambitious designs to life.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Perspective 1 -->
+                <div class="glass-heavy p-10 rounded-[24px] relative gs-fade-up flex flex-col justify-between min-h-[360px] border border-champagne/40 shadow-lg">
+                    <span class="absolute top-6 left-6 text-6xl text-champagne/40 font-cormorant leading-none">"</span>
+                    <div class="relative z-10 mt-6">
+                        <p class="font-inter text-sm text-charcoal/80 leading-relaxed font-light mb-8">
+                            The Deco House has fundamentally changed how we specify. The curation is so rigorous that we know any material we select will perform impeccably in both high-traffic commercial spaces and quiet residential retreats.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-champagne/30 pt-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-champagne/50 shadow-sm">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200" alt="Architect Elena Rostova" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-manrope text-plum text-sm font-medium">Elena Rostova</h4>
+                            <p class="font-inter text-[0.65rem] text-charcoal/60 uppercase tracking-widest">Principal, Studio Rostova</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perspective 2 -->
+                <div class="glass-heavy p-10 rounded-[24px] relative gs-fade-up flex flex-col justify-between min-h-[360px] border border-champagne/40 shadow-lg lg:translate-y-8" style="transition-delay: 100ms;">
+                    <span class="absolute top-6 left-6 text-6xl text-champagne/40 font-cormorant leading-none">"</span>
+                    <div class="relative z-10 mt-6">
+                        <p class="font-inter text-sm text-charcoal/80 leading-relaxed font-light mb-8">
+                            Finding an acoustic solution that doesn't compromise the minimalist aesthetic was a challenge until we discovered Senses Akustik. It seamlessly integrated into our gallery project, maintaining the monolithic visual language.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-champagne/30 pt-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-champagne/50 shadow-sm">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200" alt="Architect Marcus Vance" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-manrope text-plum text-sm font-medium">Marcus Vance</h4>
+                            <p class="font-inter text-[0.65rem] text-charcoal/60 uppercase tracking-widest">Lead Designer, Vance &amp; Co.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perspective 3 -->
+                <div class="glass-heavy p-10 rounded-[24px] relative gs-fade-up flex flex-col justify-between min-h-[360px] border border-champagne/40 shadow-lg" style="transition-delay: 200ms;">
+                    <span class="absolute top-6 left-6 text-6xl text-champagne/40 font-cormorant leading-none">"</span>
+                    <div class="relative z-10 mt-6">
+                        <p class="font-inter text-sm text-charcoal/80 leading-relaxed font-light mb-8">
+                            The tactile depth of Valchromat paired with Mikasa veneers gave our latest Alpine project a warmth that synthetic materials simply cannot replicate. Their sourcing transparency is also unparalleled.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-champagne/30 pt-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-champagne/50 shadow-sm">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200" alt="Architect Sarah Chen" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-manrope text-plum text-sm font-medium">Sarah Chen</h4>
+                            <p class="font-inter text-[0.65rem] text-charcoal/60 uppercase tracking-widest">Director of Architecture, Chen Studio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Project Inquiry CTA -->
+    <section class="py-32 px-6 md:px-12 bg-plum relative z-10 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-champagne/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto bg-ivory rounded-[28px] shadow-2xl overflow-hidden flex flex-col lg:flex-row gs-fade-up relative z-10 border border-champagne/40">
+            
+            <!-- Left: Bold Typography & Form -->
+            <div class="w-full lg:w-1/2 p-10 md:p-16 lg:p-20 flex flex-col justify-center bg-ivory text-plum">
+                <span class="text-xs font-inter uppercase tracking-[0.3em] text-champagne mb-4 block font-medium">05 / Collaboration</span>
+                <h2 class="font-manrope text-4xl md:text-5xl lg:text-6xl font-light mb-6 leading-tight">Specify<br><span class="italic font-cormorant text-plum font-normal">The Deco House.</span></h2>
+                <p class="font-inter text-charcoal/70 text-sm font-light mb-8 leading-relaxed max-w-md">
+                    Our team provides comprehensive material schedules, fire-rating certifications, and structural specifications directly for architects and interior designers.
+                </p>
+                <form id="project-inquiry-form" class="flex flex-col gap-4 w-full">
+                    <input type="text" placeholder="Project Name / Studio" required class="w-full bg-stone/30 border border-champagne/40 rounded-full px-6 py-4 text-sm font-inter text-plum focus:outline-none focus:border-champagne focus:bg-white transition-all placeholder-charcoal/50">
+                    <input type="email" placeholder="Professional Email Address" required class="w-full bg-stone/30 border border-champagne/40 rounded-full px-6 py-4 text-sm font-inter text-plum focus:outline-none focus:border-champagne focus:bg-white transition-all placeholder-charcoal/50">
+                    <button type="submit" class="w-full bg-plum text-ivory rounded-full px-6 py-4 text-xs font-inter uppercase tracking-widest font-medium hover:bg-champagne hover:text-plum transition-all duration-300 mt-2 shadow-lg hover:shadow-xl">
+                        Initiate Specification Dialogue &rarr;
+                    </button>
+                    <div id="project-success" class="hidden text-xs font-inter text-champagne bg-champagne/10 border border-champagne/30 px-4 py-2.5 rounded-lg mt-1">
+                        &check; Thank you. Our architectural specification team will connect with your studio shortly.
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right: Architectural Image inside Card -->
+            <div class="w-full lg:w-1/2 h-[380px] lg:h-auto relative parallax-wrapper">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?auto=format&fit=crop&q=80&w=1000" alt="Material Blueprints and Specification" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-ivory/20 to-transparent"></div>
+                <div class="absolute bottom-8 right-8 bg-plum/85 backdrop-blur-md px-4 py-2 rounded-full border border-champagne/30 text-champagne text-[0.65rem] font-inter uppercase tracking-widest font-medium">
+                    Architectural Spec Kits
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer (Matches All Pages) -->
+    <footer class="bg-plum pt-28 pb-12 px-6 md:px-12 text-ivory border-t border-champagne/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-0 pb-20 border-b border-champagne/20">
+                <div class="w-full md:w-1/2">
+                    <div class="mb-8">
+                        <a href="index.html" class="inline-block transition-opacity duration-300 hover:opacity-80" aria-label="The Deco House">
+                            <img loading="lazy" decoding="async" src="assets/the_deco_house_logo_dark.png" alt="The Deco House | Surfaces, Materials, Solutions" class="h-11 md:h-14 w-auto object-contain">
+                        </a>
+                    </div>
+                    <p class="font-inter text-ivory/70 max-w-sm font-light leading-relaxed">
+                        A thoughtfully curated material experience, supported by product knowledge, dependable guidance and a cohesive design point of view.
+                    </p>
+                </div>
+                
+                <div class="w-full md:w-1/2 flex flex-col md:flex-row gap-12 md:gap-24 justify-end font-inter">
+                    <div>
+                        <h4 class="text-champagne text-xs uppercase tracking-widest mb-6">Directory</h4>
+                        <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                            <li><a href="about.html" class="hover:text-champagne transition-colors">About Us</a></li>
+                            <li><a href="materials.html" class="hover:text-champagne transition-colors">Material Archive</a></li>
+                            <li><a href="projects.html" class="hover:text-champagne transition-colors">Featured Projects</a></li>
+                            <li><a href="index.html#surfaces" class="hover:text-champagne transition-colors">Surface Collections</a></li>
+                            <li><a href="index.html#contact" class="hover:text-champagne transition-colors">Contact Studio</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-champagne text-xs uppercase tracking-widest mb-6">Connect</h4>
+                        <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                            <li><a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">Instagram</a></li>
+                            <li><a href="https://pinterest.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">Pinterest</a></li>
+                            <li><a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center mt-8 font-inter text-xs text-taupe/80 uppercase tracking-widest">
+                <p>&copy; 2026 The Deco House. All Rights Reserved.</p>
+                <p class="mt-4 md:mt-0">Revised Edition &bull; Architectural Projects</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & Lenis Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Lenis Smooth Scrolling Setup
+            const lenis = new Lenis({
+                duration: 1.0,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                orientation: 'vertical',
+                gestureOrientation: 'vertical',
+                smoothWheel: true,
+                wheelMultiplier: 1.0,
+                touchMultiplier: 1.5,
+                infinite: false,
+            });
+
+            // Synchronize ScrollTrigger with Lenis via GSAP ticker exclusively (no duplicate RAF loop)
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                lenis.on('scroll', ScrollTrigger.update);
+                gsap.ticker.add((time) => {
+                    lenis.raf(time * 1000);
+                });
+                gsap.ticker.lagSmoothing(0);
+            } else {
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+            }
+
+            // 2. Mobile Menu Navigation
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+
+            function closeMobileMenu() {
+                if (mobileMenu) {
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+                }
+                if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+                if (closeIcon) closeIcon.classList.add('hidden');
+            }
+
+            function openMobileMenu() {
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+                }
+                if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
+                if (closeIcon) closeIcon.classList.remove('hidden');
+            }
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    const isOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (isOpen) {
+                        closeMobileMenu();
+                    } else {
+                        openMobileMenu();
+                    }
+                });
+            }
+
+            // 3. Entrance Animations (Hero Text)
+            gsap.to('.gs-hero-text', { y: 0, duration: 1.2, stagger: 0.12, ease: 'power4.out', delay: 0.2 });
+
+            // Standard Fade-ups
+            gsap.utils.toArray('.gs-fade-up').forEach(element => {
+                gsap.fromTo(element, 
+                    { y: 40, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 1.0, ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 88%',
+                            once: true
+                        }
+                    }
+                );
+            });
+
+            // Parallax Images setup
+            gsap.utils.toArray('.gs-parallax').forEach(img => {
+                const speed = parseFloat(img.getAttribute('data-speed')) || 1;
+                gsap.to(img, {
+                    yPercent: 14 * speed,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: img.parentElement,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                });
+            });
+
+            // 4. Signature Project Horizontal Scroll (Pinned)
+            const track = document.querySelector('.hs-track');
+            const container = document.querySelector('.hs-container');
+
+            if (track && container) {
+                gsap.to(track, {
+                    x: () => -(track.scrollWidth - window.innerWidth),
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: container,
+                        start: "top top",
+                        end: () => "+=" + (track.scrollWidth - window.innerWidth),
+                        pin: true,
+                        scrub: 1,
+                        invalidateOnRefresh: true
+                    }
+                });
+            }
+
+            // 5. Form Submission Feedback
+            const inquiryForm = document.getElementById('project-inquiry-form');
+            const projectSuccess = document.getElementById('project-success');
+            if (inquiryForm && projectSuccess) {
+                inquiryForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    projectSuccess.classList.remove('hidden');
+                    inquiryForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
