@@ -62,3 +62,4 @@ if (@mail($to_email, $subject, $body, $headers)) {
     echo json_encode(['status' => 'error', 'message' => 'Failed to dispatch mail. Please check server SMTP configuration.']);
 }
 ?>
+
