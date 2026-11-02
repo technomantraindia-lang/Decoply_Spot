@@ -140,6 +140,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
             });
         }
+
+        // 5. Ensure Hero Video Autoplays
+        const heroVideo = document.querySelector('video.gs-hero-img');
+        if (heroVideo) {
+            heroVideo.muted = true;
+            heroVideo.play().catch(() => {});
+        }
     }
 });
 

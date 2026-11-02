@@ -74,7 +74,8 @@ body {
     overflow: hidden;
     position: relative;
 }
-.img-reveal-wrapper img {
+.img-reveal-wrapper img,
+.img-reveal-wrapper video {
     transform: scale(1.2);
     transform-origin: center;
 }
