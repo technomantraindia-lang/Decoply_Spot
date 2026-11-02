@@ -140,11 +140,30 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // 5. Ensure Hero Video Autoplays
-        const heroVideo = document.querySelector('video.gs-hero-img');
+        // 5. Ensure Hero Video Autoplays & Interactive Sound Toggle
+        const heroVideo = document.getElementById('hero-video') || document.querySelector('video.gs-hero-img');
+        const heroSoundToggle = document.getElementById('hero-sound-toggle');
+        const heroMutedIcon = document.getElementById('hero-sound-muted-icon');
+        const heroActiveIcon = document.getElementById('hero-sound-active-icon');
+
         if (heroVideo) {
             heroVideo.muted = true;
             heroVideo.play().catch(() => {});
+        }
+
+        if (heroSoundToggle && heroVideo) {
+            heroSoundToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                heroVideo.muted = !heroVideo.muted;
+                if (heroVideo.muted) {
+                    if (heroMutedIcon) heroMutedIcon.classList.remove('hidden');
+                    if (heroActiveIcon) heroActiveIcon.classList.add('hidden');
+                } else {
+                    if (heroMutedIcon) heroMutedIcon.classList.add('hidden');
+                    if (heroActiveIcon) heroActiveIcon.classList.remove('hidden');
+                    heroVideo.play().catch(() => {});
+                }
+            });
         }
 
         // 6. Interactive CTA Typology Selector Pills

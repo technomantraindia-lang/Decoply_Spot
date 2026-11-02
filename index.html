@@ -75,38 +75,126 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen pt-32 pb-20 px-6 md:px-12 flex flex-col justify-center">
+    <section class="relative min-h-screen pt-32 pb-14 px-6 md:px-12 flex flex-col justify-between overflow-hidden">
+        <!-- Subtle Architectural Blueprint Grid & Warm Ambient Champagne Glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(#D0C5B7_1px,transparent_1px)] [background-size:28px_28px] opacity-40 pointer-events-none"></div>
+        <div class="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-champagne/15 rounded-full blur-[140px] pointer-events-none"></div>
+
         <!-- Asymmetrical Graphic Element -->
         <div class="absolute top-0 right-0 w-3/4 md:w-1/2 h-full bg-stone z-0 origin-top bg-opacity-30 gs-bg-scale"></div>
         
-        <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 mt-12">
+        <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 my-auto">
             
-            <!-- Overlapping Typography -->
-            <div class="w-full md:w-3/5 order-2 md:order-1 relative z-20 md:-mr-32">
-                <h1 class="font-manrope font-light text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] tracking-tight text-plum gs-title">
+            <!-- Overlapping Typography & Interactive CTAs -->
+            <div class="w-full md:w-3/5 order-2 md:order-1 relative z-20 md:-mr-28">
+                <!-- Architectural Pre-Title Live Badge -->
+                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-md border border-champagne/40 mb-6 shadow-sm gs-reveal">
+                    <span class="w-2 h-2 rounded-full bg-champagne animate-pulse"></span>
+                    <span class="text-[0.65rem] font-inter uppercase tracking-[0.25em] text-plum font-medium">Vol. 2026 &bull; Surface Sanctuary</span>
+                </div>
+
+                <h1 class="font-manrope font-light text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.08] tracking-tight text-plum gs-title">
                     SPACES<br>
                     SHAPED<br>
                     BY POSSIBILITY.
                 </h1>
-                <p class="font-cormorant italic text-xl md:text-2xl mt-8 text-charcoal/90 max-w-md gs-subtitle">
-                    Materials, thoughtfully considered.
+
+                <p class="font-cormorant italic text-xl md:text-2xl mt-7 text-charcoal/90 max-w-lg leading-relaxed gs-subtitle">
+                    Materials, thoughtfully considered — where tactile veneers, stone, and architectural surfaces define enduring spaces.
                 </p>
-                <div class="mt-12 h-[1px] w-24 bg-champagne gs-line"></div>
+
+                <!-- Architectural Accent Line with Micro Spec Coordinate -->
+                <div class="mt-8 flex items-center gap-4 gs-line-wrapper">
+                    <div class="h-[1px] w-20 bg-champagne gs-line"></div>
+                    <span class="text-[0.65rem] font-inter uppercase tracking-[0.25em] text-charcoal/50">28.6139° N &bull; Material Spec</span>
+                </div>
+
+                <!-- Interactive Hero CTAs -->
+                <div class="mt-10 flex flex-wrap items-center gap-4 gs-fade-up">
+                    <a href="#surfaces" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-plum text-ivory text-xs font-inter uppercase tracking-[0.2em] font-medium hover:bg-plum/90 hover:shadow-xl hover:shadow-plum/20 hover:-translate-y-0.5 transition-all duration-300">
+                        <span>Explore Archive</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-champagne/80 bg-white/40 backdrop-blur-sm text-plum text-xs font-inter uppercase tracking-[0.2em] font-medium hover:bg-champagne/20 hover:border-champagne hover:-translate-y-0.5 transition-all duration-300 shadow-sm">
+                        <span>Material Specification</span>
+                        <span>&rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Core Material Typology Micro-Tags -->
+                <div class="mt-10 pt-6 border-t border-champagne/30 flex flex-wrap items-center gap-2 gs-fade-up">
+                    <span class="text-[0.65rem] font-inter uppercase tracking-widest text-charcoal/60 mr-1">Curated:</span>
+                    <a href="#surfaces" class="px-3 py-1 rounded-full text-[0.65rem] font-inter uppercase tracking-wider bg-white/60 backdrop-blur-sm text-plum border border-champagne/30 hover:border-plum hover:bg-white transition-all">Natural Veneers</a>
+                    <a href="#surfaces" class="px-3 py-1 rounded-full text-[0.65rem] font-inter uppercase tracking-wider bg-white/60 backdrop-blur-sm text-plum border border-champagne/30 hover:border-plum hover:bg-white transition-all">Architectural Stone</a>
+                    <a href="#surfaces" class="px-3 py-1 rounded-full text-[0.65rem] font-inter uppercase tracking-wider bg-white/60 backdrop-blur-sm text-plum border border-champagne/30 hover:border-plum hover:bg-white transition-all">Acoustic Systems</a>
+                    <a href="#surfaces" class="px-3 py-1 rounded-full text-[0.65rem] font-inter uppercase tracking-wider bg-white/60 backdrop-blur-sm text-plum border border-champagne/30 hover:border-plum hover:bg-white transition-all">Metals &amp; Foils</a>
+                </div>
             </div>
 
-            <!-- Offset Architectural Video -->
-            <div class="w-full md:w-2/5 order-1 md:order-2 img-reveal-wrapper h-[50vh] md:h-[70vh] rounded-[15px] overflow-hidden shadow-2xl">
-                <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover gs-hero-img">
+            <!-- Offset Architectural Video Player with Dynamic Glassmorphic Controls -->
+            <div class="w-full md:w-2/5 order-1 md:order-2 img-reveal-wrapper h-[52vh] md:h-[72vh] rounded-[24px] overflow-hidden shadow-2xl shadow-plum/20 border border-champagne/40 relative group">
+                <!-- Top Overlay Badge & Audio Toggle -->
+                <div class="absolute top-5 left-5 right-5 z-20 flex justify-between items-center pointer-events-auto">
+                    <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-plum/85 backdrop-blur-md border border-champagne/30 text-ivory text-[0.65rem] font-inter uppercase tracking-[0.2em] shadow-lg">
+                        <span class="w-1.5 h-1.5 rounded-full bg-champagne animate-pulse"></span>
+                        <span>Film &bull; Code-A</span>
+                    </div>
+
+                    <!-- Audio Unmute/Mute Interactive Button -->
+                    <button id="hero-sound-toggle" type="button" aria-label="Toggle Sound" class="w-10 h-10 rounded-full bg-plum/80 hover:bg-plum text-champagne backdrop-blur-md border border-champagne/40 flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-110">
+                        <!-- Muted Icon (Initial state) -->
+                        <svg id="hero-sound-muted-icon" class="w-4 h-4 text-ivory" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                        </svg>
+                        <!-- Sound Waves Icon (Hidden initially) -->
+                        <svg id="hero-sound-active-icon" class="w-4 h-4 text-champagne hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Video Element -->
+                <video id="hero-video" autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover gs-hero-img transition-transform duration-1000 ease-out group-hover:scale-105">
                     <source src="video.mp4" type="video/mp4">
                     <source src="assets/video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+
+                <!-- Bottom Glassmorphic Overlay Bar -->
+                <div class="absolute bottom-5 left-5 right-5 z-20 flex justify-between items-center pointer-events-none">
+                    <div class="px-4 py-2 rounded-full bg-plum/85 backdrop-blur-md border border-champagne/30 text-ivory text-[0.65rem] font-inter uppercase tracking-[0.2em] shadow-lg">
+                        <span>Spatial Possibilities &bull; 2026 Archive</span>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-champagne/90 text-plum flex items-center justify-center text-xs font-bold shadow-lg">
+                        <span>A</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Architectural Bottom Scroll Indicator & Section Index -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto pt-8 border-t border-champagne/25 flex flex-col sm:flex-row justify-between items-center gap-4 text-charcoal/60 text-[0.68rem] font-inter uppercase tracking-[0.25em]">
+            <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-champagne"></span>
+                <span>01 / 05 &bull; ARCHITECTURAL SPECIFICATION</span>
+            </div>
+            
+            <a href="#brand-essence" class="flex items-center gap-2 hover:text-plum transition-colors group">
+                <span class="tracking-[0.25em]">Scroll To Discover</span>
+                <span class="inline-block animate-bounce text-champagne text-sm group-hover:translate-y-1 transition-transform">&darr;</span>
+            </a>
+
+            <div class="hidden md:block">
+                <span>NEW DELHI &bull; GURUGRAM &bull; MUMBAI</span>
             </div>
         </div>
     </section>
 
     <!-- Brand Essence Section -->
-    <section class="py-32 px-6 md:px-12 bg-ivory relative z-10">
+    <section id="brand-essence" class="py-32 px-6 md:px-12 bg-ivory relative z-10">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row gap-16 md:gap-32 items-center">
                 <div class="w-full md:w-1/2 gs-fade-up relative">
