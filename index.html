@@ -631,22 +631,106 @@
     </section>
 
     <!-- Consultation CTA Section -->
-    <section id="contact" class="py-32 px-6 md:px-12 bg-ivory relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center opacity-[0.03]"></div>
-        <div class="max-w-4xl mx-auto text-center relative z-10 gs-fade-up bg-plum rounded-[15px] p-12 md:p-24 shadow-2xl">
-            <!-- Abstract decorative element -->
-            <div class="w-16 h-[1px] bg-champagne mx-auto mb-8"></div>
-            <h2 class="font-manrope text-3xl md:text-5xl text-ivory font-light mb-8">Begin Your Material Journey</h2>
-            <p class="font-inter text-ivory/70 mb-12 max-w-xl mx-auto font-light text-lg">
-                Request a tactile sample box or schedule an architectural consultation with our dedicated specification team to elevate your next project.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="#contact" class="px-8 py-4 rounded-[15px] bg-champagne text-plum font-inter text-sm uppercase tracking-[0.2em] font-medium hover:bg-ivory hover:text-plum transition-all duration-300 text-center">
-                    Request Sample Box
-                </a>
-                <a href="#contact" class="px-8 py-4 rounded-[15px] border border-champagne text-champagne font-inter text-sm uppercase tracking-[0.2em] hover:bg-champagne hover:text-plum transition-all duration-300 text-center">
-                    Book Consultation
-                </a>
+    <section id="contact" class="py-32 px-6 md:px-12 bg-ivory relative overflow-hidden border-t border-champagne/30">
+        <!-- Subtle Architectural Blueprint Grid & Warm Ambient Glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(#D0C5B7_1px,transparent_1px)] [background-size:28px_28px] opacity-40 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-champagne/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Main Elevated Dark Plum Architecture Hub -->
+            <div class="bg-gradient-to-br from-plum via-[#2e1f2d] to-espresso rounded-[24px] p-8 md:p-16 lg:p-20 shadow-2xl border border-champagne/30 relative overflow-hidden gs-fade-up">
+                
+                <!-- Background Geometric Watermark -->
+                <div class="absolute -right-24 -bottom-24 w-96 h-96 rounded-full border border-champagne/15 pointer-events-none"></div>
+                <div class="absolute -left-20 -top-20 w-80 h-80 rounded-full border border-champagne/10 pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+                    
+                    <!-- Left Column (Span 7): Interactive Material Request Hub -->
+                    <div class="lg:col-span-7">
+                        <div class="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-white/10 border border-champagne/30 backdrop-blur-md mb-6">
+                            <span class="w-2 h-2 rounded-full bg-champagne animate-pulse"></span>
+                            <span class="text-[0.65rem] font-inter uppercase tracking-[0.25em] text-champagne font-medium">Architectural Specification & Curation</span>
+                        </div>
+
+                        <h2 class="font-manrope text-3xl sm:text-4xl md:text-5xl text-ivory font-light tracking-tight leading-tight mb-6">
+                            Begin Your <span class="font-cormorant italic text-champagne">Material Journey.</span>
+                        </h2>
+
+                        <p class="font-inter text-ivory/80 font-light text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+                            Request a custom-curated tactile sample box delivered to your studio or schedule an architectural specification session with our team.
+                        </p>
+
+                        <!-- Dynamic Project Type Selector Pills -->
+                        <div class="mb-8">
+                            <span class="text-xs font-inter uppercase tracking-widest text-champagne block mb-3 font-medium">Select Typology</span>
+                            <div class="flex flex-wrap gap-2.5" id="cta-project-types">
+                                <button type="button" class="cta-pill active px-4 py-2 rounded-full text-xs font-inter tracking-wider transition-all duration-300 bg-champagne text-plum font-medium shadow-sm">Residential</button>
+                                <button type="button" class="cta-pill px-4 py-2 rounded-full text-xs font-inter tracking-wider transition-all duration-300 bg-white/10 hover:bg-white/20 text-ivory/90 border border-champagne/30">Commercial</button>
+                                <button type="button" class="cta-pill px-4 py-2 rounded-full text-xs font-inter tracking-wider transition-all duration-300 bg-white/10 hover:bg-white/20 text-ivory/90 border border-champagne/30">Hospitality</button>
+                                <button type="button" class="cta-pill px-4 py-2 rounded-full text-xs font-inter tracking-wider transition-all duration-300 bg-white/10 hover:bg-white/20 text-ivory/90 border border-champagne/30">Custom Millwork</button>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Quick Request Form -->
+                        <form id="cta-sample-form" class="space-y-4 max-w-xl mb-8" onsubmit="event.preventDefault(); document.getElementById('cta-success-msg').classList.remove('hidden');">
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <div class="relative flex-grow">
+                                    <input type="email" required placeholder="Enter architectural studio email" class="w-full px-5 py-4 rounded-[14px] bg-white/10 border border-champagne/40 text-ivory placeholder-ivory/50 font-inter text-sm focus:outline-none focus:border-champagne focus:ring-1 focus:ring-champagne transition-all duration-300 backdrop-blur-md">
+                                </div>
+                                <button type="submit" class="px-8 py-4 rounded-[14px] bg-champagne text-plum font-inter text-xs uppercase tracking-[0.2em] font-semibold hover:bg-ivory transition-all duration-300 shadow-lg flex items-center justify-center gap-2 group whitespace-nowrap">
+                                    <span>Request Box</span>
+                                    <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+                                </button>
+                            </div>
+                            <div id="cta-success-msg" class="hidden text-xs font-inter text-champagne bg-champagne/10 border border-champagne/30 px-4 py-2.5 rounded-[10px] mt-2 flex items-center gap-2">
+                                <span>&#10003;</span> Thank you. Our specification curator will contact your studio within 24 hours.
+                            </div>
+                        </form>
+
+                        <!-- Dynamic Trust Badges -->
+                        <div class="flex flex-wrap items-center gap-6 pt-6 border-t border-champagne/20 text-[0.7rem] font-inter text-ivory/70 tracking-wider uppercase">
+                            <span class="flex items-center gap-2"><span class="text-champagne">&#10022;</span> Complimentary Studio Box</span>
+                            <span class="flex items-center gap-2"><span class="text-champagne">&#10022;</span> 48-Hour Priority Dispatch</span>
+                            <span class="flex items-center gap-2"><span class="text-champagne">&#10022;</span> Certified Technical Spec</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column (Span 5): Dynamic Multi-Layer Material Box Visual -->
+                    <div class="lg:col-span-5 relative">
+                        <!-- Tactile Box Showcase Card -->
+                        <div class="relative rounded-[20px] overflow-hidden border border-champagne/40 shadow-2xl group">
+                            <div class="h-[360px] sm:h-[400px] w-full overflow-hidden">
+                                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?auto=format&fit=crop&w=800&q=80" alt="Tactile Material Sample Box" class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/30 to-transparent"></div>
+
+                            <!-- Floating Spec Tag Over Image -->
+                            <div class="absolute top-4 left-4 bg-plum/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-champagne/30 text-[0.65rem] font-inter uppercase tracking-widest text-champagne">
+                                The Curator's Kit
+                            </div>
+
+                            <div class="absolute bottom-6 left-6 right-6 flex flex-col gap-2">
+                                <span class="font-cormorant italic text-xl text-champagne">Tactile Materiality</span>
+                                <p class="text-xs font-inter text-ivory/80 font-light leading-relaxed">
+                                    Veneer leaves, engineered acrylic stone, acoustic flutes, and anodized metal swatches.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Floating Consultation Pill -->
+                        <div class="mt-4 bg-white/10 hover:bg-white/15 backdrop-blur-xl border border-champagne/30 rounded-[16px] p-5 transition-all duration-300 flex items-center justify-between">
+                            <div>
+                                <span class="text-[0.65rem] font-inter uppercase tracking-widest text-champagne font-medium block mb-1">Direct Consultation</span>
+                                <h4 class="font-manrope text-sm text-ivory font-light">Book 1-on-1 Specification Call</h4>
+                            </div>
+                            <a href="mailto:contact@thedecoholse.com" class="w-10 h-10 rounded-full border border-champagne/50 text-champagne hover:bg-champagne hover:text-plum flex items-center justify-center transition-all duration-300 text-sm font-medium">
+                                &rarr;
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>

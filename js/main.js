@@ -146,6 +146,19 @@ document.addEventListener('DOMContentLoaded', () => {
             heroVideo.muted = true;
             heroVideo.play().catch(() => {});
         }
+
+        // 6. Interactive CTA Typology Selector Pills
+        const pills = document.querySelectorAll('.cta-pill');
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                pills.forEach(p => {
+                    p.classList.remove('bg-champagne', 'text-plum', 'font-medium', 'shadow-sm');
+                    p.classList.add('bg-white/10', 'text-ivory/90', 'border', 'border-champagne/30');
+                });
+                pill.classList.remove('bg-white/10', 'text-ivory/90', 'border', 'border-champagne/30');
+                pill.classList.add('bg-champagne', 'text-plum', 'font-medium', 'shadow-sm');
+            });
+        });
     }
 });
 
