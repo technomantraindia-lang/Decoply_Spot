@@ -43,9 +43,18 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* Smooth scrolling */
-        html { scroll-behavior: smooth; }
-        body { background-color: #F4F0E9; color: #37332F; overflow-x: hidden; }
+        /* Lenis Smooth Scroll Rules */
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        
+        body { 
+            background-color: #F4F0E9; 
+            color: #37332F; 
+            overflow-x: hidden; 
+            width: 100%;
+        }
         
         /* Hide scrollbars for filter bar */
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -53,11 +62,11 @@
 
         /* Card Hover Transitions */
         .product-card {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .product-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(36, 25, 35, 0.12);
+            box-shadow: 0 20px 40px -15px rgba(36, 25, 35, 0.15);
         }
 
         /* Filter pill active */
@@ -79,7 +88,7 @@
             
             <!-- Products Dropdown (13 Architectural Categories) -->
             <div class="relative group" id="products-dropdown-container">
-                <a href="surfaces.html" class="flex items-center gap-1.5 text-champagne border-b border-champagne pb-0.5 font-semibold py-2 cursor-pointer font-medium">
+                <a href="surfaces.html" class="flex items-center gap-1.5 hover:text-champagne transition-colors duration-300 py-2 cursor-pointer font-medium">
                     <span>Products</span>
                     <svg class="w-3 h-3 transform group-hover:rotate-180 transition-transform duration-300 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </a>
@@ -142,70 +151,77 @@
                 <a href="surfaces.html#flex-c-ment" class="mobile-nav-link text-xs font-bold uppercase tracking-wider text-plum hover:text-champagne py-2 border-b border-plum/10">FLEX-C-MENT</a>
                 <a href="surfaces.html#others" class="mobile-nav-link text-xs font-bold uppercase tracking-wider text-plum hover:text-champagne py-2 ">OTHERS</a>
             </div>
+        </div>
+
+
     <!-- Sticky Quick-Jump Category Navigation Bar -->
-    <nav class="sticky top-[72px] md:top-[80px] z-40 bg-[#F4F0E9]/95 backdrop-blur-md border-y border-champagne/30 py-3 px-6 md:px-12 shadow-sm">
-        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+    <nav class="sticky top-[68px] md:top-[80px] z-30 bg-[#F4F0E9] border-y border-champagne/30 py-3 px-4 md:px-12 shadow-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
             <span class="hidden lg:flex items-center gap-2 text-[0.65rem] font-bold tracking-[0.2em] text-[#556B2F] uppercase whitespace-nowrap">
                 <span class="w-2 h-2 rounded-full bg-[#556B2F] animate-pulse"></span>
-                Quick Navigate:
+                Categories:
             </span>
             <div class="flex gap-2 overflow-x-auto no-scrollbar py-0.5 w-full">
-                <a href="#all" class="filter-pill active whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-plum text-champagne border border-champagne transition-all">All Categories (13)</a> <a href="#plywood" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">PLYWOOD</a> <a href="#laminates" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">LAMINATES</a> <a href="#composite-panels" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">COMPOSITE PANELS</a> <a href="#mdf-colour-mdf" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">MDF / COLOUR MDF</a> <a href="#cement-particle-board" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">CEMENT PARTICLE BOARD</a> <a href="#calcium-silicate-board" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">CALCIUM SILICATE BOARD</a> <a href="#veneer-stone-veneer" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">VENEER / STONE VENEER</a> <a href="#flooring" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">FLOORING</a> <a href="#speciality" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">SPECIALITY</a> <a href="#eco-stands" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">ECO STANDS</a> <a href="#doors" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">DOORS</a> <a href="#flex-c-ment" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">FLEX-C-MENT</a> <a href="#others" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/80 hover:bg-plum hover:text-champagne text-plum border border-champagne/40 transition-all">OTHERS</a>
+                <a href="#all" class="filter-pill active whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-plum text-champagne border border-champagne transition-all">All Categories (13)</a> <a href="#plywood" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">PLYWOOD</a> <a href="#laminates" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">LAMINATES</a> <a href="#composite-panels" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">COMPOSITE PANELS</a> <a href="#mdf-colour-mdf" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">MDF / COLOUR MDF</a> <a href="#cement-particle-board" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">CEMENT PARTICLE BOARD</a> <a href="#calcium-silicate-board" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">CALCIUM SILICATE BOARD</a> <a href="#veneer-stone-veneer" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">VENEER / STONE VENEER</a> <a href="#flooring" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">FLOORING</a> <a href="#speciality" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">SPECIALITY</a> <a href="#eco-stands" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">ECO STANDS</a> <a href="#doors" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">DOORS</a> <a href="#flex-c-ment" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">FLEX-C-MENT</a> <a href="#others" class="filter-pill whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white text-plum border border-champagne/40 hover:bg-plum hover:text-champagne transition-all shadow-sm">OTHERS</a>
             </div>
         </div>
     </nav>
 
+
+
     <!-- Products Catalog Hero Section -->
-    <section id="all" class="relative pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 bg-ivory overflow-hidden">
+    <section id="all" class="relative pt-28 pb-14 md:pt-36 md:pb-20 px-6 md:px-12 bg-ivory overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(#D0C5B7_1px,transparent_1px)] [background-size:28px_28px] opacity-40 pointer-events-none"></div>
-        <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-champagne/15 rounded-full blur-[150px] pointer-events-none"></div>
+        <div class="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-champagne/15 rounded-full blur-[140px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto relative z-10 text-center">
-            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-champagne/40 mb-6 shadow-sm">
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-champagne/40 mb-6 shadow-sm">
                 <span class="w-2 h-2 rounded-full bg-[#556B2F] animate-pulse"></span>
-                <span class="text-[0.68rem] font-inter uppercase tracking-[0.25em] text-plum font-semibold">Architectural Products Catalog • 2026 Archive</span>
+                <span class="text-[0.68rem] font-inter uppercase tracking-[0.25em] text-plum font-bold">Architectural Catalog &bull; 2026 Archive</span>
             </div>
 
-            <h1 class="font-manrope font-light text-5xl md:text-7xl lg:text-8xl text-plum leading-[1.05] tracking-tight">
+            <h1 class="font-manrope font-light text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-plum leading-[1.05] tracking-tight">
                 SURFACES &amp; PRODUCTS
             </h1>
-            <p class="font-cormorant italic text-xl md:text-3xl text-charcoal/80 mt-6 max-w-2xl mx-auto">
+            <p class="font-cormorant italic text-lg sm:text-2xl md:text-3xl text-charcoal/80 mt-5 max-w-2xl mx-auto">
                 Comprehensive material intelligence across 13 certified architectural categories.
             </p>
 
             <!-- Specification Highlights Strip -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12 pt-8 border-t border-champagne/30 text-left">
-                <div class="p-3 bg-white/60 rounded-xl border border-champagne/30">
-                    <span class="block text-2xl font-manrope font-light text-plum">13</span>
-                    <span class="text-[0.68rem] uppercase tracking-wider text-charcoal/70 font-medium">Certified Categories</span>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto mt-10 pt-6 border-t border-champagne/30 text-left">
+                <div class="p-3.5 bg-white rounded-xl border border-champagne/30 shadow-sm">
+                    <span class="block text-xl sm:text-2xl font-manrope font-bold text-plum">13</span>
+                    <span class="text-[0.65rem] sm:text-[0.68rem] uppercase tracking-wider text-charcoal/70 font-semibold">Certified Categories</span>
                 </div>
-                <div class="p-3 bg-white/60 rounded-xl border border-champagne/30">
-                    <span class="block text-2xl font-manrope font-light text-plum">40+</span>
-                    <span class="text-[0.68rem] uppercase tracking-wider text-charcoal/70 font-medium">Curated Collections</span>
+                <div class="p-3.5 bg-white rounded-xl border border-champagne/30 shadow-sm">
+                    <span class="block text-xl sm:text-2xl font-manrope font-bold text-plum">40+</span>
+                    <span class="text-[0.65rem] sm:text-[0.68rem] uppercase tracking-wider text-charcoal/70 font-semibold">Curated Collections</span>
                 </div>
-                <div class="p-3 bg-white/60 rounded-xl border border-champagne/30">
-                    <span class="block text-2xl font-manrope font-light text-plum">E-0 / BWP</span>
-                    <span class="text-[0.68rem] uppercase tracking-wider text-charcoal/70 font-medium">Environmental Safety</span>
+                <div class="p-3.5 bg-white rounded-xl border border-champagne/30 shadow-sm">
+                    <span class="block text-xl sm:text-2xl font-manrope font-bold text-plum">E-0 / BWP</span>
+                    <span class="text-[0.65rem] sm:text-[0.68rem] uppercase tracking-wider text-charcoal/70 font-semibold">Environmental Safety</span>
                 </div>
-                <div class="p-3 bg-white/60 rounded-xl border border-champagne/30">
-                    <span class="block text-2xl font-manrope font-light text-plum">Direct</span>
-                    <span class="text-[0.68rem] uppercase tracking-wider text-charcoal/70 font-medium">Architect Sample Boxes</span>
+                <div class="p-3.5 bg-white rounded-xl border border-champagne/30 shadow-sm">
+                    <span class="block text-xl sm:text-2xl font-manrope font-bold text-plum">Direct</span>
+                    <span class="text-[0.65rem] sm:text-[0.68rem] uppercase tracking-wider text-charcoal/70 font-semibold">Studio Sample Boxes</span>
                 </div>
             </div>
         </div>
     </section>
 
+
+
     <!-- 01. PLYWOOD Section -->
-    <section id="plywood" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="plywood" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 01
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 PLYWOOD
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 Calibrated boiling waterproof (BWP) structural timber boards for enduring joinery.
             </p>
         </div>
@@ -215,10 +231,10 @@
             <!-- Product Card: CenturyPly - Club Prime BWP Grade -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=900" alt="CenturyPly - Club Prime BWP Grade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         PLYWOOD
                     </div>
                 </div>
@@ -257,10 +273,10 @@
             <!-- Product Card: Greenply - Platinum Structural Ply -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=900" alt="Greenply - Platinum Structural Ply" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         PLYWOOD
                     </div>
                 </div>
@@ -301,16 +317,16 @@
     
 
     <!-- 02. LAMINATES Section -->
-    <section id="laminates" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="laminates" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 02
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 LAMINATES
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 High pressure decorative surfaces engineered for supreme durability, tactile depth, and aesthetics.
             </p>
         </div>
@@ -320,10 +336,10 @@
             <!-- Product Card: Greenlam - Anti-Bacterial HD Laminates -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&q=80&w=900" alt="Greenlam - Anti-Bacterial HD Laminates" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         LAMINATES
                     </div>
                 </div>
@@ -362,10 +378,10 @@
             <!-- Product Card: Merino - Tuff Gloss MR+ Supermatte -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=900" alt="Merino - Tuff Gloss MR+ Supermatte" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         LAMINATES
                     </div>
                 </div>
@@ -404,10 +420,10 @@
             <!-- Product Card: CenturyLaminates - Starline Specialty Collection -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=900" alt="CenturyLaminates - Starline Specialty Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         LAMINATES
                     </div>
                 </div>
@@ -446,10 +462,10 @@
             <!-- Product Card: The Deco House - Curated Tactile Surfaces -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=900" alt="The Deco House - Curated Tactile Surfaces" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         LAMINATES
                     </div>
                 </div>
@@ -488,10 +504,10 @@
             <!-- Product Card: Formica - Deco Architectural Laminates -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&q=80&w=900" alt="Formica - Deco Architectural Laminates" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         LAMINATES
                     </div>
                 </div>
@@ -530,10 +546,10 @@
             <!-- Product Card: Lamitak - Urban Architectural Textures -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&q=80&w=900" alt="Lamitak - Urban Architectural Textures" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         LAMINATES
                     </div>
                 </div>
@@ -572,10 +588,10 @@
             <!-- Product Card: Sundek - Exterior Cladding Laminates -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&q=80&w=900" alt="Sundek - Exterior Cladding Laminates" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         LAMINATES
                     </div>
                 </div>
@@ -614,10 +630,10 @@
             <!-- Product Card: Stylam - Heavy Compact Solid Surfaces -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&q=80&w=900" alt="Stylam - Heavy Compact Solid Surfaces" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         LAMINATES
                     </div>
                 </div>
@@ -656,10 +672,10 @@
             <!-- Product Card: Advance Decorative - Synchronized Natural Oaks -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=900" alt="Advance Decorative - Synchronized Natural Oaks" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         LAMINATES
                     </div>
                 </div>
@@ -698,10 +714,10 @@
             <!-- Product Card: Virgo - Metallic & Acrylic Surfaces -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=900" alt="Virgo - Metallic & Acrylic Surfaces" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         LAMINATES
                     </div>
                 </div>
@@ -742,16 +758,16 @@
     
 
     <!-- 03. COMPOSITE PANELS Section -->
-    <section id="composite-panels" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="composite-panels" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 03
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 COMPOSITE PANELS
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 Engineered multi-layer cladding for exterior facades, structural canopies, and architectural columns.
             </p>
         </div>
@@ -761,10 +777,10 @@
             <!-- Product Card: Alstone / Aludecor - Architectural ACP Cladding -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=900" alt="Alstone / Aludecor - Architectural ACP Cladding" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         COMPOSITE PANELS
                     </div>
                 </div>
@@ -805,16 +821,16 @@
     
 
     <!-- 04. MDF / COLOUR MDF Section -->
-    <section id="mdf-colour-mdf" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="mdf-colour-mdf" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 04
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 MDF / COLOUR MDF
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 High-density homogeneous fiberboards engineered for precision CNC routing, moisture zones, and clean exposed edges.
             </p>
         </div>
@@ -824,10 +840,10 @@
             <!-- Product Card: Action TESA - HDHMR High Density Moisture Resistant -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=900" alt="Action TESA - HDHMR High Density Moisture Resistant" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         MDF / COLOUR MDF
                     </div>
                 </div>
@@ -866,10 +882,10 @@
             <!-- Product Card: Valchromat - Through-Engineered Coloured Wood -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=900" alt="Valchromat - Through-Engineered Coloured Wood" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         MDF / COLOUR MDF
                     </div>
                 </div>
@@ -908,10 +924,10 @@
             <!-- Product Card: Greenpanel - Club Grade Exterior MDF -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=900" alt="Greenpanel - Club Grade Exterior MDF" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         MDF / COLOUR MDF
                     </div>
                 </div>
@@ -950,10 +966,10 @@
             <!-- Product Card: Century Prowud - Pre-Laminated MDF Profiles -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&q=80&w=900" alt="Century Prowud - Pre-Laminated MDF Profiles" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         MDF / COLOUR MDF
                     </div>
                 </div>
@@ -994,16 +1010,16 @@
     
 
     <!-- 05. CEMENT PARTICLE BOARD Section -->
-    <section id="cement-particle-board" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="cement-particle-board" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 05
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 CEMENT PARTICLE BOARD
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 Hybrid timber-cement boards combining the structural fire-resistance of cement with the machinability of wood.
             </p>
         </div>
@@ -1013,10 +1029,10 @@
             <!-- Product Card: Bison Panel - Cement Bonded Particle Board -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=900" alt="Bison Panel - Cement Bonded Particle Board" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         CEMENT PARTICLE BOARD
                     </div>
                 </div>
@@ -1055,10 +1071,10 @@
             <!-- Product Card: V-Next / Everest - Heavy Impact Fibre Cement Board -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=900" alt="V-Next / Everest - Heavy Impact Fibre Cement Board" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         CEMENT PARTICLE BOARD
                     </div>
                 </div>
@@ -1099,16 +1115,16 @@
     
 
     <!-- 06. CALCIUM SILICATE BOARD Section -->
-    <section id="calcium-silicate-board" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="calcium-silicate-board" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 06
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 CALCIUM SILICATE BOARD
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 Ultra-lightweight, non-combustible panels engineered for certified 4-hour fire protection, ceilings, and duct insulation.
             </p>
         </div>
@@ -1118,10 +1134,10 @@
             <!-- Product Card: Aerocon / Promat - Fire-Resistant Calcium Silicate -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=900" alt="Aerocon / Promat - Fire-Resistant Calcium Silicate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         CALCIUM SILICATE BOARD
                     </div>
                 </div>
@@ -1162,16 +1178,16 @@
     
 
     <!-- 07. VENEER / STONE VENEER Section -->
-    <section id="veneer-stone-veneer" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="veneer-stone-veneer" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 07
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 VENEER / STONE VENEER
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 Master-selected natural timber flitches and real flexible slate sheets capturing authentic geological and botanical textures.
             </p>
         </div>
@@ -1181,10 +1197,10 @@
             <!-- Product Card: Decoply Master Flitch - Crown Cut American Walnut Veneer -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&q=80&w=900" alt="Decoply Master Flitch - Crown Cut American Walnut Veneer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         VENEER / STONE VENEER
                     </div>
                 </div>
@@ -1223,10 +1239,10 @@
             <!-- Product Card: SlateLite - Ultra-Flexible Stone Veneer -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=900" alt="SlateLite - Ultra-Flexible Stone Veneer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         VENEER / STONE VENEER
                     </div>
                 </div>
@@ -1265,10 +1281,10 @@
             <!-- Product Card: Smoked & Fumed Oak - Deep Thermal Carbonized Veneer -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=80&w=900" alt="Smoked & Fumed Oak - Deep Thermal Carbonized Veneer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         VENEER / STONE VENEER
                     </div>
                 </div>
@@ -1307,10 +1323,10 @@
             <!-- Product Card: Italian Dyed Sycamore - Chromatic Architectural Flitches -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=900" alt="Italian Dyed Sycamore - Chromatic Architectural Flitches" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         VENEER / STONE VENEER
                     </div>
                 </div>
@@ -1349,10 +1365,10 @@
             <!-- Product Card: Rough-Cut Sawmark - Tactile Rustic Timber Veneer -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=900" alt="Rough-Cut Sawmark - Tactile Rustic Timber Veneer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         VENEER / STONE VENEER
                     </div>
                 </div>
@@ -1393,16 +1409,16 @@
     
 
     <!-- 08. FLOORING Section -->
-    <section id="flooring" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="flooring" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 08
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 FLOORING
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 Precision-milled hardwood, rigid core stone-polymer, and acoustic parquet designed for barefoot architectural luxury.
             </p>
         </div>
@@ -1412,10 +1428,10 @@
             <!-- Product Card: Mikasa Floors - Engineered European Oak -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&q=80&w=900" alt="Mikasa Floors - Engineered European Oak" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         FLOORING
                     </div>
                 </div>
@@ -1454,10 +1470,10 @@
             <!-- Product Card: DecoPlank SPC - Rigid Core 100% Waterproof -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=900" alt="DecoPlank SPC - Rigid Core 100% Waterproof" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         FLOORING
                     </div>
                 </div>
@@ -1496,10 +1512,10 @@
             <!-- Product Card: Pergo / QuickStep - AC5 Heavy Commercial Laminate -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=900" alt="Pergo / QuickStep - AC5 Heavy Commercial Laminate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         FLOORING
                     </div>
                 </div>
@@ -1538,10 +1554,10 @@
             <!-- Product Card: Artisan Parquet - Chevron & Herringbone French Oak -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=900" alt="Artisan Parquet - Chevron & Herringbone French Oak" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         FLOORING
                     </div>
                 </div>
@@ -1582,16 +1598,16 @@
     
 
     <!-- 09. SPECIALITY Section -->
-    <section id="speciality" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="speciality" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 09
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 SPECIALITY
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 Acoustic felt louvers, Austrian 3D leather reliefs, and high-performance architectural accent systems.
             </p>
         </div>
@@ -1601,10 +1617,10 @@
             <!-- Product Card: DecoAcoustic - Timber Slatted Felt Panels -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=900" alt="DecoAcoustic - Timber Slatted Felt Panels" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         SPECIALITY
                     </div>
                 </div>
@@ -1643,10 +1659,10 @@
             <!-- Product Card: Sibu Design - Austrian 3D Textured Relief -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=900" alt="Sibu Design - Austrian 3D Textured Relief" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         SPECIALITY
                     </div>
                 </div>
@@ -1685,10 +1701,10 @@
             <!-- Product Card: Charcoal Louvers - Fluted Polystyrene Interior Slats -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&q=80&w=900" alt="Charcoal Louvers - Fluted Polystyrene Interior Slats" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         SPECIALITY
                     </div>
                 </div>
@@ -1729,16 +1745,16 @@
     
 
     <!-- 10. ECO STANDS Section -->
-    <section id="eco-stands" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="eco-stands" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 10
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 ECO STANDS
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 Sustainably harvested bamboo composites and carbon-negative agricultural residue boards for green-certified buildings.
             </p>
         </div>
@@ -1748,10 +1764,10 @@
             <!-- Product Card: EcoStrand Bamboo - High Density Strand Woven Bamboo -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&q=80&w=900" alt="EcoStrand Bamboo - High Density Strand Woven Bamboo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         ECO STANDS
                     </div>
                 </div>
@@ -1790,10 +1806,10 @@
             <!-- Product Card: AgriBio Panels - 100% Upcycled Crop Stubble Board -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=900" alt="AgriBio Panels - 100% Upcycled Crop Stubble Board" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         ECO STANDS
                     </div>
                 </div>
@@ -1834,16 +1850,16 @@
     
 
     <!-- 11. DOORS Section -->
-    <section id="doors" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="doors" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 11
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 DOORS
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 Calibrated architectural doorsets engineered with acoustic drop seals, concealed hinges, and certified fire resistance.
             </p>
         </div>
@@ -1853,10 +1869,10 @@
             <!-- Product Card: The Deco Door Studio - Architectural Engineered Flush Doors -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=900" alt="The Deco Door Studio - Architectural Engineered Flush Doors" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         DOORS
                     </div>
                 </div>
@@ -1897,16 +1913,16 @@
     
 
     <!-- 12. FLEX-C-MENT Section -->
-    <section id="flex-c-ment" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="flex-c-ment" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 12
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 FLEX-C-MENT
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 Flexible, ultra-thin rollable concrete and travertine sheets for seamless curved walls, ceilings, and columns.
             </p>
         </div>
@@ -1916,10 +1932,10 @@
             <!-- Product Card: Flex-C-Ment - Rollable Architectural Concrete Sheets -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=900" alt="Flex-C-Ment - Rollable Architectural Concrete Sheets" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         FLEX-C-MENT
                     </div>
                 </div>
@@ -1960,16 +1976,16 @@
     
 
     <!-- 13. OTHERS Section -->
-    <section id="others" class="scroll-mt-36 py-16 md:py-24 px-6 md:px-12 border-b border-champagne/25 relative">
-        <div class="max-w-7xl mx-auto text-center mb-12">
+    <section id="others" class="scroll-mt-36 py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 border-b border-champagne/25 relative bg-[#F4F0E9]">
+        <div class="max-w-7xl mx-auto text-center mb-10 sm:mb-12">
             <span class="inline-block px-3.5 py-1 rounded-full text-[0.65rem] font-inter font-bold tracking-[0.25em] text-[#556B2F] bg-[#556B2F]/10 border border-[#556B2F]/25 uppercase mb-3">
                 Section 13
             </span>
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-manrope font-semibold tracking-[0.2em] text-[#556B2F] uppercase">
                 OTHERS
             </h2>
-            <div class="w-16 h-0.5 bg-champagne mx-auto my-4"></div>
-            <p class="font-cormorant italic text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
+            <div class="w-16 h-0.5 bg-champagne mx-auto my-3"></div>
+            <p class="font-cormorant italic text-base sm:text-lg md:text-2xl text-charcoal/80 max-w-2xl mx-auto">
                 Architectural bonding systems, PVC foam boards, precision edge bands, and concealed mounting profiles.
             </p>
         </div>
@@ -1979,10 +1995,10 @@
             <!-- Product Card: DecoBond - D3/D4 Marine Waterproof Glues -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=900" alt="DecoBond - D3/D4 Marine Waterproof Glues" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         OTHERS
                     </div>
                 </div>
@@ -2021,10 +2037,10 @@
             <!-- Product Card: Celuka PVC Board - High-Density Waterproof Substrate -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=900" alt="Celuka PVC Board - High-Density Waterproof Substrate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         OTHERS
                     </div>
                 </div>
@@ -2063,10 +2079,10 @@
             <!-- Product Card: ProEdge Banding - PVC & ABS Grain-Matched Edging -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=900" alt="ProEdge Banding - PVC & ABS Grain-Matched Edging" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         OTHERS
                     </div>
                 </div>
@@ -2105,10 +2121,10 @@
             <!-- Product Card: Architectural Hardware - Concealed Profiles & Shadowlines -->
             <div class="product-card group relative bg-white rounded-[20px] overflow-hidden border border-champagne/35 shadow-md hover:shadow-2xl flex flex-col md:flex-row min-h-[300px]">
                 <!-- Card Image -->
-                <div class="relative w-full md:w-5/12 h-60 md:h-auto overflow-hidden bg-stone/20 shrink-0">
+                <div class="relative w-full md:w-5/12 h-56 sm:h-64 md:h-auto overflow-hidden bg-stone/20 shrink-0">
                     <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=900" alt="Architectural Hardware - Concealed Profiles & Shadowlines" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
+                    <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full border border-champagne/40 text-[0.62rem] font-bold tracking-wider text-plum uppercase shadow-sm">
                         OTHERS
                     </div>
                 </div>
@@ -2147,6 +2163,8 @@
         </div>
     </section>
     
+
+
     <!-- Sample Box Request Modal -->
     <div id="sample-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-plum/70 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
         <div class="relative w-full max-w-xl bg-ivory rounded-[24px] p-6 md:p-10 border border-champagne shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="sample-modal-box">
@@ -2204,6 +2222,8 @@
             </form>
         </div>
     </div>
+
+
 <footer class="bg-plum pt-32 pb-12 px-6 md:px-12 text-ivory">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-0 pb-20 border-b border-champagne/20">
@@ -2250,6 +2270,7 @@
         </div>
     </footer>
 
+
     <!-- GSAP & Lenis Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -2257,158 +2278,42 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
             // 1. Initialize Lenis (Smooth Scrolling)
-            const lenis = new Lenis({
-                duration: 1.0,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                orientation: 'vertical',
-                gestureOrientation: 'vertical',
-                smoothWheel: true,
-                wheelMultiplier: 1.0,
-                touchMultiplier: 1.5,
-                infinite: false,
-            });
-
-            // Synchronize ScrollTrigger with Lenis via GSAP ticker exclusively (no duplicate RAF loop)
-            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-                gsap.registerPlugin(ScrollTrigger);
-                lenis.on('scroll', ScrollTrigger.update);
-                gsap.ticker.add((time) => {
-                    lenis.raf(time * 1000);
+            if (typeof Lenis !== 'undefined') {
+                const lenis = new Lenis({
+                    duration: 1.0,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    orientation: 'vertical',
+                    gestureOrientation: 'vertical',
+                    smoothWheel: true,
+                    wheelMultiplier: 1.0,
+                    touchMultiplier: 1.5,
+                    infinite: false,
                 });
-                gsap.ticker.lagSmoothing(0);
-            } else {
-                function raf(time) {
-                    lenis.raf(time);
+
+                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                    gsap.registerPlugin(ScrollTrigger);
+                    lenis.on('scroll', ScrollTrigger.update);
+                    gsap.ticker.add((time) => {
+                        lenis.raf(time * 1000);
+                    });
+                    gsap.ticker.lagSmoothing(0);
+                } else {
+                    function raf(time) {
+                        lenis.raf(time);
+                        requestAnimationFrame(raf);
+                    }
                     requestAnimationFrame(raf);
                 }
-                requestAnimationFrame(raf);
             }
 
-            // 2. Mobile Menu Navigation
-            
-
-            // 3. Entrance Animations
-            gsap.to('.gs-reveal', { opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 });
-            gsap.to('.gs-title-slide', { y: 0, opacity: 1, duration: 1.2, stagger: 0.1, ease: 'power4.out', delay: 0.3 });
-
-            // Standard Fade-ups
-            gsap.utils.toArray('.gs-fade-up').forEach(element => {
-                gsap.fromTo(element, 
-                    { y: 40, opacity: 0 },
-                    {
-                        y: 0, opacity: 1, duration: 1.0, ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: element,
-                            start: 'top 88%',
-                            once: true
-                        }
-                    }
-                );
-            });
-
-            // 4. Pinned Stacking Hero
-            const stackHero = document.querySelector('.stacking-hero');
-            if (stackHero) {
-                let tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: stackHero,
-                        start: "top top",
-                        end: "+=150%",
-                        pin: true,
-                        scrub: 1
-                    }
-                });
-
-                tl.to('.stack-img-1', { top: '16vh', rotation: -2, ease: "power1.inOut" }, 0)
-                  .to('.stack-img-2', { top: '22vh', rotation: 2.5, ease: "power1.inOut" }, 0.2)
-                  .to('.stack-img-3', { top: '28vh', rotation: -1.5, ease: "power1.inOut" }, 0.4)
-                  .to('.hero-text-pin', { opacity: 0, y: -50, ease: "power1.in" }, 0.1);
-            }
-
-            // 5. Text Masking Parallax
-            const maskText = document.querySelector('.gs-mask-parallax');
-            if (maskText) {
-                gsap.to(maskText, {
-                    backgroundPosition: "50% 100%",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: maskText,
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: true
-                    }
-                });
+            // 2. Entrance Animations
+            if (typeof gsap !== 'undefined') {
+                gsap.to('.gs-reveal', { opacity: 1, duration: 1.0, ease: 'power3.out', delay: 0.1 });
             }
         });
-    
-        // --- Mobile Navigation & Products Accordion Handler ---
-        (function() {
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const hamburgerIcon = document.getElementById('hamburger-icon');
-            const closeIcon = document.getElementById('close-icon');
-            const mobileProductsToggle = document.getElementById('mobile-products-toggle');
-            const mobileProductsSub = document.getElementById('mobile-products-sub');
-            const mobileProductsChevron = document.getElementById('mobile-products-chevron');
 
-            function closeMobileMenu() {
-                if (mobileMenu) {
-                    mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
-                }
-                if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
-                if (closeIcon) closeIcon.classList.add('hidden');
-            }
-
-            function openMobileMenu() {
-                if (mobileMenu) {
-                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
-                }
-                if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
-                if (closeIcon) closeIcon.classList.remove('hidden');
-            }
-
-            if (mobileBtn && mobileMenu) {
-                mobileBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const isOpen = !mobileMenu.classList.contains('pointer-events-none');
-                    if (isOpen) {
-                        closeMobileMenu();
-                    } else {
-                        openMobileMenu();
-                    }
-                });
-            }
-
-            if (mobileProductsToggle && mobileProductsSub) {
-                mobileProductsToggle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const isHidden = mobileProductsSub.classList.contains('hidden');
-                    if (isHidden) {
-                        mobileProductsSub.classList.remove('hidden');
-                        if (mobileProductsChevron) mobileProductsChevron.classList.add('rotate-180');
-                    } else {
-                        mobileProductsSub.classList.add('hidden');
-                        if (mobileProductsChevron) mobileProductsChevron.classList.remove('rotate-180');
-                    }
-                });
-            }
-
-            // Close mobile menu when clicking any nav link
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    closeMobileMenu();
-                });
-            });
-        })();
-
-    </script>
-</body>
-</html>
-
-
-    <script>
+        // Sample Modal Controller
         function openSampleModal(materialName) {
             const modal = document.getElementById('sample-modal');
             const box = document.getElementById('sample-modal-box');
@@ -2429,12 +2334,10 @@
             }
         }
 
-        // Close on ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeSampleModal();
         });
 
-        // Close on backdrop click
         document.getElementById('sample-modal')?.addEventListener('click', (e) => {
             if (e.target.id === 'sample-modal') closeSampleModal();
         });
@@ -2499,11 +2402,72 @@
 
             filterPills.forEach(pill => {
                 pill.classList.remove('active', 'bg-plum', 'text-champagne', 'border-champagne');
-                pill.classList.add('bg-white/80', 'text-plum', 'border-champagne/40');
+                pill.classList.add('bg-white', 'text-plum', 'border-champagne/40');
                 if (pill.getAttribute('href') === '#' + current) {
                     pill.classList.add('active', 'bg-plum', 'text-champagne', 'border-champagne');
-                    pill.classList.remove('bg-white/80', 'text-plum');
+                    pill.classList.remove('bg-white', 'text-plum');
                 }
             });
         });
+
+        // --- Mobile Navigation & Products Accordion Handler ---
+        (function() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+            const mobileProductsToggle = document.getElementById('mobile-products-toggle');
+            const mobileProductsSub = document.getElementById('mobile-products-sub');
+            const mobileProductsChevron = document.getElementById('mobile-products-chevron');
+
+            function closeMobileMenu() {
+                if (mobileMenu) {
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+                }
+                if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+                if (closeIcon) closeIcon.classList.add('hidden');
+            }
+
+            function openMobileMenu() {
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+                }
+                if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
+                if (closeIcon) closeIcon.classList.remove('hidden');
+            }
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (isOpen) {
+                        closeMobileMenu();
+                    } else {
+                        openMobileMenu();
+                    }
+                });
+            }
+
+            if (mobileProductsToggle && mobileProductsSub) {
+                mobileProductsToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isHidden = mobileProductsSub.classList.contains('hidden');
+                    if (isHidden) {
+                        mobileProductsSub.classList.remove('hidden');
+                        if (mobileProductsChevron) mobileProductsChevron.classList.add('rotate-180');
+                    } else {
+                        mobileProductsSub.classList.add('hidden');
+                        if (mobileProductsChevron) mobileProductsChevron.classList.remove('rotate-180');
+                    }
+                });
+            }
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    closeMobileMenu();
+                });
+            });
+        })();
     </script>
+</body>
+</html>
