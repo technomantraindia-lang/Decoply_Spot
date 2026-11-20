@@ -155,4 +155,61 @@ body {
     transform: translateZ(0);
 }
 
+/* ==========================================================================
+   PRODUCTS DROPDOWN MENU - 100% SOLID OPAQUE & MAXIMUM CONTRAST
+   Completely prevents bleed-through over videos, billboards, and page images
+   ========================================================================== */
+.products-dropdown-card {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-top: 4px solid #B4A17A !important;
+    border-left: 1px solid rgba(36, 25, 35, 0.15) !important;
+    border-right: 1px solid rgba(36, 25, 35, 0.15) !important;
+    border-bottom: 1px solid rgba(36, 25, 35, 0.15) !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.28), 0 8px 20px rgba(36, 25, 35, 0.18) !important;
+    border-radius: 0 0 14px 14px !important;
+    z-index: 99999 !important;
+    width: 290px !important;
+    min-width: 290px !important;
+}
+
+.products-dropdown-list {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+.products-dropdown-link {
+    display: block !important;
+    width: 100% !important;
+    padding: 12px 24px !important;
+    color: #241923 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid rgba(36, 25, 35, 0.08) !important;
+    transition: all 0.2s ease !important;
+}
+
+.products-dropdown-list li:last-child .products-dropdown-link {
+    border-bottom: none !important;
+}
+
+.products-dropdown-link:hover {
+    background: #241923 !important;
+    background-color: #241923 !important;
+    color: #B4A17A !important;
+    padding-left: 28px !important;
+}
+
+
 
