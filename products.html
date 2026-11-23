@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | The Deco House</title>
+    <meta name="description" content="Discover The Deco House complete portfolio of 35 global architectural product brands across six technical categories.">
+    <link rel="icon" type="image/png" href="the_deco_house_logo_transparent.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plum: '#241923',
+                        'deep-plum': '#241923',
+                        espresso: '#34252F',
+                        champagne: '#B4A17A',
+                        brass: '#B4A17A',
+                        taupe: '#A79A8B',
+                        stone: '#D0C5B7',
+                        ivory: '#F4F0E9',
+                        charcoal: '#37332F',
+                    },
+                    fontFamily: {
+                        manrope: ['Manrope', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                        display: ['Manrope', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        deco: '15px',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        :root {
+            --ivory: #F4F0E9;
+            --stone: #D0C5B7;
+            --charcoal: #37332F;
+            --plum: #241923;
+            --brass: #B4A17A;
+            --champagne: #B4A17A;
+            --radius-strict: 15px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+
+        body {
+            margin: 0;
+            background-color: var(--ivory);
+            color: var(--charcoal);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .deco-radius { border-radius: 15px !important; }
+
+        .scroll-progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--champagne) 0%, #DFC6A0 50%, var(--champagne) 100%);
+            transform: scaleX(0);
+            transform-origin: left center;
+            z-index: 1100;
+            pointer-events: none;
+        }
+
+        .filter-dock-inner {
+            background: rgba(244, 240, 233, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(36, 25, 35, 0.06);
+            border-radius: 15px;
+            transition: background-color 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .filter-dock.is-stuck .filter-dock-inner {
+            background: rgba(244, 240, 233, 0.92);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border-color: rgba(36, 25, 35, 0.12);
+            box-shadow: 0 16px 38px -14px rgba(36, 25, 35, 0.16);
+        }
+
+        .glass-pill {
+            background: rgba(255, 255, 255, 0.78);
+            color: var(--charcoal);
+            border: 1px solid rgba(36, 25, 35, 0.12);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+        }
+        .glass-pill:hover {
+            border-color: var(--champagne);
+            color: var(--plum);
+            transform: translateY(-1px);
+        }
+        .glass-pill.active {
+            background: var(--plum);
+            color: var(--ivory);
+            border-color: var(--plum);
+            box-shadow: 0 8px 20px -6px rgba(36, 25, 35, 0.32);
+        }
+
+        .product-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(36, 25, 35, 0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.35s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 22px 44px -16px rgba(36, 25, 35, 0.15);
+            border-color: rgba(180, 161, 122, 0.7);
+        }
+
+        .card-img-hover-wrap {
+            width: 100%; height: 100%;
+            transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
+        }
+        .product-card:hover .card-img-hover-wrap { transform: scale(1.06); }
+
+        .card-parallax-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            will-change: transform;
+        }
+
+        .spec-tag {
+            display: inline-flex;
+            align-items: center;
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            padding: 4px 11px;
+            border-radius: 15px;
+            background: var(--ivory);
+            color: var(--charcoal);
+            border: 1px solid rgba(36, 25, 35, 0.09);
+            white-space: nowrap;
+        }
+
+        .modal-backdrop {
+            background: rgba(36, 25, 35, 0.52);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .modal-glass {
+            background: rgba(244, 240, 233, 0.94);
+            backdrop-filter: blur(26px);
+            -webkit-backdrop-filter: blur(26px);
+            border: 1px solid rgba(180, 161, 122, 0.38);
+            border-radius: 15px;
+            box-shadow: 0 32px 72px -18px rgba(36, 25, 35, 0.42);
+        }
+
+        .deco-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(36, 25, 35, 0.14);
+            border-radius: 15px;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            color: var(--charcoal);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+        }
+        .deco-input:focus {
+            outline: none;
+            border-color: var(--champagne);
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(180, 161, 122, 0.2);
+        }
+
+        .category-section.hidden-section { display: none; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--ivory); }
+        ::-webkit-scrollbar-thumb { background: var(--champagne); border-radius: 15px; }
+        ::selection { background: var(--champagne); color: var(--ivory); }
+    </style>
+</head>
+<body class="font-inter antialiased selection:bg-champagne selection:text-plum bg-ivory text-charcoal">
+
+    <div id="scrollProgress" class="scroll-progress-bar" aria-hidden="true"></div>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav px-6 md:px-12 py-4 md:py-5 flex justify-between items-center transition-all duration-300" style="z-index: 1000 !important;">
+        <a href="index.html" class="flex items-center transition-opacity duration-300 hover:opacity-80" aria-label="The Deco House">
+            <img src="the_deco_house_logo_transparent.png" alt="The Deco House | Surfaces, Materials, Solutions" class="h-10 md:h-12 w-auto object-contain">
+        </a>
+        <nav class="hidden md:flex gap-6 lg:gap-8 font-inter text-xs text-plum uppercase tracking-[0.12em] lg:tracking-[0.15em] font-medium items-center">
+            <a href="index.html" class="hover:text-champagne transition-colors duration-300">Home</a>
+            <a href="products.html" class="text-champagne border-b border-champagne pb-0.5 font-semibold">Products</a>
+            <a href="about.html" class="hover:text-champagne transition-colors duration-300">About</a>
+            <a href="materials.html" class="hover:text-champagne transition-colors duration-300">Materials</a>
+            <a href="projects.html" class="hover:text-champagne transition-colors duration-300">Projects</a>
+            <a href="solutions.html" class="hover:text-champagne transition-colors duration-300">Solutions</a>
+            <a href="partners.html" class="hover:text-champagne transition-colors duration-300">Partners</a>
+            <a href="contact.html" class="hover:text-champagne transition-colors duration-300">Contact</a>
+        </nav>
+        <button id="mobile-menu-btn" class="md:hidden text-plum p-1 focus:outline-none" aria-label="Toggle navigation menu">
+            <svg id="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg id="close-icon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 top-[72px] bg-ivory/95 backdrop-blur-lg z-40 flex flex-col px-8 py-8 gap-4 md:hidden transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-4 overflow-y-auto">
+        <a href="index.html" class="mobile-nav-link text-plum font-light hover:text-champagne text-lg uppercase tracking-widest">Home</a>
+        <a href="products.html" class="mobile-nav-link text-champagne font-medium text-lg uppercase tracking-widest">Products</a>
+        <a href="about.html" class="mobile-nav-link text-plum font-light hover:text-champagne text-lg uppercase tracking-widest">About</a>
+        <a href="materials.html" class="mobile-nav-link text-plum font-light hover:text-champagne text-lg uppercase tracking-widest">Materials</a>
+        <a href="projects.html" class="mobile-nav-link text-plum font-light hover:text-champagne text-lg uppercase tracking-widest">Projects</a>
+        <a href="solutions.html" class="mobile-nav-link text-plum font-light hover:text-champagne text-lg uppercase tracking-widest">Solutions</a>
+        <a href="partners.html" class="mobile-nav-link text-plum font-light hover:text-champagne text-lg uppercase tracking-widest">Partners</a>
+        <a href="contact.html" class="mobile-nav-link text-plum font-light hover:text-champagne text-lg uppercase tracking-widest">Contact</a>
+    </div>
+
+    <!-- Centered Editorial Hero -->
+    <section id="heroSection" class="pt-36 md:pt-44 pb-10 px-5 md:px-8 overflow-hidden">
+        <div class="hero-parallax-content max-w-4xl mx-auto text-center will-change-transform">
+            <p class="hero-anim text-[11px] sm:text-xs uppercase tracking-[0.3em] text-champagne font-semibold mb-4">
+                Curated Architectural Material Library
+            </p>
+            <h1 class="hero-anim font-manrope text-5xl sm:text-6xl md:text-7xl font-light tracking-[0.12em] text-plum uppercase leading-[1.05] mb-5">
+                Products
+            </h1>
+            <p class="hero-anim text-sm md:text-base text-charcoal/70 max-w-2xl mx-auto leading-relaxed font-light">
+                Discover our complete portfolio of 35 global architectural product brands—organized across six technical categories for seamless residential, hospitality, and commercial specification.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sticky Category Filter -->
+    <div id="filterDock" class="filter-dock sticky top-[72px] md:top-[80px] z-40 px-4 md:px-8 mb-14">
+        <div class="filter-dock-inner max-w-5xl mx-auto px-3 py-3">
+            <div class="hero-anim flex flex-wrap items-center justify-center gap-2" id="filterBar" role="tablist" aria-label="Filter product categories">
+                <button type="button" class="filter-btn glass-pill active px-4 py-2 text-[11px] sm:text-xs uppercase tracking-[0.12em] font-medium" data-filter="all">All <span class="opacity-70 ml-0.5">(35)</span></button>
+                <button type="button" class="filter-btn glass-pill px-4 py-2 text-[11px] sm:text-xs uppercase tracking-[0.12em] font-medium" data-filter="plywood">Plywood</button>
+                <button type="button" class="filter-btn glass-pill px-4 py-2 text-[11px] sm:text-xs uppercase tracking-[0.12em] font-medium" data-filter="laminates">Laminates</button>
+                <button type="button" class="filter-btn glass-pill px-4 py-2 text-[11px] sm:text-xs uppercase tracking-[0.12em] font-medium" data-filter="veneers">Veneers</button>
+                <button type="button" class="filter-btn glass-pill px-4 py-2 text-[11px] sm:text-xs uppercase tracking-[0.12em] font-medium" data-filter="panels">Boards &amp; Panels</button>
+                <button type="button" class="filter-btn glass-pill px-4 py-2 text-[11px] sm:text-xs uppercase tracking-[0.12em] font-medium" data-filter="flooring">Flooring &amp; WPC</button>
+                <button type="button" class="filter-btn glass-pill px-4 py-2 text-[11px] sm:text-xs uppercase tracking-[0.12em] font-medium" data-filter="specialty">Specialty &amp; Acoustic</button>
+            </div>
+        </div>
+    </div>
+
+    <main id="catalogContainer" class="max-w-6xl mx-auto px-5 md:px-8 pb-28 space-y-24"></main>
+
+    <!-- Footer (Matches Home Page Identically) -->
+    <footer id="siteFooter" class="bg-plum pt-32 pb-12 px-6 md:px-12 text-ivory">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-0 pb-20 border-b border-champagne/20">
+                <div class="w-full md:w-1/2 footer-reveal">
+                    <div class="mb-8">
+                        <a href="index.html" class="inline-block transition-opacity duration-300 hover:opacity-80" aria-label="The Deco House">
+                            <img loading="lazy" decoding="async" src="assets/the_deco_house_logo_dark.png" alt="The Deco House | Surfaces, Materials, Solutions" class="h-11 md:h-14 w-auto object-contain">
+                        </a>
+                    </div>
+                    <p class="font-inter text-ivory/70 max-w-sm font-light leading-relaxed">
+                        A thoughtfully curated material experience, supported by product knowledge, dependable guidance and a cohesive design point of view.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 flex flex-col md:flex-row gap-12 md:gap-24 justify-end font-inter">
+                    <div class="footer-reveal">
+                        <h4 class="text-champagne text-xs uppercase tracking-widest mb-6 font-medium">Directory</h4>
+                        <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                            <li><a href="index.html" class="hover:text-champagne transition-colors">Home</a></li>
+                            <li><a href="products.html" class="hover:text-champagne transition-colors">Products</a></li>
+                            <li><a href="about.html" class="hover:text-champagne transition-colors">About Us</a></li>
+                            <li><a href="materials.html" class="hover:text-champagne transition-colors">Materials</a></li>
+                            <li><a href="projects.html" class="hover:text-champagne transition-colors">Projects</a></li>
+                            <li><a href="solutions.html" class="hover:text-champagne transition-colors">Solutions</a></li>
+                            <li><a href="partners.html" class="hover:text-champagne transition-colors">Partners</a></li>
+                            <li><a href="contact.html" class="hover:text-champagne transition-colors">Contact Studio</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-reveal">
+                        <h4 class="text-champagne text-xs uppercase tracking-widest mb-6 font-medium">Connect</h4>
+                        <ul class="flex flex-col gap-4 text-ivory/80 font-light text-sm">
+                            <li><a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">Instagram</a></li>
+                            <li><a href="https://pinterest.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">Pinterest</a></li>
+                            <li><a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-champagne transition-colors">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-reveal flex flex-col md:flex-row justify-between items-center mt-8 font-inter text-xs text-taupe/80 uppercase tracking-widest">
+                <p>&copy; 2026 The Deco House. All Rights Reserved.</p>
+                <p class="mt-4 md:mt-0">Revised Edition</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inquiry Modal -->
+    <div id="inquiryModal" class="modal-backdrop fixed inset-0 z-[1100] hidden items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
+        <div id="modalPanel" class="modal-glass w-full max-w-lg p-6 sm:p-8 relative text-charcoal">
+            <button type="button" id="closeModalBtn" class="absolute top-5 right-5 w-9 h-9 flex items-center justify-center deco-radius bg-stone/80 text-plum hover:bg-plum hover:text-ivory transition-colors" aria-label="Close inquiry modal">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <div class="mb-6 pr-10">
+                <span class="text-[10px] uppercase tracking-[0.28em] text-champagne font-semibold block mb-1.5">Material Specification Desk</span>
+                <h3 id="modalHeading" class="font-manrope text-2xl font-medium text-plum tracking-tight">Request Samples &amp; Info</h3>
+                <p class="text-xs text-charcoal/65 mt-1.5 leading-relaxed">Connect with our architectural material consultants for technical datasheets, finish samples, or trade pricing.</p>
+            </div>
+            <form id="inquiryForm" class="space-y-4">
+                <div>
+                    <label for="inquiryProduct" class="block text-[11px] uppercase tracking-[0.14em] font-semibold text-plum/80 mb-1.5">Selected Surface / Brand</label>
+                    <input id="inquiryProduct" name="product" type="text" readonly class="deco-input font-medium text-plum bg-stone/70" />
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                        <label for="inquiryName" class="block text-[11px] uppercase tracking-[0.14em] font-semibold text-plum/80 mb-1.5">Full Name</label>
+                        <input id="inquiryName" name="name" type="text" required placeholder="Ar. Meera Shah" class="deco-input" />
+                    </div>
+                    <div>
+                        <label for="inquiryEmail" class="block text-[11px] uppercase tracking-[0.14em] font-semibold text-plum/80 mb-1.5">Work Email</label>
+                        <input id="inquiryEmail" name="email" type="email" required placeholder="studio@architects.com" class="deco-input" />
+                    </div>
+                </div>
+                <div>
+                    <label for="inquiryNotes" class="block text-[11px] uppercase tracking-[0.14em] font-semibold text-plum/80 mb-1.5">Project Scope / Sample Notes</label>
+                    <textarea id="inquiryNotes" name="notes" rows="3" placeholder="Share required thicknesses, finishes, or project timeline..." class="deco-input resize-none"></textarea>
+                </div>
+                <div id="inquiryFeedback" class="hidden p-3.5 deco-radius bg-plum/10 border border-champagne/50 text-xs text-plum leading-relaxed"></div>
+                <button type="submit" class="w-full py-3.5 bg-plum text-ivory text-xs uppercase tracking-[0.16em] font-semibold deco-radius hover:bg-champagne hover:text-plum transition-colors duration-300">Submit Specification Request &rarr;</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+
+    <script>
+    (function () {
+      'use strict';
+
+      const catalogData = [
+        {
+          id: 'plywood',
+          eyebrow: '01 / Structural Core',
+          title: 'Plywood',
+          subtitle: 'High-density architectural plywood engineered for structural stability, moisture resistance, and lasting millwork.',
+          items: [
+            { name: 'Greenply', origin: 'India', desc: 'Calibrated, zero-emission architectural plywood offering superior screw-holding strength and dimensional precision.', tags: ['BWP Grade', 'Calibrated'], img: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Mikasa Ply', origin: 'India', desc: 'Precision-engineered plywood crafted for luxury cabinetry and distortion-free large-format wall panelling.', tags: ['Moisture Resistant', 'Zero Core Gap'], img: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Teak World Ply', origin: 'India', desc: 'Select-grade hardwood plywood engineered for heavy-duty interior architecture and bespoke furniture.', tags: ['Hardwood Core', 'Termite Proof'], img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Vanmply', origin: 'India', desc: 'Dependable structural plywood delivering uniform thickness and smooth face veneers for clean laminations.', tags: ['IS:710 Grade', 'High Density'], img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80' },
+          ],
+        },
+        {
+          id: 'laminates',
+          eyebrow: '02 / Decorative Surfaces',
+          title: 'Laminates',
+          subtitle: 'High-pressure, anti-fingerprint, and tactile decorative laminates from leading global manufacturers.',
+          items: [
+            { name: 'Mikasa Laminate', origin: 'India', desc: 'Refined matte, woodgrain, and stone-inspired high-pressure laminates tailored for contemporary interiors.', tags: ['HPL', 'Anti-Bacterial'], img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Greenlam', origin: 'Global', desc: 'Comprehensive architectural laminate collection featuring synchronized textures, rich solids, and metallics.', tags: ['Scratch Resistant', '1mm / 1.25mm'], img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Merinolam', origin: 'Global', desc: 'Versatile decorative laminates combining high surface resilience with curated architectural palettes.', tags: ['High Gloss', 'Suede Matte'], img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Fenix', origin: 'Italy', desc: 'Super-matte nanotech surface featuring thermal healing of micro-scratches and a velvety soft-touch finish.', tags: ['Anti-Fingerprint', 'Thermal Healing'], img: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Abet Laminati', origin: 'Italy', desc: 'Iconic Italian decorative laminates celebrated worldwide for design innovation and expressive tactile relief.', tags: ['Italian Design', 'HPL'], img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Decomica - Formica', origin: 'Global', desc: 'Timeless architectural laminates engineered for high-traffic commercial and luxury residential spaces.', tags: ['Impact Resistant', 'Classic Range'], img: 'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=700&q=80' },
+            { name: 'SCS Laminate', origin: 'India', desc: 'Contemporary decorative laminates designed for bespoke millwork, wardrobes, and architectural wall cladding.', tags: ['Decorative HPL', 'Durable'], img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=80' },
+            { name: 'KD Laminate', origin: 'India', desc: 'Curated interior laminate finishes delivering clean aesthetics and dependable everyday surface performance.', tags: ['Matte & Suede', 'Interior Grade'], img: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Acrymica', origin: 'Global', desc: 'Mirror-like acrylic laminate sheets delivering deep optical gloss and long-term UV colour stability.', tags: ['High Gloss', 'UV Stable'], img: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Luminaq', origin: 'Global', desc: 'Luminous architectural surfacing designed for sleek kitchen cabinetry and reflective feature elevations.', tags: ['Acrylic Surface', 'Scratch Guard'], img: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=700&q=80' },
+          ],
+        },
+        {
+          id: 'veneers',
+          eyebrow: '03 / Natural & Engineered Wood',
+          title: 'Veneers',
+          subtitle: 'Exotic natural wood species and precision-reconstituted Italian veneers for bespoke architectural warmth.',
+          items: [
+            { name: 'Mikasa Decowood Veneer', origin: 'Global', desc: 'Handpicked natural veneers sourced from across the globe, celebrating organic grain depth and character.', tags: ['Natural Wood', 'Exotic Species'], img: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Alpi Veneer', origin: 'Italy', desc: 'World-renowned reconstituted wood veneers offering repeatable grain perfection and ecological stewardship.', tags: ['Italian Craft', 'FSC Certified'], img: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Teak World Veneer', origin: 'India', desc: 'Rich, warm teak and select hardwood veneers curated for timeless architectural joinery and panelling.', tags: ['Premium Teak', 'Natural Grain'], img: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Ventura', origin: 'Global', desc: 'Architectural wood veneers, smoked timbers, and designer surface collections for signature interiors.', tags: ['Smoked & Dyed', 'Architectural'], img: 'https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&w=700&q=80' },
+          ],
+        },
+        {
+          id: 'panels',
+          eyebrow: '04 / Engineered Boards & Cladding',
+          title: 'Boards & Architectural Panels',
+          subtitle: 'Coloured-through wood fibre panels, cement-wood boards, and high-performance exterior/interior cladding.',
+          items: [
+            { name: 'Valchromat', origin: 'Portugal', desc: 'Wood fibre panels coloured throughout with organic dyes, ideal for 3D CNC routing and exposed architectural edges.', tags: ['Coloured-Through', 'Moisture Resistant'], img: 'https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Viroc', origin: 'Portugal', desc: 'Composite cement-bonded particle board pairing raw concrete aesthetics with timber workability.', tags: ['Cement-Wood', 'Raw Concrete'], img: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Fundermax', origin: 'Austria', desc: 'High-pressure compact exterior and interior panels engineered for extreme weather and UV resistance.', tags: ['Exterior Facade', 'UV Resistant'], img: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Aludecor', origin: 'India', desc: 'Premium metal composite panels designed for crisp contemporary architectural facades and elevations.', tags: ['Metal ACP', 'Fire Retardant'], img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Shera', origin: 'Thailand', desc: 'Fibre cement planks and architectural boards replicating warm timber with zero rot or termite vulnerability.', tags: ['Fibre Cement', 'Weatherproof'], img: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Bison Panel', origin: 'India', desc: 'Cement-bonded particle boards delivering fire resistance, acoustic mass, and structural strength.', tags: ['Fire Resistant', 'Structural'], img: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=700&q=80' },
+          ],
+        },
+        {
+          id: 'flooring',
+          eyebrow: '05 / Grounded Surfaces',
+          title: 'Flooring & WPC',
+          subtitle: 'Precision-milled wooden flooring, waterproof laminates, and wood-plastic composite decking systems.',
+          items: [
+            { name: 'Quick-Step', origin: 'Belgium', desc: 'Industry-leading laminate, vinyl, and engineered timber flooring with HydroSeal waterproof technology.', tags: ['Waterproof', 'Scratch Guard'], img: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Inovar - WPC', origin: 'Malaysia', desc: 'High-density Wood Plastic Composite flooring and outdoor decking built for demanding tropical climates.', tags: ['WPC Decking', 'Termite Proof'], img: 'https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?auto=format&fit=crop&w=700&q=80' },
+          ],
+        },
+        {
+          id: 'specialty',
+          eyebrow: '06 / Acoustics, Fluted & Designer Films',
+          title: 'Specialty & Acoustic Solutions',
+          subtitle: 'Tactile architectural accents, sound-absorbing timber panels, flexible stone, and German edge-banding.',
+          items: [
+            { name: 'Sences Akustik', origin: 'Global', desc: 'Architectural acoustic slat panels blending refined wood aesthetics with certified NRC sound absorption.', tags: ['Acoustic Solution', 'NRC Rated'], img: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Holz', origin: 'Global', desc: 'Solidwood fluted panels precision-milled for sculptural shadow play and tactile feature walls.', tags: ['Solidwood Fluted', '3D Texture'], img: 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Sibu Design', origin: 'Austria', desc: 'Luxury 3D, metallic, leather, and mirror-effect decorative sheets crafted for statement interiors.', tags: ['Austrian Design', '3D Surfaces'], img: 'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Flexstone', origin: 'Global', desc: 'Ultra-thin, flexible real stone veneer sheets capable of seamlessly wrapping curved architectural forms.', tags: ['Natural Stone', 'Flexible'], img: 'https://images.unsplash.com/photo-1600585153490-76fb20a32601?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Hyundai - Bodaq', origin: 'South Korea', desc: 'Self-adhesive architectural interior films for seamless refurbishment of walls, doors, and columns.', tags: ['Interior Film', 'Thermoformable'], img: 'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Rehau', origin: 'Germany', desc: 'Polymer-based architectural surfaces, glass laminates, and seamless laser edge-banding systems.', tags: ['German Engineering', 'Edgeband'], img: 'https://images.unsplash.com/photo-1600566752734-2a0cd66c42f1?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Monoso', origin: 'Global', desc: 'Minimalist architectural surfacing designed for cohesive, quiet, contemporary spatial detailing.', tags: ['Modern Finish', 'Bespoke'], img: 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Zare', origin: 'Global', desc: 'Curated designer panels and decorative finishes crafted for luxury residential and hospitality spaces.', tags: ['Designer Panel', 'Tactile'], img: 'https://images.unsplash.com/photo-1600585152512-0c7025216f18?auto=format&fit=crop&w=700&q=80' },
+            { name: 'Smile', origin: 'Global', desc: 'Versatile decorative surfacing solutions balancing refined colour palettes with effortless care.', tags: ['Interior Surface', 'Easy Care'], img: 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=700&q=80' },
+          ],
+        },
+      ];
+
+      const catalogContainer = document.getElementById('catalogContainer');
+      const inquiryModal = document.getElementById('inquiryModal');
+      const modalPanel = document.getElementById('modalPanel');
+      const inquiryProductInput = document.getElementById('inquiryProduct');
+      const inquiryForm = document.getElementById('inquiryForm');
+      const inquiryFeedback = document.getElementById('inquiryFeedback');
+      let lenisInstance = null;
+
+      function createEl(tag, className, text) {
+        const el = document.createElement(tag);
+        if (className) el.className = className;
+        if (typeof text === 'string') el.textContent = text;
+        return el;
+      }
+
+      function buildCatalogDOM() {
+        const fragment = document.createDocumentFragment();
+        catalogData.forEach((cat) => {
+          const section = createEl('section', 'category-section');
+          section.dataset.category = cat.id;
+
+          const header = createEl('div', 'cat-header text-center max-w-2xl mx-auto mb-12');
+          const eyebrow = createEl('span', 'cat-eyebrow block text-[11px] uppercase tracking-[0.28em] text-champagne font-semibold mb-2', cat.eyebrow);
+          const titleWrap = createEl('div', 'overflow-hidden');
+          const title = createEl('h2', 'cat-title font-manrope text-2xl sm:text-3xl font-medium tracking-[0.12em] text-plum uppercase mb-3', cat.title);
+          titleWrap.appendChild(title);
+          const subtitle = createEl('p', 'cat-subtitle text-xs sm:text-sm text-charcoal/65 leading-relaxed font-light', cat.subtitle);
+          const divider = createEl('div', 'cat-divider w-16 h-[1.5px] bg-champagne mx-auto mt-6 origin-center');
+          header.appendChild(eyebrow);
+          header.appendChild(titleWrap);
+          header.appendChild(subtitle);
+          header.appendChild(divider);
+          section.appendChild(header);
+
+          const grid = createEl('div', 'grid grid-cols-1 md:grid-cols-2 gap-6');
+          cat.items.forEach((item, idx) => {
+            const card = createEl('article', 'product-card flex flex-col sm:flex-row items-stretch');
+            card.dataset.col = idx % 2 === 0 ? 'left' : 'right';
+
+            const mediaOuter = createEl('div', 'sm:w-44 md:w-48 h-52 sm:h-auto shrink-0 p-2.5 bg-stone/60');
+            const mediaInner = createEl('div', 'w-full h-full overflow-hidden deco-radius relative bg-stone');
+            const hoverWrap = createEl('div', 'card-img-hover-wrap');
+            const img = document.createElement('img');
+            img.src = item.img;
+            img.alt = item.name + ' architectural surface';
+            img.loading = 'lazy';
+            img.className = 'card-parallax-img deco-radius';
+            img.addEventListener('error', function () {
+              this.src = 'https://placehold.co/600x600/D0C5B7/241923?text=' + encodeURIComponent(item.name);
+            }, { once: true });
+            hoverWrap.appendChild(img);
+            mediaInner.appendChild(hoverWrap);
+            mediaInner.appendChild(createEl('span', 'absolute top-2.5 left-2.5 px-2.5 py-1 text-[10px] uppercase tracking-[0.12em] font-semibold bg-ivory/95 text-plum deco-radius backdrop-blur-sm border border-plum/10 shadow-sm z-10', item.origin));
+            mediaOuter.appendChild(mediaInner);
+
+            const body = createEl('div', 'p-5 sm:p-6 flex flex-col justify-between flex-1');
+            const topCopy = createEl('div');
+            topCopy.appendChild(createEl('h3', 'font-manrope text-lg font-semibold text-plum tracking-tight mb-1.5', item.name));
+            topCopy.appendChild(createEl('p', 'text-xs text-charcoal/70 leading-relaxed mb-4 font-light', item.desc));
+            const footerRow = createEl('div', 'flex items-center justify-between gap-2 pt-3.5 border-t border-plum/10');
+            const tagsWrap = createEl('div', 'flex flex-wrap gap-1.5');
+            item.tags.forEach((tagText) => tagsWrap.appendChild(createEl('span', 'spec-tag', tagText)));
+            const inquireBtn = createEl('button', 'text-[11px] uppercase tracking-[0.14em] font-semibold text-plum hover:text-champagne transition-colors shrink-0 ml-2 py-1 px-2 deco-radius cursor-pointer', 'Inquire \u2192');
+            inquireBtn.type = 'button';
+            inquireBtn.addEventListener('click', () => openInquiryModal(item.name));
+            footerRow.appendChild(tagsWrap);
+            footerRow.appendChild(inquireBtn);
+            body.appendChild(topCopy);
+            body.appendChild(footerRow);
+            card.appendChild(mediaOuter);
+            card.appendChild(body);
+            grid.appendChild(card);
+          });
+
+          section.appendChild(grid);
+          fragment.appendChild(section);
+        });
+        catalogContainer.innerHTML = '';
+        catalogContainer.appendChild(fragment);
+      }
+
+      function openInquiryModal(productName) {
+        inquiryProductInput.value = productName || 'General Material Specification';
+        inquiryFeedback.classList.add('hidden');
+        inquiryFeedback.textContent = '';
+        inquiryModal.classList.remove('hidden');
+        inquiryModal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        if (lenisInstance) lenisInstance.stop();
+        if (typeof gsap !== 'undefined') {
+          gsap.fromTo(modalPanel, { y: 22, opacity: 0, scale: 0.96 }, { y: 0, opacity: 1, scale: 1, duration: 0.35, ease: 'power3.out' });
+        }
+      }
+
+      function closeInquiryModal() {
+        const finishClose = () => {
+          inquiryModal.classList.add('hidden');
+          inquiryModal.classList.remove('flex');
+          document.body.style.overflow = '';
+          if (lenisInstance) lenisInstance.start();
+        };
+        if (typeof gsap !== 'undefined') {
+          gsap.to(modalPanel, { y: 16, opacity: 0, scale: 0.97, duration: 0.22, ease: 'power2.in', onComplete: finishClose });
+        } else {
+          finishClose();
+        }
+      }
+
+      document.getElementById('closeModalBtn').addEventListener('click', closeInquiryModal);
+      inquiryModal.addEventListener('click', (e) => { if (e.target === inquiryModal) closeInquiryModal(); });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !inquiryModal.classList.contains('hidden')) closeInquiryModal();
+      });
+
+      inquiryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const selectedProduct = inquiryProductInput.value;
+        const senderName = document.getElementById('inquiryName').value.trim() || 'Specifier';
+        inquiryFeedback.textContent = 'Thank you, ' + senderName + '. Your specification request for "' + selectedProduct + '" has been logged with The Deco House concierge. Our material advisor will respond shortly.';
+        inquiryFeedback.classList.remove('hidden');
+        inquiryForm.reset();
+        inquiryProductInput.value = selectedProduct;
+      });
+
+      // Site mobile navigation
+      (function () {
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        function closeMobileMenu() {
+          if (mobileMenu) mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+          if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+          if (closeIcon) closeIcon.classList.add('hidden');
+        }
+        function openMobileMenu() {
+          if (mobileMenu) mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+          if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
+          if (closeIcon) closeIcon.classList.remove('hidden');
+        }
+        if (mobileBtn && mobileMenu) {
+          mobileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = !mobileMenu.classList.contains('pointer-events-none');
+            if (isOpen) closeMobileMenu(); else openMobileMenu();
+          });
+        }
+        document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+          link.addEventListener('click', () => closeMobileMenu());
+        });
+      })();
+
+      document.addEventListener('DOMContentLoaded', () => {
+        buildCatalogDOM();
+        const hasGSAP = typeof gsap !== 'undefined';
+        const hasST = typeof ScrollTrigger !== 'undefined';
+        const hasLenis = typeof Lenis !== 'undefined';
+
+        try {
+          if (hasGSAP && hasST) gsap.registerPlugin(ScrollTrigger);
+          if (hasLenis) {
+            lenisInstance = new Lenis({
+              duration: 1.15,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              smoothWheel: true,
+            });
+            if (hasST) lenisInstance.on('scroll', ScrollTrigger.update);
+            if (hasGSAP) {
+              gsap.ticker.add((time) => { lenisInstance.raf(time * 1000); });
+              gsap.ticker.lagSmoothing(0);
+            } else {
+              const raf = (time) => { lenisInstance.raf(time); requestAnimationFrame(raf); };
+              requestAnimationFrame(raf);
+            }
+          }
+        } catch (err) {
+          console.warn('Lenis initialization notice:', err);
+        }
+
+        try {
+          if (hasGSAP && hasST) {
+            gsap.to('#scrollProgress', {
+              scaleX: 1, ease: 'none',
+              scrollTrigger: { trigger: document.documentElement, start: 'top top', end: 'bottom bottom', scrub: 0.12 },
+            });
+            gsap.from('.hero-anim', { y: 26, opacity: 0, duration: 0.85, stagger: 0.1, ease: 'power3.out' });
+            gsap.to('.hero-parallax-content', {
+              y: -44, opacity: 0.25, ease: 'none',
+              scrollTrigger: { trigger: '#heroSection', start: 'top top', end: 'bottom top', scrub: true },
+            });
+            const filterDock = document.getElementById('filterDock');
+            if (filterDock) {
+              ScrollTrigger.create({
+                trigger: '#heroSection', start: 'bottom 110px',
+                onEnter: () => filterDock.classList.add('is-stuck'),
+                onLeaveBack: () => filterDock.classList.remove('is-stuck'),
+              });
+            }
+            const isDesktop = () => window.innerWidth >= 768;
+            gsap.utils.toArray('.category-section').forEach((section) => {
+              const header = section.querySelector('.cat-header');
+              const eyebrow = section.querySelector('.cat-eyebrow');
+              const title = section.querySelector('.cat-title');
+              const subtitle = section.querySelector('.cat-subtitle');
+              const divider = section.querySelector('.cat-divider');
+              if (header) {
+                const headerTl = gsap.timeline({ scrollTrigger: { trigger: header, start: 'top 86%', once: true } });
+                headerTl
+                  .fromTo(eyebrow, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' })
+                  .fromTo(title, { y: 26, clipPath: 'inset(100% 0% 0% 0%)', opacity: 0 }, { y: 0, clipPath: 'inset(0% 0% 0% 0%)', opacity: 1, duration: 0.7, ease: 'power3.out' }, '-=0.3')
+                  .fromTo(subtitle, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: 'power3.out' }, '-=0.4')
+                  .fromTo(divider, { scaleX: 0 }, { scaleX: 1, duration: 0.65, ease: 'power3.inOut' }, '-=0.4');
+              }
+              section.querySelectorAll('.product-card').forEach((card, idx) => {
+                const xOffset = isDesktop() ? (card.dataset.col === 'left' ? -20 : 20) : 0;
+                gsap.fromTo(card, { x: xOffset, y: 32, scale: 0.97, opacity: 0 }, {
+                  x: 0, y: 0, scale: 1, opacity: 1, duration: 0.72, delay: (idx % 2) * 0.08, ease: 'power3.out', clearProps: 'transform',
+                  scrollTrigger: { trigger: card, start: 'top 89%', once: true },
+                });
+                const img = card.querySelector('.card-parallax-img');
+                if (img) {
+                  gsap.fromTo(img, { scale: 1.18, yPercent: -9 }, {
+                    scale: 1.18, yPercent: 9, ease: 'none',
+                    scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: true },
+                  });
+                }
+              });
+            });
+            gsap.fromTo('.footer-reveal', { y: 28, opacity: 0 }, {
+              y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: 'power3.out',
+              scrollTrigger: { trigger: '#siteFooter', start: 'top 86%', once: true },
+            });
+          }
+        } catch (err) {
+          console.warn('GSAP scroll choreography notice:', err);
+        }
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const sections = document.querySelectorAll('.category-section');
+        filterBtns.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            filterBtns.forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+            const selected = btn.dataset.filter;
+            sections.forEach((sec) => {
+              const isMatch = selected === 'all' || sec.dataset.category === selected;
+              if (isMatch) {
+                sec.classList.remove('hidden-section');
+                if (hasGSAP) gsap.fromTo(sec, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.42, ease: 'power2.out', clearProps: 'transform' });
+              } else {
+                sec.classList.add('hidden-section');
+              }
+            });
+            const catalogTop = catalogContainer.getBoundingClientRect().top;
+            if (catalogTop < 165) {
+              if (lenisInstance) lenisInstance.scrollTo(catalogContainer, { offset: -185, duration: 0.85 });
+              else window.scrollTo({ top: window.scrollY + catalogTop - 185, behavior: 'smooth' });
+            }
+            if (hasST) setTimeout(() => ScrollTrigger.refresh(), 80);
+          });
+        });
+      });
+    })();
+    </script>
+</body>
+</html>
